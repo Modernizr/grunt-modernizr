@@ -436,8 +436,11 @@ module.exports = function(grunt) {
 	// ==========================================================================
 
 	grunt.config.set("modernizr._private", {
-		"github" : "https://github.com/doctyper/grunt-modernizr",
-		"domain" : "https://raw.github.com/Modernizr/modernizr.com/gh-pages",
+		"url" : {
+			"github" : "https://github.com/doctyper/grunt-modernizr",
+			"domain" : "http://modernizr.com",
+			"modulizr" : "https://github.com/Modernizr/modernizr.com/blob/gh-pages/i/js/modulizr.js#L15-157"
+		},
 
 		"core" : [
 			"canvastext",
