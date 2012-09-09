@@ -100,7 +100,7 @@ module.exports = function(grunt) {
 
 		// Private variables
 		var _private = config._private,
-			com = url.parse(_private.domain),
+			com = url.parse(_private.url.domain),
 			paths = _private.paths,
 			stringMatches = {};
 
@@ -210,7 +210,7 @@ module.exports = function(grunt) {
 						"grunt-modernizr needs this path to avoid false positives",
 						"",
 						"Update your gruntfile via the modernizr.devFile config option",
-						"See %s#devfile-string for more details".replace("%s", _private.github),
+						"See %s#devfile-string for more details".replace("%s", _private.url.github),
 						"",
 						""
 					].join("\n       ").replace(/\s$/, ""));
