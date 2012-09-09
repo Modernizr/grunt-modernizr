@@ -311,11 +311,11 @@ module.exports = function(grunt) {
 
 			if (pathname.length) {
 				for (i = 0, j = pathname.length; i < j; i++) {
-					http.get({
+					http.get(url.format({
 						protocol : com.protocol,
 						host : com.host,
-						path : (com.pathname || "") + pathname[i]
-					}, _handleResponse);
+						pathname : (com.pathname || "") + pathname[i]
+					}), _handleResponse);
 				}
 			} else {
 				setTimeout(function () {
