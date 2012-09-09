@@ -52,6 +52,9 @@ modernizr: {
 		"domprefixes" : false
 	},
 
+	// By default, source is uglified before saving
+	"uglify" : true,
+
 	// Define any tests you want to impliticly include.
 	"tests" : [],
 
@@ -59,7 +62,7 @@ modernizr: {
 	// Set to false to disable.
 	"parseFiles" : true,
 
-	// When parseFiles = true, this task will crawl all *.js, *.css files.
+	// When parseFiles = true, this task will crawl all *.js, *.css, *.scss files.
 	// You can override this by defining a "files" array below.
 	// files : [],
 
@@ -76,18 +79,21 @@ modernizr: {
 #### Required
 
 ###### **`devFile`** (String)
-Path to the build file you're using for development. This is a required parameter.
-
-###### **`outputFile`** (String)
-Path to save the customized Modernizr build. This is a required parameter.
+Path to the local build file you're using for development. This parameter is needed so `grunt-modernizr` can skip your dev file when traversing your project to avoid triggering false positives. If you're using a remote file for development, set this option to `remote`.
 
 #### Optional
+
+###### **`outputFile`** (String)
+Path to save the customized Modernizr build. It defaults to `lib/modernizr-custom.js`.
 
 ###### **`extra`** (Object)
 An object of extra configuration options. Check the extra section on [modernizr.com/download](http://modernizr.com/download/) for complete options. Defaults are as they appear on the official site.
 
 ###### **`extensibility`** (Object)
 An object of extensibility options. Check the section on [modernizr.com/download](http://modernizr.com/download/) for complete options. Defaults are as they appear on the official site.
+
+###### **`uglify`** (Boolean)
+By default, the source is uglified before save. Set to false to disable.
 
 ###### **`tests`** (Array)
 Define any tests you want to impliticly include. Test names are lowercased, separated by underscores (if needed). Check out the full set of test options [here](https://github.com/Modernizr/modernizr.com/blob/gh-pages/i/js/modulizr.js#L15-157).
@@ -96,7 +102,7 @@ Define any tests you want to impliticly include. Test names are lowercased, sepa
 By default, this task will crawl your project for references to Modernizr tests. Set to false to disable.
 
 ###### **`files`** (Array)
-When `parseFiles` = `true`, this task will crawl all `*.js`, `*.css` files. You can override this by defining a custom `files` array below. The object supports all [minimatch](https://github.com/isaacs/minimatch) options.
+When `parseFiles` = `true`, this task will crawl all `*.js`, `*.css`, `*.scss` files. You can override this by defining a custom `files` array. The object supports all [minimatch](https://github.com/isaacs/minimatch) options.
 
 ###### **`customTests`** (Array)
 Have custom Modernizr tests? Add paths to their location here. The object supports all [minimatch](https://github.com/isaacs/minimatch) options.
