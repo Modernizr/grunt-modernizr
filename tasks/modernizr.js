@@ -363,6 +363,8 @@ module.exports = function(grunt) {
 		}
 
 		function _addPrefix(build, tests, customTests) {
+			build = ";" + build + ";";
+
 			var prefix = "\/* Modernizr (Custom Build) | MIT & BSD" +
 			"\n * Build: http://modernizr.com/download/#-" + tests.join("-") +
 			(customTests.length ? "\n * Custom Tests: " + customTests.map(function (test) {
