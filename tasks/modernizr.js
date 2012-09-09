@@ -95,6 +95,10 @@ module.exports = function(grunt) {
 		// Modulizr
 		var Modulizr = require("../lib/modulizr").Modulizr;
 
+		// Custom Tests CSS Map
+		var Mappr = require("../lib/customappr"),
+			_classes = Mappr._classes;
+
 		// Default fallbacks
 		var _defaults = config._defaults;
 
@@ -104,6 +108,7 @@ module.exports = function(grunt) {
 			paths = _private.paths,
 			stringMatches = {},
 			downloadErrors = [],
+			showFileName;
 
 		function _setupTests() {
 			var allTests = config.tests;
@@ -165,32 +170,46 @@ module.exports = function(grunt) {
 			return filteredTests;
 		}
 
-		function _parseData(file, data) {
-			data = data.toString();
+		function _findStringMatches(_class, key, file, data) {
+			var match, test, regExp;
 
-			var deps = Modulizr._dependencies;
-			var match, key, test;
-			var showFileName, regExp;
+			regExp = new RegExp("\\.(?:no-)?(" + _class + ")", "gm");
+			match = (regExp).exec(data);
 
-			for (key in deps) {
-				regExp = new RegExp("\\.(?:no-)?(" + key + ")", "gm");
-				match = (regExp).exec(data);
+			while (match) {
+				test = match[1];
 
-				while (match) {
-					test = match[1];
+				if (test && !stringMatches[key]) {
+					stringMatches[key] = 1;
 
-					if (test && !stringMatches[test]) {
-						stringMatches[test] = 1;
-
-						if (!showFileName) {
-							grunt.log.subhead("in " + file);
-							showFileName = true;
-						}
-
-						grunt.log.ok(test);
+					if (!showFileName) {
+						grunt.log.subhead("in " + file);
+						showFileName = true;
 					}
 
-					match = (regExp).exec(data);
+					grunt.log.ok(test);
+				}
+
+				match = (regExp).exec(data);
+			}
+		}
+
+		function _parseData(file, data) {
+			data = data.toString();
+			showFileName = false;
+
+			var deps = Modulizr._dependencies,
+				_class, key, i, j;
+
+			for (key in deps) {
+				_class = _classes[key] || key;
+
+				if (typeof _class === typeof []) {
+					for (i = 0, j = _class.length; i < j; i++) {
+						_findStringMatches(_class[i], key, file, data);
+					}
+				} else {
+					_findStringMatches(_class, key, file, data);
 				}
 			}
 		}
