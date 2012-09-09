@@ -84,6 +84,7 @@ module.exports = function(grunt) {
 		var fs = require("fs"),
 			url = require("url"),
 			path = require("path"),
+			colors = require("colors"),
 			uglify = require("uglify-js");
 
 		// Deferreds
@@ -370,10 +371,7 @@ module.exports = function(grunt) {
 			var i, j;
 			var communityRequests = _setupCommunityRequests(tests);
 
-			grunt.log.writeln();
-			grunt.log.ok("Generating a custom Modernizr build");
-			grunt.log.ok("Downloading source files");
-
+			grunt.log.subhead("Downloading source files");
 			all(
 				_xhr(paths.modernizr),
 
@@ -384,16 +382,17 @@ module.exports = function(grunt) {
 				var main = data.join("");
 
 				if (communityRequests.length) {
-					grunt.log.ok("Downloading community files");
+					grunt.log.subhead("Downloading community files");
 				}
 				when(_xhr(communityRequests)).then(function (community) {
 					var customTests = grunt.file.expandFiles(config.customTests);
 
 					if (customTests.length) {
-						grunt.log.ok("Adding custom tests");
+						grunt.log.subhead("Adding custom tests");
 					}
 					var custom = _loadCustomTests(customTests);
 
+					grunt.log.subhead("Generating a custom Modernizr build");
 					_finalize(main + community + custom, tests, customTests);
 				});
 			});
