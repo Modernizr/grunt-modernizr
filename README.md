@@ -24,6 +24,13 @@ Add a `modernizr` config object to your grunt.js file:
 
 ```javascript
 modernizr: {
+
+	// [REQUIRED] Path to the build you're using for development.
+	"devFile" : "lib/modernizr-dev.js",
+
+	// [REQUIRED] Path to save out the built file.
+	"outputFile" : "build/modernizr-custom.js",
+
 	// Based on default settings on http://modernizr.com/download/
 	"extra" : {
 		"shiv" : true,
@@ -45,21 +52,15 @@ modernizr: {
 		"domprefixes" : false
 	},
 
-	// Define any tests you want to impliticly include
+	// Define any tests you want to impliticly include.
 	"tests" : [],
 
-	// Path to the build you're using for development.
-	"devFile" : "lib/modernizr-dev.js",
-
-	// Path to save out the built file
-	"outputFile" : "build/modernizr-custom.js",
-
-	// By default, this task will crawl your project for references to Modernizr tests
-	// Set to false to disable
+	// By default, this task will crawl your project for references to Modernizr tests.
+	// Set to false to disable.
 	"parseFiles" : true,
 
 	// When parseFiles = true, this task will crawl all *.js, *.css files.
-	// You can override this by defining a "files" array below
+	// You can override this by defining a "files" array below.
 	// files : [],
 
 	// Have custom Modernizr tests? Add paths to their location here.
@@ -72,6 +73,16 @@ modernizr: {
 
 ### Config Options
 
+#### Required
+
+###### **`devFile`** (String)
+Path to the build file you're using for development. This is a required parameter.
+
+###### **`outputFile`** (String)
+Path to save the customized Modernizr build. This is a required parameter.
+
+#### Optional
+
 ###### **`extra`** (Object)
 An object of extra configuration options. Check the extra section on [modernizr.com/download](http://modernizr.com/download/) for complete options. Defaults are as they appear on the official site.
 
@@ -80,12 +91,6 @@ An object of extensibility options. Check the section on [modernizr.com/download
 
 ###### **`tests`** (Array)
 Define any tests you want to impliticly include. Test names are lowercased, separated by underscores (if needed). Check out the full set of test options [here](https://github.com/Modernizr/modernizr.com/blob/gh-pages/i/js/modulizr.js#L15-157).
-
-###### **`devFile`** (String)
-Path to the build file you're using for development.
-
-###### **`outputFile`** (String)
-Path to save the customized Modernizr build.
 
 ###### **`parseFiles`** (Boolean)
 By default, this task will crawl your project for references to Modernizr tests. Set to false to disable.
