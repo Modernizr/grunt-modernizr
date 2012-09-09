@@ -14,6 +14,12 @@ module.exports = function(grunt) {
 
 	grunt.config.set("modernizr._defaults", {
 
+		// Path to the build you're using for development.
+		"devFile" : "lib/modernizr-dev.js",
+
+		// Path to save out the built file
+		"outputFile" : "build/modernizr-custom.js",
+
 		// Based on default settings on http://modernizr.com/download/
 		"extra" : {
 			"shiv" : true,
@@ -42,12 +48,6 @@ module.exports = function(grunt) {
 
 		// Define any tests you want to impliticly include
 		"tests" : [],
-
-		// Path to the build you're using for development.
-		"devFile" : "lib/modernizr-dev.js",
-
-		// Path to save out the built file
-		"outputFile" : "build/modernizr-custom.js",
 
 		// By default, will crawl your project for references to Modernizr tests
 		// Set to false to disable
