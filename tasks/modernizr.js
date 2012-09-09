@@ -72,7 +72,7 @@ module.exports = function(grunt) {
 	grunt.registerTask("modernizr", "Build out a lean, mean Modernizr machine.", function () {
 
 		// Require a config object
-		this.requiresConfig(this.name, this.name + ".devFile", this.name + ".outputFile");
+		this.requiresConfig(this.name);
 
 		// Config object
 		var config = grunt.config.get(this.name);
@@ -205,7 +205,21 @@ module.exports = function(grunt) {
 			var exclude = _defaults.excludeFiles.concat(config.excludeFiles);
 
 			// Exclude developer build
-			exclude.push(config.devFile);
+			if (config.devFile !== "remote") {
+				if (!fs.existsSync(config.devFile)) {
+					grunt.fail.warn([
+						"Can't find your Modernizr development build at " + config.devFile,
+						"grunt-modernizr needs this path to avoid false positives",
+						"",
+						"Update your gruntfile via the modernizr.devFile config option",
+						"See %s#devfile-string for more details".replace("%s", _private.github),
+						"",
+						""
+					].join("\n       ").replace(/\s$/, ""));
+				} else {
+					exclude.push(config.devFile);
+				}
+			}
 
 			// Also exclude generated file
 			exclude.push(config.outputFile);
