@@ -416,6 +416,7 @@ module.exports = function(grunt) {
 	// ==========================================================================
 
 	grunt.config.set("modernizr._private", {
+		"github" : "https://github.com/doctyper/grunt-modernizr",
 		"domain" : "https://raw.github.com/Modernizr/modernizr.com/gh-pages",
 
 		"core" : [
