@@ -377,10 +377,15 @@ module.exports = function(grunt) {
 
 			// We have the data, time to build
 			var build = Modulizr.ize(data, _getRequests(tests));
+			var uglified = build;
 
-			// Uglify
-			var uglified = uglify(build, ["--extra", "--unsafe"]);
+			if (config.uglify) {
+				// Uglify
 				grunt.log.ok("Uglifying");
+				uglified = uglify(build, ["--extra", "--unsafe"]);
+			} else {
+				grunt.log.ok("Skipping uglify");
+			}
 
 			// Prefix with Modernizr licence
 			uglified = _addPrefix(uglified, tests, customTests);
