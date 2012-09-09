@@ -476,10 +476,10 @@ module.exports = function(grunt) {
 		],
 
 		"paths" : {
-			"modernizr" : "/downloads/modernizr-latest.js",
-			"printshiv" : "/i/js/html5shiv-printshiv-3.6.js",
-			"load" : "/i/js/modernizr.load.1.5.4.js",
-			"community" : "/i/js/modernizr-git/feature-detects/%s.js"
+			"modernizr" : "downloads/modernizr-latest.js",
+			"printshiv" : "i/js/html5shiv-printshiv-3.6.js",
+			"load" : "i/js/modernizr.load.1.5.4.js",
+			"community" : "i/js/modernizr-git/feature-detects/%s.js"
 		}
 	});
 
