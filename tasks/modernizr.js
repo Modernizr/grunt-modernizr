@@ -405,7 +405,6 @@ module.exports = function(grunt) {
 
 			// Use defaults for any options left undefined
 			_setDefaults(config, _defaults);
-			console.log(config);
 
 			var tests = _setupTests();
 			_makeRequests(tests);
