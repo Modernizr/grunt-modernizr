@@ -69,7 +69,7 @@ module.exports = function(grunt) {
 	grunt.registerTask("modernizr", "Build out a lean, mean Modernizr machine.", function () {
 
 		// Require a config object
-		this.requiresConfig(this.name);
+		this.requiresConfig(this.name, this.name + ".devFile", this.name + ".outputFile");
 
 		// Config object
 		var config = grunt.config.get(this.name);
