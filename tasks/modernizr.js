@@ -102,7 +102,8 @@ module.exports = function(grunt) {
 		var _private = config._private,
 			com = url.parse(_private.url.domain),
 			paths = _private.paths,
-			stringMatches = {};
+			stringMatches = {},
+			downloadErrors = [],
 
 		function _setupTests() {
 			var allTests = config.tests;
@@ -398,6 +399,28 @@ module.exports = function(grunt) {
 			// All set.
 			grunt.log.writeln();
 			grunt.log.ok("Wrote file to " + config.outputFile);
+
+			if (downloadErrors.length) {
+				var errorText = ["The following tests were not found"],
+					i, j;
+
+				errorText.push("");
+
+				for (i = 0, j = downloadErrors.length; i < j; i++) {
+					errorText.push(_private.url.domain + downloadErrors[i].path);
+				}
+
+				errorText.push("");
+
+				errorText.push("Check the Modulizr API for more info:");
+				errorText.push(_private.url.modulizr);
+
+				errorText.push("");
+				errorText.push("");
+
+				grunt.fail.warn(errorText.join("\n       ").replace(/\s$/, ""));
+			}
+
 			done();
 		}
 
