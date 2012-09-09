@@ -270,6 +270,7 @@ module.exports = function(grunt) {
 
 			var i, j, x = 0;
 			var allData = [];
+			var code;
 
 			var _handleResponse = function (res) {
 				var data = [];
@@ -281,6 +282,21 @@ module.exports = function(grunt) {
 				}
 
 				res.on("end", function () {
+					switch (res.statusCode) {
+					case 200:
+					case 304:
+						code = res.statusCode.toString().green;
+						break;
+
+					default:
+						code = res.statusCode.toString().red;
+						downloadErrors.push(res.req);
+						break;
+					}
+
+					code = code + " ";
+
+					grunt.log.writeln(code + path.basename(res.req.path));
 					allData.push(data.join(""));
 
 					if (++x === j) {
