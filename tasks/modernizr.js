@@ -37,7 +37,7 @@ module.exports = function(grunt) {
 
 		// By default, this task will crawl all *.js, *.css files.
 		"files" : [
-			"**/*.{js,css}"
+			"**/*.{js,css,scss}"
 		],
 
 		// Define any tests you want to impliticly include
