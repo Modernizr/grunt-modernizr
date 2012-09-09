@@ -346,6 +346,7 @@ module.exports = function(grunt) {
 
 		function _setupCommunityRequests(tests) {
 			return _getCommunityRequests(tests).map(function (dep) {
+				dep = dep.replace(/_/g, "-");
 				return paths.community.replace("%s", dep);
 			});
 		}
