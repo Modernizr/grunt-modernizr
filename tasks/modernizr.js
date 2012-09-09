@@ -395,7 +395,7 @@ module.exports = function(grunt) {
 
 			// All set.
 			grunt.log.writeln();
-			grunt.log.ok("Saved file to " + config.outputFile);
+			grunt.log.ok("Wrote file to " + config.outputFile);
 			done();
 		}
 
