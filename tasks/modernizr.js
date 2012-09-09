@@ -118,9 +118,8 @@ module.exports = function(grunt) {
 					}
 
 					grunt.log.ok(key);
+					allTests.push(key);
 				}
-
-				allTests[key] = value;
 			}
 
 			// If tests found, force extensibility.addtest to be true
@@ -138,9 +137,8 @@ module.exports = function(grunt) {
 					}
 
 					grunt.log.ok(key);
+					allTests.push(key);
 				}
-
-				allTests[key] = value;
 			}
 
 			if (config.parseFiles) {
@@ -292,29 +290,21 @@ module.exports = function(grunt) {
 			return deferred.promise;
 		}
 
-		function _setupRequests(tests) {
-			var requests = [paths.modernizr];
-
-			if (config.extra.printshiv) {
-				requests.push(paths.printshiv);
-			}
-
-			if (config.extra.load) {
-				requests.push(paths.load);
-			}
-
-			return requests;
+		function _isExtra(test) {
+			return !!(config.extra[test] || config.extensibility[test]);
 		}
 
 		function _getRequests(tests) {
+			var isExtra;
+
 			return tests.filter(function (dep) {
-				return _private.core.indexOf(dep) !== -1;
+				return (_private.core.indexOf(dep) !== -1) || _isExtra(dep);
 			});
 		}
 
 		function _getCommunityRequests(tests) {
 			return tests.filter(function (dep) {
-				return _private.core.indexOf(dep) === -1;
+				return (_private.core.indexOf(dep) === -1) && !_isExtra(dep);
 			});
 		}
 
@@ -341,14 +331,20 @@ module.exports = function(grunt) {
 
 		function _makeRequests(tests) {
 			var i, j;
-			var requests = _setupRequests(tests);
 			var communityRequests = _setupCommunityRequests(tests);
 
 			grunt.log.writeln();
 			grunt.log.ok("Generating a custom Modernizr build");
 			grunt.log.ok("Downloading source files");
 
-			when(_xhr(requests)).then(function (data) {
+			all(
+				_xhr(paths.modernizr),
+
+				// Check for special case flags, load conditionally
+				(config.extra.printshiv) ? _xhr(paths.printshiv) : null,
+				(config.extra.load) ? _xhr(paths.load) : null
+			).then(function (data) {
+				var main = data.join("");
 
 				if (communityRequests.length) {
 					grunt.log.ok("Downloading community files");
@@ -361,7 +357,7 @@ module.exports = function(grunt) {
 					}
 					var custom = _loadCustomTests(customTests);
 
-					_finalize(data + community + custom, tests, customTests);
+					_finalize(main + community + custom, tests, customTests);
 				});
 			});
 		}
