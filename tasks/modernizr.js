@@ -199,7 +199,7 @@ module.exports = function(grunt) {
 		function _crawlFilesForTests(tests) {
 			var deferred = new Deferred();
 
-			grunt.log.subhead("Looking for Modernizr references...");
+			grunt.log.subhead("Looking for Modernizr references");
 
 			var files = grunt.file.expandFiles(config.files);
 			var exclude = _defaults.excludeFiles.concat(config.excludeFiles);
@@ -345,19 +345,19 @@ module.exports = function(grunt) {
 			var communityRequests = _setupCommunityRequests(tests);
 
 			grunt.log.writeln();
-			grunt.log.ok("Generating a custom Modernizr build...");
-			grunt.log.ok("Downloading source files...");
+			grunt.log.ok("Generating a custom Modernizr build");
+			grunt.log.ok("Downloading source files");
 
 			when(_xhr(requests)).then(function (data) {
 
 				if (communityRequests.length) {
-					grunt.log.ok("Downloading community files...");
+					grunt.log.ok("Downloading community files");
 				}
 				when(_xhr(communityRequests)).then(function (community) {
 					var customTests = grunt.file.expandFiles(config.customTests);
 
 					if (customTests.length) {
-						grunt.log.ok("Adding custom tests...");
+						grunt.log.ok("Adding custom tests");
 					}
 					var custom = _loadCustomTests(customTests);
 
@@ -383,8 +383,8 @@ module.exports = function(grunt) {
 			var build = Modulizr.ize(data, _getRequests(tests));
 
 			// Uglify
-			grunt.log.ok("Uglifying...");
 			var uglified = uglify(build, ["--extra", "--unsafe"]);
+				grunt.log.ok("Uglifying");
 
 			// Prefix with Modernizr licence
 			uglified = _addPrefix(uglified, tests, customTests);
