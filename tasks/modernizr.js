@@ -41,10 +41,8 @@ module.exports = function(grunt) {
 			"domprefixes" : false
 		},
 
-		// By default, this task will crawl all *.js, *.css files.
-		"files" : [
-			"**/*.{js,css,scss}"
-		],
+		// By default, source is uglified before saving
+		"uglify" : true,
 
 		// Define any tests you want to impliticly include
 		"tests" : [],
@@ -52,6 +50,11 @@ module.exports = function(grunt) {
 		// By default, will crawl your project for references to Modernizr tests
 		// Set to false to disable
 		"parseFiles" : true,
+
+		// By default, this task will crawl all *.js, *.css files.
+		"files" : [
+			"**/*.{js,css,scss}"
+		],
 
 		// Have custom Modernizr tests? Add them here.
 		"customTests" : [],
