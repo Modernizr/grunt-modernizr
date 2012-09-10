@@ -22,8 +22,6 @@ grunt.loadNpmTasks("grunt-modernizr");
 
 ### Command Line
 
-#### Task
-
 Run the task with `grunt modernizr`.
 
 #### Cache Busting
