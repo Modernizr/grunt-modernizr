@@ -69,7 +69,7 @@ module.exports = function(grunt) {
 	// TASKS
 	// ==========================================================================
 
-	grunt.registerTask("modernizr", "Build out a lean, mean Modernizr machine.", function () {
+	grunt.registerTask("modernizr", "Build out a lean, mean Modernizr machine.", function (bust) {
 
 		// Require a config object
 		this.requiresConfig(this.name);
@@ -81,7 +81,7 @@ module.exports = function(grunt) {
 		var Gruntifier = require("../lib/gruntifier");
 
 		// Go!
-		return Gruntifier(grunt, done);
+		return Gruntifier(grunt, done, bust);
 	});
 
 	// ==========================================================================
