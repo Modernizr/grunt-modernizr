@@ -56,6 +56,9 @@ module.exports = function(grunt) {
 			"**/*.{js,css,scss}"
 		],
 
+		// Set to true to attempt to match user-contributed tests
+		"matchCommunityTests" : false,
+
 		// Have custom Modernizr tests? Add them here.
 		"customTests" : [],
 
