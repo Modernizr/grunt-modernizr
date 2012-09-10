@@ -20,6 +20,18 @@ grunt.loadNpmTasks("grunt-modernizr");
 
 ## Documentation
 
+### Command Line
+
+#### Task
+
+Run the task with `grunt modernizr`.
+
+#### Cache Busting
+
+Bust the cache of locally downloaded files by running `grunt modernizr:bust`
+
+### Config Options
+
 Add a `modernizr` config object to your grunt.js file:
 
 ```javascript
@@ -73,8 +85,6 @@ modernizr: {
 	"excludeFiles" : []
 }
 ```
-
-### Config Options
 
 #### Required
 
