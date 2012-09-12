@@ -1,10 +1,12 @@
 # grunt-modernizr
 
+##### *tl;dr:* `grunt-modernizr` sifts through your project files, gathers up your references to Modernizr tests and outputs a lean, mean Modernizr machine.
+
 `grunt-modernizr` is a Modernizr builder for your project. It is based on the Modernizr team's [Modulizr](https://github.com/Modernizr/modernizr.com/blob/gh-pages/i/js/modulizr.js) tool.
 
 This highly configurable task allows you to configure and export a custom Modernizr build. Use Modernizr's [annotated source](http://modernizr.com/downloads/modernizr-latest.js) for development, and let this tool worry about optimization.
 
-When you're ready to build, `grunt-modernizr` will crawl your project for Modernizr test references and save out a minified, uglified, customized version, using only the tests you've used in your JavaScript or (S)CSS.
+When you're ready to build, `grunt-modernizr` will crawl your project for Modernizr test references and save out a minified, uglified, customized version using only the tests you've used in your JavaScript or (S)CSS.
 
 ## Getting Started
 Install this grunt plugin next to your project's [grunt.js gruntfile][getting_started] with: `npm install grunt-modernizr`
