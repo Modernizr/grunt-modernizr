@@ -1,7 +1,7 @@
 {
   "name": "grunt-modernizr",
   "description": "Build out a lean, mean Modernizr machine.",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "homepage": "https://github.com/doctyper/grunt-modernizr",
   "author": {
     "name": "Richard Herrera",
@@ -27,9 +27,9 @@
     "node": "*"
   },
   "dependencies": {
-    "uglify-js": ">=1.3.3",
-    "promised-io": ">=0.3.0",
-    "colors": ">=0.6.0"
+    "uglify-js": "1.3.3",
+    "promised-io": "0.3.0",
+    "colors": "0.6.0"
   },
   "devDependencies": {
     "grunt": "~0.3.15"
