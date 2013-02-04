@@ -131,7 +131,29 @@ module.exports = function(grunt) {
 			"fontface",
 			"testbundle",
 			"respond",
-			"websockets"
+			"websockets",
+
+			/* missing core tests */
+			"applicationcache",
+			"audio",
+			"canvas",
+			"geolocation",
+			"history",
+			"hsla",
+			"indexeddb",
+			"input",
+			"inputtypes",
+			"localstorage",
+			"multiplebgs",
+			"postmessage",
+			"scriptdefer",
+			"sessionstorage",
+			"textshadow",
+			"rgba",
+			"video",
+			"webgl",
+			"websqldatabase",
+			"webworkers"
 		],
 
 		"paths" : {
