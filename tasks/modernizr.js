@@ -64,7 +64,8 @@ module.exports = function(grunt) {
 
 		// Files added here will be excluded when parsing files
 		"excludeFiles" : [
-			"**/node_modules/**/*"
+			"**/node_modules/**/*",
+			"**/lib/cache/**/*"
 		]
 	});
 
@@ -131,7 +132,29 @@ module.exports = function(grunt) {
 			"fontface",
 			"testbundle",
 			"respond",
-			"websockets"
+			"websockets",
+
+			/* missing core tests */
+			"applicationcache",
+			"audio",
+			"canvas",
+			"geolocation",
+			"history",
+			"hsla",
+			"indexeddb",
+			"input",
+			"inputtypes",
+			"localstorage",
+			"multiplebgs",
+			"postmessage",
+			"scriptdefer",
+			"sessionstorage",
+			"textshadow",
+			"rgba",
+			"video",
+			"webgl",
+			"websqldatabase",
+			"webworkers"
 		],
 
 		"paths" : {
