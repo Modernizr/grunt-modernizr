@@ -64,7 +64,8 @@ module.exports = function(grunt) {
 
 		// Files added here will be excluded when parsing files
 		"excludeFiles" : [
-			"**/node_modules/**/*"
+			"**/node_modules/**/*",
+			"**/lib/cache/**/*"
 		]
 	});
 
