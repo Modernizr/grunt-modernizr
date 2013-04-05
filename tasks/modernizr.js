@@ -6,7 +6,7 @@
  * Licensed under the MIT license.
  */
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
 	// ==========================================================================
 	// DEFAULT CONFIG
@@ -85,7 +85,7 @@ module.exports = function(grunt) {
 		var Gruntifier = require("../lib/gruntifier");
 
 		// Go!
-		return Gruntifier(grunt, done, bust);
+		return new Gruntifier(grunt, done, bust);
 	});
 
 	// ==========================================================================
