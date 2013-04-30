@@ -1,5 +1,7 @@
 # grunt-modernizr
 
+[![Build Status](https://travis-ci.org/doctyper/grunt-modernizr.png?branch=master,develop)](https://travis-ci.org/doctyper/grunt-modernizr)
+
 ##### *tl;dr:* `grunt-modernizr` sifts through your project files, gathers up your references to Modernizr tests and outputs a lean, mean Modernizr machine.
 
 `grunt-modernizr` is a Modernizr builder for your project. It is based on the Modernizr team's [Modulizr](https://github.com/Modernizr/modernizr.com/blob/gh-pages/i/js/modulizr.js) tool.
@@ -74,7 +76,7 @@ modernizr: {
 	// Set to false to disable.
 	"parseFiles" : true,
 
-	// When parseFiles = true, this task will crawl all *.js, *.css, *.scss files.
+	// When parseFiles = true, this task will crawl all *.js, *.css, *.scss files, except files that are in node_modules/.
 	// You can override this by defining a "files" array below.
 	// "files" : [],
 
@@ -83,10 +85,7 @@ modernizr: {
 	"matchCommunityTests" : false,
 
 	// Have custom Modernizr tests? Add paths to their location here.
-	"customTests" : [],
-
-	// Files added here will be excluded when looking for Modernizr refs.
-	"excludeFiles" : []
+	"customTests" : []
 }
 ```
 
