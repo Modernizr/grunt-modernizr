@@ -1,5 +1,7 @@
 # grunt-modernizr
 
+[![Build Status](https://travis-ci.org/doctyper/grunt-modernizr.png?branch=master,develop)](https://travis-ci.org/doctyper/grunt-modernizr)
+
 ##### *tl;dr:* `grunt-modernizr` sifts through your project files, gathers up your references to Modernizr tests and outputs a lean, mean Modernizr machine.
 
 `grunt-modernizr` is a Modernizr builder for your project. It is based on the Modernizr team's [Modulizr](https://github.com/Modernizr/modernizr.com/blob/gh-pages/i/js/modulizr.js) tool.
