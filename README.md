@@ -74,7 +74,7 @@ modernizr: {
 	// Set to false to disable.
 	"parseFiles" : true,
 
-	// When parseFiles = true, this task will crawl all *.js, *.css, *.scss files.
+	// When parseFiles = true, this task will crawl all *.js, *.css, *.scss files, except files that are in node_modules/.
 	// You can override this by defining a "files" array below.
 	// "files" : [],
 
@@ -83,10 +83,7 @@ modernizr: {
 	"matchCommunityTests" : false,
 
 	// Have custom Modernizr tests? Add paths to their location here.
-	"customTests" : [],
-
-	// Files added here will be excluded when looking for Modernizr refs.
-	"excludeFiles" : []
+	"customTests" : []
 }
 ```
 
