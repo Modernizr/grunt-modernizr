@@ -12,7 +12,7 @@ module.exports = function (grunt) {
 	// DEFAULT CONFIG
 	// ==========================================================================
 
-	grunt.config.set("_modernizr.defaults", {
+	grunt.option("_modernizr.defaults", {
 
 		// Path to the build you're using for development.
 		"devFile" : "lib/modernizr-dev.js",
@@ -92,7 +92,7 @@ module.exports = function (grunt) {
 	// PRIVATE CONFIG
 	// ==========================================================================
 
-	grunt.config.set("_modernizr.private", {
+	grunt.option("_modernizr.private", {
 		"url" : {
 			"github" : "https://github.com/doctyper/grunt-modernizr",
 			"domain" : "http://modernizr.com",
