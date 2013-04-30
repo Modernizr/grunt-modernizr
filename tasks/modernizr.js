@@ -53,20 +53,16 @@ module.exports = function (grunt) {
 
 		// By default, this task will crawl all *.js, *.css files.
 		"files" : [
-			"**/*.{js,css,scss}"
+			"**/*.{js,css,scss}",
+			"!node_modules/**/*",
+			"!lib/cache/**/*"
 		],
 
 		// Set to true to attempt to match user-contributed tests
 		"matchCommunityTests" : false,
 
 		// Have custom Modernizr tests? Add them here.
-		"customTests" : [],
-
-		// Files added here will be excluded when parsing files
-		"excludeFiles" : [
-			"**/node_modules/**/*",
-			"**/lib/cache/**/*"
-		]
+		"customTests" : []
 	});
 
 	// ==========================================================================
