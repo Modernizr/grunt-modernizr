@@ -1,15 +1,16 @@
 module.exports = function(grunt) {
 
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-nodeunit');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+
   // Project configuration.
   grunt.initConfig({
-    test: {
+    nodeunit: {
       files: ['test/**/*.js']
     },
-    lint: {
-      files: ['grunt.js', 'tasks/**/*.js', 'test/**/*.js']
-    },
     watch: {
-      files: '<config:lint.files>',
+      files: '<%= jshint.files %>',
       tasks: 'default'
     },
     jshint: {
@@ -27,7 +28,13 @@ module.exports = function(grunt) {
         node: true,
         es5: true
       },
-      globals: {}
+      globals: {},
+
+      files: [
+        'Gruntfile.js',
+        'tasks/**/*.js',
+        'test/**/*.js'
+      ]
     },
     modernizr: {}
   });
@@ -36,6 +43,9 @@ module.exports = function(grunt) {
   grunt.loadTasks('tasks');
 
   // Default task.
-  grunt.registerTask('default', 'lint test');
+  grunt.registerTask('default', [
+    'jshint'//,
+    //'nodeunit' // there is no test for now, nodeunit task break if there isn't
+  ]);
 
 };
