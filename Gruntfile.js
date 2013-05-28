@@ -1,51 +1,34 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-nodeunit');
-  grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks("grunt-contrib-jshint");
+	grunt.loadNpmTasks("grunt-contrib-watch");
 
-  // Project configuration.
-  grunt.initConfig({
-    nodeunit: {
-      files: ['test/**/*.js']
-    },
-    watch: {
-      files: '<%= jshint.files %>',
-      tasks: 'default'
-    },
-    jshint: {
-      options: {
-        curly: true,
-        eqeqeq: true,
-        immed: true,
-        latedef: true,
-        newcap: true,
-        noarg: true,
-        sub: true,
-        undef: true,
-        boss: true,
-        eqnull: true,
-        node: true,
-        es5: true
-      },
-      globals: {},
+	// Project configuration.
+	grunt.initConfig({
+		nodeunit: {
+			files: ["test/**/*.js"]
+		},
+		watch: {
+			files: "<%= jshint.files %>",
+			tasks: "default"
+		},
+		jshint: {
+			options: grunt.file.readJSON(".jshintrc"),
+			files: [
+				"Gruntfile.js",
+				"tasks/**/*.js",
+				"test/**/*.js"
+			]
+		},
+		modernizr: {}
+	});
 
-      files: [
-        'Gruntfile.js',
-        'tasks/**/*.js',
-        'test/**/*.js'
-      ]
-    },
-    modernizr: {}
-  });
+	// Load local tasks.
+	grunt.loadTasks("tasks");
 
-  // Load local tasks.
-  grunt.loadTasks('tasks');
-
-  // Default task.
-  grunt.registerTask('default', [
-    'jshint'//,
-    //'nodeunit' // there is no test for now, nodeunit task break if there isn't
-  ]);
+	// Default task.
+	grunt.registerTask("default", [
+		"jshint"
+	]);
 
 };
