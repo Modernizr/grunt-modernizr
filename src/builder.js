@@ -22,10 +22,16 @@ module.exports = function (grunt, ModernizrPath) {
 				grunt.fail.warn("Sorry, I can't find Modernizr in " + configPath.replace(__dirname, ""));
 			}
 
-			var config = grunt.file.readJSON(configPath);
-			config["feature-detects"] = tests;
+			var modernizrConfig = grunt.file.readJSON(configPath);
+			var config = grunt.config("modernizr");
 
-			grunt.file.write(configPath, JSON.stringify(config));
+			// Overwrite default tests
+			modernizrConfig["feature-detects"] = tests;
+
+			// Overwrite default options
+			modernizrConfig.options = config.options;
+
+			grunt.file.write(configPath, JSON.stringify(modernizrConfig));
 		},
 
 		init : function (tests) {
