@@ -67,7 +67,7 @@ module.exports = function (grunt) {
 		var done = this.async();
 
 		// The magic
-		var Customizr = require("../lib/customizr");
+		var Customizr = require("../src");
 
 		// Go!
 		return new Customizr(grunt, done, bust);
