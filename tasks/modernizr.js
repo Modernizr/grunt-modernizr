@@ -21,25 +21,14 @@ module.exports = function (grunt) {
 		"outputFile" : "build/modernizr-custom.js",
 
 		// Based on default settings on http://modernizr.com/download/
-		"extra" : {
-			"shiv" : true,
-			"printshiv" : false,
-			"load" : true,
-			"mq" : false,
-			"cssclasses" : true
-		},
-
-		// Based on default settings on http://modernizr.com/download/
-		"extensibility" : {
-			"addtest" : false,
-			"prefixed" : false,
-			"teststyles" : false,
-			"testprops" : false,
-			"testallprops" : false,
-			"hasevents" : false,
-			"prefixes" : false,
-			"domprefixes" : false
-		},
+		"options" : [
+			"setClasses",
+			"addTest",
+			"html5printshiv",
+			"load",
+			"testProp",
+			"fnBind"
+		],
 
 		// By default, source is uglified before saving
 		"uglify" : true,
@@ -60,9 +49,6 @@ module.exports = function (grunt) {
 			"!node_modules/**/*",
 			"!lib/cache/**/*"
 		],
-
-		// Set to true to attempt to match user-contributed tests
-		"matchCommunityTests" : false,
 
 		// Have custom Modernizr tests? Add them here.
 		"customTests" : []
@@ -94,73 +80,7 @@ module.exports = function (grunt) {
 	grunt.option("_modernizr.private", {
 		"url" : {
 			"github" : "https://github.com/doctyper/grunt-modernizr",
-			"domain" : "http://modernizr.com",
-			"modulizr" : "https://github.com/Modernizr/modernizr.com/blob/gh-pages/i/js/modulizr.js#L15-157"
-		},
-
-		"core" : [
-			"canvastext",
-			"csstransforms3d",
-			"flexbox",
-			"cssgradients",
-			"opacity",
-			"indexedDB",
-			"backgroundsize",
-			"borderimage",
-			"borderradius",
-			"boxshadow",
-			"cssanimations",
-			"csscolumns",
-			"cssreflections",
-			"csstransitions",
-			"testallprops",
-			"flexbox-legacy",
-			"prefixed",
-			"csstransforms",
-			"mq",
-			"hashchange",
-			"draganddrop",
-			"generatedcontent",
-			"svg",
-			"inlinesvg",
-			"smil",
-			"svgclippaths",
-			"input",
-			"inputtypes",
-			"touch",
-			"fontface",
-			"testbundle",
-			"respond",
-			"websockets",
-
-			/* missing core tests */
-			"applicationcache",
-			"audio",
-			"canvas",
-			"geolocation",
-			"history",
-			"hsla",
-			"indexeddb",
-			"input",
-			"inputtypes",
-			"localstorage",
-			"multiplebgs",
-			"postmessage",
-			"scriptdefer",
-			"sessionstorage",
-			"textshadow",
-			"rgba",
-			"video",
-			"webgl",
-			"websqldatabase",
-			"webworkers"
-		],
-
-		"paths" : {
-			"modernizr" : "downloads/modernizr-latest.js",
-			"printshiv" : "i/js/html5shiv-printshiv-3.6.js",
-			"load" : "i/js/modernizr.load.1.5.4.js",
-			"community" : "i/js/modernizr-git/feature-detects/%s.js"
+			"domain" : "http://modernizr.com"
 		}
 	});
 
