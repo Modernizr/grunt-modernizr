@@ -31,7 +31,8 @@
   "dependencies": {
     "uglify-js": "~2.3.x",
     "promised-io": "~0.3.x",
-    "colors": "~0.6.x"
+    "colors": "~0.6.x",
+    "modernizr": "https://github.com/Modernizr/Modernizr/tarball/master"
   },
   "devDependencies": {
     "grunt": "~0.4.x",
