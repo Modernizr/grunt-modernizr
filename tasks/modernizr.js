@@ -43,7 +43,7 @@ module.exports = function (grunt) {
 		// Set to false to disable
 		"parseFiles" : true,
 
-		// By default, this task will crawl all *.js, *.css files.
+		// By default, this task will crawl all *.js, *.css, *.scss files.
 		"files" : [
 			"**/*.{js,css,scss}",
 			"!node_modules/**/*",
