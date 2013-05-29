@@ -145,7 +145,7 @@ module.exports = function (grunt, ModernizrPath) {
 			}
 
 			// Exclude developer build
-			if (config.devFile !== "remote") {
+			if (config.devFile !== "remote" && config.devFile !== false) {
 				if (!fs.existsSync(config.devFile)) {
 					grunt.fail.warn([
 						"Can't find your Modernizr development build at " + config.devFile,
