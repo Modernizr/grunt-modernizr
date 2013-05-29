@@ -11,9 +11,9 @@ This highly configurable task allows you to configure and export a custom Modern
 When you're ready to build, `grunt-modernizr` will crawl your project for Modernizr test references and save out a minified, uglified, customized version using only the tests you've used in your JavaScript or (S)CSS.
 
 ## Getting Started
-Install this grunt plugin next to your project's [grunt.js gruntfile][getting_started] with: `npm install grunt-modernizr`
+Install this grunt plugin next to your project's [Gruntfile.js][getting_started] with: `npm install grunt-modernizr`
 
-Then add this line to your project's `grunt.js` gruntfile:
+Then add this line to your project's `Gruntfile.js`:
 
 ```javascript
 grunt.loadNpmTasks("grunt-modernizr");
@@ -39,52 +39,43 @@ Add a `modernizr` config object to your grunt.js file:
 ```javascript
 modernizr: {
 
-	// [REQUIRED] Path to the build you're using for development.
+	// Path to the build you're using for development.
 	"devFile" : "lib/modernizr-dev.js",
 
-	// [REQUIRED] Path to save out the built file.
+	// Path to save out the built file
 	"outputFile" : "build/modernizr-custom.js",
 
 	// Based on default settings on http://modernizr.com/download/
-	"extra" : {
-		"shiv" : true,
-		"printshiv" : false,
-		"load" : true,
-		"mq" : false,
-		"cssclasses" : true
-	},
-
-	// Based on default settings on http://modernizr.com/download/
-	"extensibility" : {
-		"addtest" : false,
-		"prefixed" : false,
-		"teststyles" : false,
-		"testprops" : false,
-		"testallprops" : false,
-		"hasevents" : false,
-		"prefixes" : false,
-		"domprefixes" : false
-	},
+	"options" : [
+		"setClasses",
+		"addTest",
+		"html5printshiv",
+		"load",
+		"testProp",
+		"fnBind"
+	],
 
 	// By default, source is uglified before saving
 	"uglify" : true,
 
-	// Define any tests you want to impliticly include.
+	// If uglify is true, an accompanying source map is generated as well
+	"generateSourceMap" : true,
+
+	// Define any tests you want to impliticly include
 	"tests" : [],
 
-	// By default, this task will crawl your project for references to Modernizr tests.
-	// Set to false to disable.
+	// By default, will crawl your project for references to Modernizr tests
+	// Set to false to disable
 	"parseFiles" : true,
 
-	// When parseFiles = true, this task will crawl all *.js, *.css, *.scss files, except files that are in node_modules/.
-	// You can override this by defining a "files" array below.
-	// "files" : [],
+	// By default, this task will crawl all *.js, *.css, *.scss files.
+	"files" : [
+		"**/*.{js,css,scss}",
+		"!node_modules/**/*",
+		"!{Gruntfile,grunt}.js"
+	],
 
-	// When parseFiles = true, matchCommunityTests = true will attempt to
-	// match user-contributed tests.
-	"matchCommunityTests" : false,
-
-	// Have custom Modernizr tests? Add paths to their location here.
+	// Have custom Modernizr tests? Add them here.
 	"customTests" : []
 }
 ```
@@ -92,21 +83,21 @@ modernizr: {
 #### Required
 
 ###### **`devFile`** (String)
-Path to the local build file you're using for development. This parameter is needed so `grunt-modernizr` can skip your dev file when traversing your project to avoid triggering false positives. If you're using a remote file for development, set this option to `remote`.
+Path to the local build file you're using for development. This parameter is needed so `grunt-modernizr` can skip your dev file when traversing your project to avoid triggering false positives. If you're using a remote file for development, set this option to `remote`. If you do not have a local devFile, set this option to `false`.
 
 #### Optional
 
 ###### **`outputFile`** (String)
 Path to save the customized Modernizr build. It defaults to `lib/modernizr-custom.js`.
 
-###### **`extra`** (Object)
+###### **`options`** (Object)
 An object of extra configuration options. Check the extra section on [modernizr.com/download](http://modernizr.com/download/) for complete options. Defaults are as they appear on the official site.
-
-###### **`extensibility`** (Object)
-An object of extensibility options. Check the section on [modernizr.com/download](http://modernizr.com/download/) for complete options. Defaults are as they appear on the official site.
 
 ###### **`uglify`** (Boolean)
 By default, the source is uglified before save. Set to false to disable.
+
+###### **`generateSourceMap`** (Boolean)
+If uglify is true, an accompanying source map is generated as well. Set to false to disable.
 
 ###### **`tests`** (Array)
 Define any tests you want to impliticly include. Test names are lowercased, separated by underscores (if needed). Check out the full set of test options [here](https://github.com/Modernizr/modernizr.com/blob/gh-pages/i/js/modulizr.js#L15-157).
@@ -117,14 +108,8 @@ By default, this task will crawl your project for references to Modernizr tests.
 ###### **`files`** (Array)
 When `parseFiles` = `true`, this task will crawl all `*.js`, `*.css`, `*.scss` files. You can override this by defining a custom `files` array. The object supports all [minimatch](https://github.com/isaacs/minimatch) options.
 
-###### **`matchCommunityTests`** (Boolean)
-When `parseFiles` = `true`, setting this boolean to true will attempt to match user-contributed tests. Check out the full set of community tests [here](https://github.com/doctyper/grunt-modernizr/blob/master/lib/customappr.js#L2-111)
-
 ###### **`customTests`** (Array)
 Have custom Modernizr tests? Add paths to their location here. The object supports all [minimatch](https://github.com/isaacs/minimatch) options.
-
-###### **`excludeFiles`** (Array)
-Files added here will be excluded when looking for Modernizr refs. The object supports all [minimatch](https://github.com/isaacs/minimatch) options.
 
 ## License
 Copyright (c) 2012 Richard Herrera
