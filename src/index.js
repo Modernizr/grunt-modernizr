@@ -37,8 +37,8 @@ module.exports = function (grunt, done, bust) {
 				// Uglify output (or bypass if option is set)
 				this.uglifier.init.bind(this.uglifier),
 
-				// Clean up, UglifyJS, send done callback
-				this.finalize.bind(this.finalize)
+				// Send done callback
+				this.finalize.bind(this)
 
 			]);
 		},
