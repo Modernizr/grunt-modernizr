@@ -67,10 +67,10 @@ module.exports = function (grunt) {
 		var done = this.async();
 
 		// The magic
-		var Gruntifier = require("../lib/gruntifier");
+		var Customizr = require("../lib/customizr");
 
 		// Go!
-		return new Gruntifier(grunt, done, bust);
+		return new Customizr(grunt, done, bust);
 	});
 
 	// ==========================================================================
