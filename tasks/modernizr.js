@@ -47,7 +47,7 @@ module.exports = function (grunt) {
 		"files" : [
 			"**/*.{js,css,scss}",
 			"!node_modules/**/*",
-			"!lib/cache/**/*"
+			"!{Gruntfile,grunt}.js"
 		],
 
 		// Have custom Modernizr tests? Add them here.
