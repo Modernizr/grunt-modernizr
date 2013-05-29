@@ -133,8 +133,12 @@ module.exports = function (grunt, ModernizrPath) {
 				_private = grunt.option("_modernizr.private");
 
 			var deferred = new promise.Deferred(),
-				tests = config.tests.concat(config.customTests),
+				buildPath = path.join(ModernizrPath, "build"),
 				files;
+
+			var tests = config.tests.concat(config.customTests.map(function (test) {
+				return path.relative(buildPath, fs.realpathSync(test));
+			}));
 
 			if (!_quiet) {
 				grunt.log.subhead("Looking for Modernizr references");
