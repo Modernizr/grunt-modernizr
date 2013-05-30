@@ -17,32 +17,21 @@ describe("grunt-modernizr", function () {
 			stripColors: true,
 			verbose: true
 		})
-		.expect('Running "modernizr" task')
-
-		.expect("Enabled Extras")
-		.expect(">> shiv, load, cssclasses")
-
+		.expect("Running \"modernizr\" task")
 		.expect("Looking for Modernizr references")
 
-		.expect(">> 7 matches in lib/modulizr.js")
-		.expect(">> testallprops, prefixed, mq, smil, testbundle, canvas, webgl")
+		.expect(">> 35 matches in test/css/vanilla.css")
+		.expect(">> applicationcache, audio, backgroundsize, borderimage, borderradius, boxshadow, canvas, canvastext, cssanimations, csscolumns, cssgradients, cssreflections, csstransforms, csstransforms3d, csstransitions, draganddrop, flexbox, fontface, generatedcontent, geolocation, hashchange, history, hsla, indexedDB, input, inputtypes, multiplebgs, opacity, postmessage, rgba, svg, textshadow, video, webgl, websockets")
 
-		.expect(">> 51 matches in test/css/vanilla.css")
-		.expect(">> canvastext, csstransforms3d, flexbox, cssgradients, opacity, indexedDB, backgroundsize, borderimage, borderradius, boxshadow, cssanimations, csscolumns, cssreflections, csstransitions, testallprops, flexbox-legacy, prefixed, csstransforms, mq, hashchange, draganddrop, generatedcontent, svg, inlinesvg, smil, svgclippaths, input, inputtypes, touch, fontface, testbundle, respond, websockets, applicationcache, audio, canvas, geolocation, history, hsla, indexeddb, localstorage, multiplebgs, postmessage, scriptdefer, sessionstorage, textshadow, rgba, video, webgl, websqldatabase, webworkers")
+		.expect(">> 35 matches in test/js/amd.js")
+		.expect(">> applicationcache, audio, backgroundsize, borderimage, borderradius, boxshadow, canvas, canvastext, cssanimations, csscolumns, cssgradients, cssreflections, csstransforms, csstransforms3d, csstransitions, draganddrop, flexbox, fontface, generatedcontent, geolocation, hashchange, history, hsla, indexedDB, input, inputtypes, multiplebgs, opacity, postmessage, rgba, svg, textshadow, video, webgl, websockets")
 
-		.expect(">> 51 matches in test/js/amd.js")
-		.expect(">> canvastext, csstransforms3d, flexbox, cssgradients, opacity, indexedDB, backgroundsize, borderimage, borderradius, boxshadow, cssanimations, csscolumns, cssreflections, csstransitions, testallprops, flexbox-legacy, prefixed, csstransforms, mq, hashchange, draganddrop, generatedcontent, svg, inlinesvg, smil, svgclippaths, input, inputtypes, touch, fontface, testbundle, respond, websockets, applicationcache, audio, canvas, geolocation, history, hsla, indexeddb, localstorage, multiplebgs, postmessage, scriptdefer, sessionstorage, textshadow, rgba, video, webgl, websqldatabase, webworkers")
+		.expect(">> 35 matches in test/js/vanilla.js")
+		.expect(">> applicationcache, audio, backgroundsize, borderimage, borderradius, boxshadow, canvas, canvastext, cssanimations, csscolumns, cssgradients, cssreflections, csstransforms, csstransforms3d, csstransitions, draganddrop, flexbox, fontface, generatedcontent, geolocation, hashchange, history, hsla, indexedDB, input, inputtypes, multiplebgs, opacity, postmessage, rgba, svg, textshadow, video, webgl, websockets")
 
-		.expect(">> 51 matches in test/js/vanilla.js")
-		.expect(">> canvastext, csstransforms3d, flexbox, cssgradients, opacity, indexedDB, backgroundsize, borderimage, borderradius, boxshadow, cssanimations, csscolumns, cssreflections, csstransitions, testallprops, flexbox-legacy, prefixed, csstransforms, mq, hashchange, draganddrop, generatedcontent, svg, inlinesvg, smil, svgclippaths, input, inputtypes, touch, fontface, testbundle, respond, websockets, applicationcache, audio, canvas, geolocation, history, hsla, indexeddb, localstorage, multiplebgs, postmessage, scriptdefer, sessionstorage, textshadow, rgba, video, webgl, websqldatabase, webworkers")
+		.expect("Building Modernizr").wait("OK")
+		.expect("Saved file to build/modernizr-custom.js")
 
-		.expect("Downloading source files")
-
-		.wait(">> Generating a custom Modernizr build")
-		.expect(">> Uglifying")
-
-		.expect("Wrote minified file to build/modernizr-custom.js")
-		.expect(">> Wrote source map to build/modernizr-custom.js.map")
 		.run(done);
 	});
 });
