@@ -58,9 +58,6 @@ modernizr: {
 	// By default, source is uglified before saving
 	"uglify" : true,
 
-	// If uglify is true, an accompanying source map is generated as well
-	"generateSourceMap" : true,
-
 	// Define any tests you want to impliticly include
 	"tests" : [],
 
@@ -95,9 +92,6 @@ An object of extra configuration options. Check the extra section on [modernizr.
 
 ###### **`uglify`** (Boolean)
 By default, the source is uglified before save. Set to false to disable.
-
-###### **`generateSourceMap`** (Boolean)
-If uglify is true, an accompanying source map is generated as well. Set to false to disable.
 
 ###### **`tests`** (Array)
 Define any tests you want to impliticly include. Test names are lowercased, separated by underscores (if needed). Check out the full set of test options [here](https://github.com/Modernizr/modernizr.com/blob/gh-pages/i/js/modulizr.js#L15-157).
