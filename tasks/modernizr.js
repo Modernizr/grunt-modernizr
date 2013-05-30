@@ -33,9 +33,6 @@ module.exports = function (grunt) {
 		// By default, source is uglified before saving
 		"uglify" : true,
 
-		// If uglify is true, an accompanying source map is generated as well
-		"generateSourceMap" : true,
-
 		// Define any tests you want to impliticly include
 		"tests" : [],
 

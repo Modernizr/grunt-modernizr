@@ -34,9 +34,6 @@ module.exports = function (grunt, done, bust) {
 				// Construct a list with matching positives, tell Modernizr to build a custom suite
 				this.builder.init.bind(this.builder),
 
-				// Uglify output (or bypass if option is set)
-				this.uglifier.init.bind(this.uglifier),
-
 				// Send done callback
 				this.finalize.bind(this)
 

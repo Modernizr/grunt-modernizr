@@ -9,7 +9,8 @@ module.exports = function (grunt, ModernizrPath) {
 	// Dependencies
 	var cp = require("child_process"),
 		fs = require("fs"),
-		path = require("path");
+		path = require("path"),
+		colors = require("colors");
 
 	// Deferreds
 	var promise = require("promised-io/promise");
@@ -34,6 +35,21 @@ module.exports = function (grunt, ModernizrPath) {
 			grunt.file.write(configPath, JSON.stringify(modernizrConfig));
 		},
 
+		copyFileToOutput : function (deferred) {
+			var config = grunt.config("modernizr"),
+				fileName = "modernizr-build" + (config.uglify ? ".min" : "") + ".js",
+				buildPath = path.join(ModernizrPath, "dist", fileName);
+
+			if (!fs.existsSync(buildPath)) {
+				grunt.fail.fatal("Sorry, I can't find Modernizr in " + buildPath);
+			}
+
+			grunt.file.copy(buildPath, config.outputFile);
+			grunt.log.ok(("Saved file to " + config.outputFile).grey);
+
+			return deferred.resolve();
+		},
+
 		init : function (tests) {
 			var deferred = new promise.Deferred();
 
@@ -56,9 +72,8 @@ module.exports = function (grunt, ModernizrPath) {
 
 			builder.on("exit", function () {
 				grunt.log.ok();
-
-				return deferred.resolve();
-			});
+				return this.copyFileToOutput(deferred);
+			}.bind(this));
 
 			return deferred.promise;
 		}
