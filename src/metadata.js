@@ -20,25 +20,8 @@ module.exports = function (grunt, ModernizrPath) {
 			}
 
 			// module.exports ftw?
-			// var generator = require(genPath);
-
-			var chunks = [];
-
-			var generator = cp.spawn("node", [genPath], {
-				cwd: ModernizrPath,
-				stdio: "pipe"
-			});
-
-			generator.stdout.on("data", function (data) {
-				chunks.push(data.toString().trim());
-			});
-
-			generator.on("exit", function (code) {
-				if (!chunks.length) {
-					grunt.fail.fatal(code);
-				}
-
-				var mappings = JSON.parse(chunks.join(""));
+			(function () {
+				var mappings = require(genPath);
 				var modRegExp = new RegExp(ModernizrPath + "/?");
 
 				mappings = mappings.map(function (map) {
@@ -54,7 +37,7 @@ module.exports = function (grunt, ModernizrPath) {
 				});
 
 				return deferred.resolve(mappings);
-			});
+			}());
 
 			return deferred.promise;
 		}
