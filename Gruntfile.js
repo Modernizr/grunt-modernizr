@@ -1,4 +1,7 @@
 module.exports = function (grunt) {
+	"use strict";
+
+	var path = require("path");
 
 	grunt.loadNpmTasks("grunt-contrib-jshint");
 	grunt.loadNpmTasks("grunt-contrib-watch");
@@ -6,7 +9,9 @@ module.exports = function (grunt) {
 	// Project configuration.
 	grunt.initConfig({
 		nodeunit: {
-			files: ["test/**/*.js"]
+			files: [
+				path.join("test", "**", "*.js")
+			]
 		},
 		watch: {
 			files: "<%= jshint.files %>",
@@ -15,9 +20,9 @@ module.exports = function (grunt) {
 		jshint: {
 			options: grunt.file.readJSON(".jshintrc"),
 			files: [
-				"Gruntfile.js",
-				"tasks/**/*.js",
-				"test/**/*.js"
+				path.join("Gruntfile.js"),
+				path.join("tasks", "**", "*.js"),
+				path.join("test", "**", "*.js")
 			]
 		},
 		modernizr: {}
