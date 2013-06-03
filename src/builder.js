@@ -11,14 +11,13 @@ module.exports = function (grunt, ModernizrPath) {
 		fs = require("fs"),
 		path = require("path"),
 		colors = require("colors"),
-		cwd = process.cwd(),
-		config, _interval;
+		cwd = process.cwd();
 
 	// Deferreds
 	var promise = require("promised-io/promise");
 
 	return {
-		writeCodeToFile : function (result) {
+		writeCodeToFile : function (result, config) {
 			var code = config.uglify ? result.min : result.code;
 
 			grunt.log.ok(("Saved file to " + config.outputFile).grey);
@@ -26,10 +25,11 @@ module.exports = function (grunt, ModernizrPath) {
 		},
 
 		init : function (tests) {
-			var deferred = new promise.Deferred();
+			var deferred = new promise.Deferred(),
+				_interval;
 
 			// Cache config 'cause grunt's weird context is going to overwrite it
-			config = grunt.config("modernizr");
+			var config = grunt.config("modernizr");
 
 			grunt.log.writeln();
 			grunt.log.write("Building Modernizr".bold.white);
@@ -51,7 +51,7 @@ module.exports = function (grunt, ModernizrPath) {
 				clearInterval(_interval);
 
 				// Write code to file
-				this.writeCodeToFile(result);
+				this.writeCodeToFile(result, config);
 
 				return deferred.resolve();
 			}.bind(this));
