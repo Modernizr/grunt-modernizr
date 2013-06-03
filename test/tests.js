@@ -29,7 +29,7 @@ describe("grunt-modernizr", function () {
 		.expect(">> 35 matches in test/js/vanilla.js")
 		.expect(">> applicationcache, audio, backgroundsize, borderimage, borderradius, boxshadow, canvas, canvastext, cssanimations, csscolumns, cssgradients, cssreflections, csstransforms, csstransforms3d, csstransitions, draganddrop, flexbox, fontface, generatedcontent, geolocation, hashchange, history, hsla, indexedDB, input, inputtypes, multiplebgs, opacity, postmessage, rgba, svg, textshadow, video, webgl, websockets")
 
-		.expect("Building Modernizr").wait("OK")
+		.wait("Building Modernizr").wait("OK")
 		.expect("Saved file to build/modernizr-custom.js")
 
 		.run(done);
