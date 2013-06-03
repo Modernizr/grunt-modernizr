@@ -10,69 +10,50 @@ module.exports = function (grunt, ModernizrPath) {
 	var cp = require("child_process"),
 		fs = require("fs"),
 		path = require("path"),
-		colors = require("colors");
+		colors = require("colors"),
+		cwd = process.cwd(),
+		config, _interval;
 
 	// Deferreds
 	var promise = require("promised-io/promise");
 
 	return {
-		writeConfig : function (tests) {
-			var configPath = path.join(ModernizrPath, "lib", "config-all.json");
+		writeCodeToFile : function (result) {
+			var code = config.uglify ? result.min : result.code;
 
-			if (!fs.existsSync(configPath)) {
-				grunt.fail.warn("Sorry, I can't find Modernizr in " + configPath.replace(__dirname, ""));
-			}
-
-			var modernizrConfig = grunt.file.readJSON(configPath);
-			var config = grunt.config("modernizr");
-
-			// Overwrite default tests
-			modernizrConfig["feature-detects"] = tests;
-
-			// Overwrite default options
-			modernizrConfig.options = config.options;
-
-			grunt.file.write(configPath, JSON.stringify(modernizrConfig));
-		},
-
-		copyFileToOutput : function (deferred) {
-			var config = grunt.config("modernizr"),
-				fileName = "modernizr-build" + (config.uglify ? ".min" : "") + ".js",
-				buildPath = path.join(ModernizrPath, "dist", fileName);
-
-			if (!fs.existsSync(buildPath)) {
-				grunt.fail.fatal("Sorry, I can't find Modernizr in " + buildPath);
-			}
-
-			grunt.file.copy(buildPath, config.outputFile);
 			grunt.log.ok(("Saved file to " + config.outputFile).grey);
-
-			return deferred.resolve();
+			return grunt.file.write(config.outputFile, code);
 		},
 
 		init : function (tests) {
 			var deferred = new promise.Deferred();
 
+			// Cache config 'cause grunt's weird context is going to overwrite it
+			config = grunt.config("modernizr");
+
 			grunt.log.writeln();
 			grunt.log.write("Building Modernizr".bold.white);
 
-			// Write to Modernizr config
-			this.writeConfig(tests);
-
-			var builder = cp.spawn("grunt", ["build"], {
-				stdio: _verbose ? "inherit" : [0, "pipe", 2],
-				cwd: ModernizrPath
-			});
-
 			if (!_verbose) {
-				builder.stdout.on("data", function (data) {
+				_interval = setInterval(function () {
 					grunt.log.write(".".grey);
-				});
+				}, 250);
 			}
 
-			builder.on("exit", function () {
+			var modernizr = require("modernizr");
+
+			modernizr.build({
+				"feature-detects": tests,
+				"options": config.options,
+				"verbose": (_verbose || false)
+			}, function (result) {
 				grunt.log.ok();
-				return this.copyFileToOutput(deferred);
+				clearInterval(_interval);
+
+				// Write code to file
+				this.writeCodeToFile(result);
+
+				return deferred.resolve();
 			}.bind(this));
 
 			return deferred.promise;
