@@ -31,7 +31,7 @@ module.exports = function (grunt, ModernizrPath) {
 					return {
 						"path": testpath.replace(".js", ""),
 						"name": cleanname,
-						"property": map.property || cleanname.replace("test/", ""),
+						"property": map.property,
 						"cssclass": map.cssclass
 					};
 				});
