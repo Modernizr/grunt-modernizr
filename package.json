@@ -42,7 +42,7 @@
     "nexpect": "~0.2.x"
   },
   "scripts": {
-    "test": "node test/runner.js"
+    "test": "node test/generate-tests.js && node test/runner.js"
   },
   "keywords": [
     "gruntplugin",
