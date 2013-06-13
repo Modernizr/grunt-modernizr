@@ -1,7 +1,7 @@
 {
   "name": "grunt-modernizr",
   "description": "Build out a lean, mean Modernizr machine.",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "homepage": "https://github.com/doctyper/grunt-modernizr",
   "author": {
     "name": "Richard Herrera",
@@ -21,7 +21,7 @@
       "url": "https://github.com/doctyper/grunt-modernizr/blob/master/LICENSE-MIT"
     }
   ],
-  "main": "grunt.js",
+  "main": "Gruntfile.js",
   "bin": {
     "grunt-modernizr": "bin/grunt-modernizr"
   },
@@ -29,16 +29,16 @@
     "node": "*"
   },
   "dependencies": {
-    "promised-io": "~0.3.x",
-    "colors": "~0.6.x",
+    "promised-io": "~0.3.3",
+    "colors": "~0.6.0-1",
     "Modernizr": "https://github.com/Modernizr/Modernizr/tarball/master"
   },
   "devDependencies": {
-    "grunt": "~0.4.x",
-    "grunt-contrib-jshint": "~0.4.x",
-    "grunt-contrib-watch": "~0.4.x",
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.4.3",
+    "grunt-contrib-watch": "~0.4.4",
     "mocha": "~1.10.0",
-    "nexpect": "~0.2.x",
+    "nexpect": "~0.2.4",
     "expect.js": "~0.2.0"
   },
   "scripts": {
