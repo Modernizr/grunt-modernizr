@@ -40,9 +40,9 @@ module.exports = function (grunt, ModernizrPath) {
 				}, 250);
 			}
 
-			var modernizr = require("modernizr");
+			var Modernizr = require("Modernizr");
 
-			modernizr.build({
+			Modernizr.build({
 				"feature-detects": tests,
 				"options": config.options,
 				"verbose": (_verbose || false)

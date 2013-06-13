@@ -13,11 +13,11 @@ module.exports = function (grunt, ModernizrPath) {
 	return {
 		init : function (tests) {
 			var deferred = new promise.Deferred();
-			var modernizr = require("modernizr");
+			var Modernizr = require("Modernizr");
 
 			// module.exports ftw?
 			(function () {
-				var mappings = modernizr.metadata;
+				var mappings = Modernizr.metadata;
 				var modRegExp = new RegExp(ModernizrPath + "/?");
 
 				mappings = mappings.map(function (map) {
