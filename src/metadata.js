@@ -13,15 +13,11 @@ module.exports = function (grunt, ModernizrPath) {
 	return {
 		init : function (tests) {
 			var deferred = new promise.Deferred();
-			var genPath = path.join(ModernizrPath, "lib", "generate-meta.js");
-
-			if (!fs.existsSync(genPath)) {
-				grunt.fail.warn("Sorry, I can't find Modernizr in " + genPath.replace(__dirname, ""));
-			}
+			var modernizr = require("modernizr");
 
 			// module.exports ftw?
 			(function () {
-				var mappings = require(genPath);
+				var mappings = modernizr.metadata;
 				var modRegExp = new RegExp(ModernizrPath + "/?");
 
 				mappings = mappings.map(function (map) {
