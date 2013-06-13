@@ -3,12 +3,17 @@ var checkForDevFile = function (callback) {
 	var fs = require("fs");
 	var path = require("path");
 
-	var testFile = path.join(cwd, "lib", "modernizr-dev.js");
+	var libDir = path.join(cwd, "lib");
+	var testFile = path.join(libDir, "modernizr-dev.js");
 	var remoteTestFile = "http://modernizr.com/downloads/modernizr-latest.js";
 
 	if (fs.existsSync(testFile)) {
 		return callback();
 	} else {
+		if (!fs.existsSync(libDir)) {
+			fs.mkdirSync(libDir);
+		}
+
 		var http = require("http");
 
 		var file = fs.createWriteStream(testFile);
