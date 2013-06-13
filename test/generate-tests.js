@@ -103,7 +103,9 @@ var missingData = props.filter(function (data) {
 	return data.path;
 });
 
-console.log("\n");
-console.log("The following tests have no metadata:");
-console.log();
-console.log(missingData.join("\n"));
+if (missingData.length) {
+	console.log("\n");
+	console.log("The following tests have no metadata:");
+	console.log();
+	console.log(missingData.join("\n"));
+}
