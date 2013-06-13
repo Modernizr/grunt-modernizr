@@ -4,8 +4,52 @@ var Modernizr = window.Modernizr;
 
 var tests = {
 	"standalone": {
+		"applicationcache": Modernizr.applicationcache,
 		"audio": Modernizr.audio,
+		"battery": Modernizr.batteryapi,
+		"blob": Modernizr.blobconstructor,
+		"canvas": Modernizr.canvas,
+		"canvastext": Modernizr.canvastext,
+		"contenteditable": Modernizr.contenteditable,
+		"contentsecuritypolicy": Modernizr.contentsecuritypolicy,
+		"contextmenu": Modernizr.contextmenu,
+		"cookies": Modernizr.cookies,
+		"cors": Modernizr.cors,
+		"custom-protocol-handler": Modernizr.customprotocolhandler,
+		"dart": Modernizr.dart,
+		"dataview-api": Modernizr.dataview,
+		"draganddrop": Modernizr.draganddrop,
+		"emoji": Modernizr.emoji,
+		"exif-orientation": Modernizr.exiforientation,
+		"fullscreen-api": Modernizr.fullscreen,
+		"gamepad": Modernizr.gamepads,
+		"geolocation": Modernizr.geolocation,
+		"hashchange": Modernizr.hashchange,
+		"history": Modernizr.history,
+		"ie8compat": Modernizr.ie8compat,
+		"indexedDB": Modernizr.indexeddb,
+		"input": Modernizr.input,
+		"inputtypes": Modernizr.inputtypes,
+		"json": Modernizr.json,
+		"lists-reversed": Modernizr.olreversed,
+		"mathml": Modernizr.mathml,
+		"notification": Modernizr.notification,
+		"pagevisibility-api": Modernizr.pagevisibility,
+		"performance": Modernizr.performance,
+		"pointerevents": Modernizr.pointerevents,
+		"pointerlock-api": Modernizr.pointerlock,
+		"postmessage": Modernizr.postmessage,
+		"quota-management-api": Modernizr.quotamanagement,
+		"requestanimationframe": Modernizr.requestanimationframe,
+		"svg": Modernizr.svg,
 		"touchevents": Modernizr.touchevents,
+		"typed-arrays": Modernizr.typedarrays,
+		"unicode": Modernizr.unicode,
+		"userdata": Modernizr.userdata,
+		"vibration": Modernizr.vibrate,
+		"video": Modernizr.video,
+		"web-intents": Modernizr.webintents,
+		"webgl": Modernizr.webgl,
 		"websockets": Modernizr.websockets
 	},
 	"a": {
@@ -60,7 +104,7 @@ var tests = {
 			Modernizr["softhyphensfind"]
 		],
 		"lastchild": Modernizr.lastchild,
-		"mask": Modernizr.lastchild,
+		"mask": Modernizr.cssmask,
 		"mediaqueries": Modernizr.mediaqueries,
 		"multiplebgs": Modernizr.multiplebgs,
 		"objectfit": Modernizr.objectfit,
@@ -165,12 +209,50 @@ var tests = {
 		"eventsource": Modernizr.eventsource,
 		"xhr2": Modernizr.xhr2
 	},
+	"script": {
+		"async": Modernizr.scriptasync,
+		"defer": Modernizr.scriptdefer
+	},
+	"storage": {
+		"localstorage": Modernizr.localstorage,
+		"sessionstorage": Modernizr.sessionstorage,
+		"websqldatabase": Modernizr.websqldatabase
+	},
+	"style": {
+		"scoped": Modernizr.stylescoped
+	},
 	"svg": {
-		"asimg": Modernizr.svgasimg
+		"asimg": Modernizr.svgasimg,
+		"clippaths": Modernizr.svgclippaths,
+		"filters": Modernizr.svgfilters,
+		"inline": Modernizr.inlinesvg,
+		"smil": Modernizr.smil
+	},
+	"url": {
+		"data-uri": Modernizr.datauri
 	},
 	"video": {
 		"autoplay": Modernizr.videoautoplay,
 		"loop": Modernizr.videoloop,
 		"preload": Modernizr.videopreload
+	},
+	"webgl": {
+		"extensions": Modernizr.webglextensions
+	},
+	"webrtc": {
+		"getusermedia": Modernizr.getusermedia,
+		"peerconnection": Modernizr.peerconnection
+	},
+	"websockets": {
+		"binary": Modernizr.websocketsbinary
+	},
+	"window": {
+		"framed": Modernizr.framed
+	},
+	"workers": {
+		"blobworkers": Modernizr.blobworkers,
+		"dataworkers": Modernizr.dataworkers,
+		"sharedworkers": Modernizr.sharedworkers,
+		"webworkers": Modernizr.webworkers
 	}
 };

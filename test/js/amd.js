@@ -5,8 +5,52 @@ define(["Modernizr"], function (M) {
 
 	var tests = {
 		"standalone": {
+			"applicationcache": M.applicationcache,
 			"audio": M.audio,
+			"battery": M.batteryapi,
+			"blob": M.blobconstructor,
+			"canvas": M.canvas,
+			"canvastext": M.canvastext,
+			"contenteditable": M.contenteditable,
+			"contentsecuritypolicy": M.contentsecuritypolicy,
+			"contextmenu": M.contextmenu,
+			"cookies": M.cookies,
+			"cors": M.cors,
+			"custom-protocol-handler": M.customprotocolhandler,
+			"dart": M.dart,
+			"dataview-api": M.dataview,
+			"draganddrop": M.draganddrop,
+			"emoji": M.emoji,
+			"exif-orientation": M.exiforientation,
+			"fullscreen-api": M.fullscreen,
+			"gamepad": M.gamepads,
+			"geolocation": M.geolocation,
+			"hashchange": M.hashchange,
+			"history": M.history,
+			"ie8compat": M.ie8compat,
+			"indexedDB": M.indexeddb,
+			"input": M.input,
+			"inputtypes": M.inputtypes,
+			"json": M.json,
+			"lists-reversed": M.olreversed,
+			"mathml": M.mathml,
+			"notification": M.notification,
+			"pagevisibility-api": M.pagevisibility,
+			"performance": M.performance,
+			"pointerevents": M.pointerevents,
+			"pointerlock-api": M.pointerlock,
+			"postmessage": M.postmessage,
+			"quota-management-api": M.quotamanagement,
+			"requestanimationframe": M.requestanimationframe,
+			"svg": M.svg,
 			"touchevents": M.touchevents,
+			"typed-arrays": M.typedarrays,
+			"unicode": M.unicode,
+			"userdata": M.userdata,
+			"vibration": M.vibrate,
+			"video": M.video,
+			"web-intents": M.webintents,
+			"webgl": M.webgl,
 			"websockets": M.websockets
 		},
 		"a": {
@@ -61,7 +105,7 @@ define(["Modernizr"], function (M) {
 				M["softhyphensfind"]
 			],
 			"lastchild": M.lastchild,
-			"mask": M.lastchild,
+			"mask": M.cssmask,
 			"mediaqueries": M.mediaqueries,
 			"multiplebgs": M.multiplebgs,
 			"objectfit": M.objectfit,
@@ -166,13 +210,51 @@ define(["Modernizr"], function (M) {
 			"eventsource": M.eventsource,
 			"xhr2": M.xhr2
 		},
+		"script": {
+			"async": M.scriptasync,
+			"defer": M.scriptdefer
+		},
+		"storage": {
+			"localstorage": M.localstorage,
+			"sessionstorage": M.sessionstorage,
+			"websqldatabase": M.websqldatabase
+		},
+		"style": {
+			"scoped": M.stylescoped
+		},
 		"svg": {
-			"asimg": M.svgasimg
+			"asimg": M.svgasimg,
+			"clippaths": M.svgclippaths,
+			"filters": M.svgfilters,
+			"inline": M.inlinesvg,
+			"smil": M.smil
+		},
+		"url": {
+			"data-uri": M.datauri
 		},
 		"video": {
 			"autoplay": M.videoautoplay,
 			"loop": M.videoloop,
 			"preload": M.videopreload
+		},
+		"webgl": {
+			"extensions": M.webglextensions
+		},
+		"webrtc": {
+			"getusermedia": M.getusermedia,
+			"peerconnection": M.peerconnection
+		},
+		"websockets": {
+			"binary": M.websocketsbinary
+		},
+		"window": {
+			"framed": M.framed
+		},
+		"workers": {
+			"blobworkers": M.blobworkers,
+			"dataworkers": M.dataworkers,
+			"sharedworkers": M.sharedworkers,
+			"webworkers": M.webworkers
 		}
 	};
 
