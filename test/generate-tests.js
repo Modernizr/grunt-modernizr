@@ -50,7 +50,7 @@ string = string.replace(/(\:(?:\s)?)\"(.*)\"/g, "$1Modernizr.$2");
 // Convert [ "foo": "bar" ] -> [ "foo": Modernizr["bar"] ]
 string = string.replace(/(\t{3})\"(.*)\"/g, "$1Modernizr[\"$2\"]");
 
-// Acount for dot syntax when namespace contains dash
+// Convert Modernizr.foo-bar -> Modernizr["foo-bar"]
 string = string.replace(/\.((?:[\w]+)?\-(?:[\w]+))/g, "[\"$1\"]");
 
 // Save test/js/vanilla.js
@@ -98,7 +98,7 @@ string = string.replace(/\.((?:[\w]+)?\-(?:[\w]+))/g, "[\"$1\"]");
 }());
 
 var missingData = props.filter(function (data) {
-	return !data.property || !data.cssclass;
+	return !data.property && !data.cssclass;
 }).map(function (data) {
 	return data.path;
 });
