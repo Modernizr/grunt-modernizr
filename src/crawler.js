@@ -155,7 +155,7 @@ module.exports = function (grunt, ModernizrPath) {
 			}
 
 			tests = tests.map(function (test) {
-				return test.property;
+				return test.path;
 			}).concat(config.customTests.map(function (test) {
 				return path.relative(buildPath, fs.realpathSync(test));
 			}));
