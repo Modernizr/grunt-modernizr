@@ -136,7 +136,27 @@ module.exports = function (grunt, ModernizrPath) {
 				buildPath = path.join(ModernizrPath, "build"),
 				files;
 
-			var tests = config.tests.concat(config.customTests.map(function (test) {
+			var tests = config.tests.map(function (test) {
+				var data = metadata.filter(function (data) {
+					return data.property === test;
+				});
+
+				return data[0] || {};
+			}).filter(function (test) {
+				return test.path;
+			});
+
+			if (!_quiet && tests && tests.length) {
+				grunt.log.writeln();
+				grunt.log.ok("Implicitly including these tests:");
+				grunt.log.ok(tests.map(function (test) {
+					return test.property;
+				}).sort().join(", ").grey);
+			}
+
+			tests = tests.map(function (test) {
+				return test.property;
+			}).concat(config.customTests.map(function (test) {
 				return path.relative(buildPath, fs.realpathSync(test));
 			}));
 

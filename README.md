@@ -94,7 +94,7 @@ An object of extra configuration options. Check the extra section on [modernizr.
 By default, the source is uglified before save. Set to false to disable.
 
 ###### **`tests`** (Array)
-Define any tests you want to impliticly include. Test names are lowercased, separated by underscores (if needed). Check out the full set of test options [here](https://github.com/Modernizr/modernizr.com/blob/gh-pages/i/js/modulizr.js#L15-157).
+Define any tests you want to impliticly include. Check out the full set of test options [here](#ADD_LINK_LATER).
 
 ###### **`parseFiles`** (Boolean)
 By default, this task will crawl your project for references to Modernizr tests. Set to false to disable.
