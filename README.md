@@ -28,13 +28,9 @@ grunt.loadNpmTasks("grunt-modernizr");
 
 Run the task with `grunt modernizr`.
 
-#### Cache Busting
-
-Bust the cache of locally downloaded files by running `grunt modernizr:bust`
-
 ### Config Options
 
-Add a `modernizr` config object to your grunt.js file:
+Add a `modernizr` config object to your Gruntfile.js file:
 
 ```javascript
 modernizr: {
@@ -106,5 +102,5 @@ When `parseFiles` = `true`, this task will crawl all `*.js`, `*.css`, `*.scss` f
 Have custom Modernizr tests? Add paths to their location here. The object supports all [minimatch](https://github.com/isaacs/minimatch) options.
 
 ## License
-Copyright (c) 2012 Richard Herrera
+Copyright (c) 2013 Richard Herrera
 Licensed under the MIT license.
