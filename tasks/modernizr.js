@@ -14,12 +14,6 @@ module.exports = function (grunt) {
 
 	grunt.option("_modernizr.defaults", {
 
-		// Path to the build you're using for development.
-		"devFile" : "lib/modernizr-dev.js",
-
-		// Path to save out the built file
-		"outputFile" : "build/modernizr-custom.js",
-
 		// Based on default settings on http://modernizr.com/download/
 		"extra" : {
 			"shiv" : true,
@@ -52,24 +46,37 @@ module.exports = function (grunt) {
 		"parseFiles" : true,
 
 		// By default, this task will crawl all *.js, *.css files.
-		"files" : [
-			"**/*.{js,css,scss}",
-			"!node_modules/**/*",
-			"!lib/cache/**/*"
-		],
+		"files" : {
+
+			// [REQUIRED] Path to the build you're using for development.
+			dev: "lib/modernizr-dev.js", // development file
+
+			// source files to include/exclude
+			src: [
+				"**/*.{js,css,scss}",
+				"!node_modules/**/*",
+				"!lib/cache/**/*"
+			],
+			// [REQUIRED] Path to save out the built file
+			dest: 'build/modernizr-custom.js'
+
+        },
 
 		// Set to true to attempt to match user-contributed tests
 		"matchCommunityTests" : false,
 
 		// Have custom Modernizr tests? Add them here.
-		"customTests" : []
+		"customTests" : [],
+
+		"bust": true
+
 	});
 
 	// ==========================================================================
 	// TASKS
 	// ==========================================================================
 
-	grunt.registerTask("modernizr", "Build out a lean, mean Modernizr machine.", function (bust) {
+	grunt.registerMultiTask("modernizr", "Build out a lean, mean Modernizr machine.", function () {
 
 		// Require a config object
 		this.requiresConfig(this.name);
@@ -77,11 +84,14 @@ module.exports = function (grunt) {
 		// Async
 		var done = this.async();
 
+		// The target from our multi-task
+		var target = this.target || false;
+
 		// The magic
 		var Gruntifier = require("../lib/gruntifier");
 
 		// Go!
-		return new Gruntifier(grunt, done, bust);
+		return new Gruntifier(grunt, target, done);
 	});
 
 	// ==========================================================================
