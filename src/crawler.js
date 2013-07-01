@@ -160,6 +160,20 @@ module.exports = function (grunt, ModernizrPath) {
 				return path.relative(buildPath, fs.realpathSync(test));
 			}));
 
+			if (config.parseFiles !== true) {
+				tests = this.filterTests(tests);
+
+				if (!_quiet) {
+					grunt.log.subhead("Skipping file traversal");
+				}
+
+				setTimeout(function () {
+					return deferred.resolve(tests);
+				}, 0);
+
+				return deferred.promise;
+			}
+
 			if (!_quiet) {
 				grunt.log.subhead("Looking for Modernizr references");
 			}
