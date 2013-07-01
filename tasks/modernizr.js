@@ -25,7 +25,7 @@ module.exports = function (grunt) {
 			"setClasses",
 			"addTest",
 			"html5printshiv",
-			"load",
+			// "load",
 			"testProp",
 			"fnBind"
 		],
