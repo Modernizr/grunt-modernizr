@@ -108,6 +108,7 @@ define(["Modernizr"], function (M) {
 			"mask": M.cssmask,
 			"mediaqueries": M.mediaqueries,
 			"multiplebgs": M.multiplebgs,
+			"nthchild": M.nthchild,
 			"objectfit": M.objectfit,
 			"opacity": M.opacity,
 			"overflow-scrolling": M.overflowscrolling,

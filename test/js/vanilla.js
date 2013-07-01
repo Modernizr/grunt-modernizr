@@ -107,6 +107,7 @@ var tests = {
 		"mask": Modernizr.cssmask,
 		"mediaqueries": Modernizr.mediaqueries,
 		"multiplebgs": Modernizr.multiplebgs,
+		"nthchild": Modernizr.nthchild,
 		"objectfit": Modernizr.objectfit,
 		"opacity": Modernizr.opacity,
 		"overflow-scrolling": Modernizr.overflowscrolling,
