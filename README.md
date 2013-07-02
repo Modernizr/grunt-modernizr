@@ -30,46 +30,49 @@ Run the task with `grunt modernizr`.
 
 ### Config Options
 
-Add a `modernizr` config object to your Gruntfile.js file:
+Add a `modernizr` config object to your Gruntfile.js file. The task supports multiple targets:
 
 ```javascript
 modernizr: {
 
-	// Path to the build you're using for development.
-	"devFile" : "lib/modernizr-dev.js",
+	dist: {
+		// Path to the build you're using for development.
+		"devFile" : "lib/modernizr-dev.js",
 
-	// Path to save out the built file
-	"outputFile" : "build/modernizr-custom.js",
+		// Path to save out the built file
+		"dest" : "build/modernizr-custom.js",
 
-	// Based on default settings on http://modernizr.com/download/
-	"options" : [
-		"setClasses",
-		"addTest",
-		"html5printshiv",
-		"load",
-		"testProp",
-		"fnBind"
-	],
+		// Based on default settings on http://modernizr.com/download/
+		"options" : [
+			"setClasses",
+			"addTest",
+			"html5printshiv",
+			"load",
+			"testProp",
+			"fnBind"
+		],
 
-	// By default, source is uglified before saving
-	"uglify" : true,
+		// By default, source is uglified before saving
+		"uglify" : true,
 
-	// Define any tests you want to impliticly include
-	"tests" : [],
+		// Define any tests you want to impliticly include
+		"tests" : [],
 
-	// By default, will crawl your project for references to Modernizr tests
-	// Set to false to disable
-	"parseFiles" : true,
+		// By default, will crawl your project for references to Modernizr tests
+		// Set to false to disable
+		"crawl" : true,
 
-	// By default, this task will crawl all *.js, *.css, *.scss files.
-	"files" : [
-		"**/*.{js,css,scss}",
-		"!node_modules/**/*",
-		"!{Gruntfile,grunt}.js"
-	],
+		// By default, this task will crawl all *.js, *.css, *.scss files.
+		"files" : [
+			"**/*.{js,css,scss}",
+			"!node_modules/**/*",
+			"!{Gruntfile,grunt}.js"
+		],
 
-	// Have custom Modernizr tests? Add them here.
-	"customTests" : []
+		// Have custom Modernizr tests? Add them here.
+		"customTests" : []
+	}
+
 }
 ```
 
@@ -80,7 +83,7 @@ Path to the local build file you're using for development. This parameter is nee
 
 #### Optional
 
-###### **`outputFile`** (String)
+###### **`dest`** (String)
 Path to save the customized Modernizr build. It defaults to `lib/modernizr-custom.js`.
 
 ###### **`options`** (Object)
@@ -92,11 +95,11 @@ By default, the source is uglified before save. Set to false to disable.
 ###### **`tests`** (Array)
 Define any tests you want to impliticly include. Check out the full set of test options [here](#ADD_LINK_LATER).
 
-###### **`parseFiles`** (Boolean)
+###### **`crawl`** (Boolean)
 By default, this task will crawl your project for references to Modernizr tests. Set to false to disable.
 
 ###### **`files`** (Array)
-When `parseFiles` = `true`, this task will crawl all `*.js`, `*.css`, `*.scss` files. You can override this by defining a custom `files` array. The object supports all [minimatch](https://github.com/isaacs/minimatch) options.
+When `crawl` = `true`, this task will crawl all `*.js`, `*.css`, `*.scss` files. You can override this by defining a custom `files` array. The object supports all [minimatch](https://github.com/isaacs/minimatch) options.
 
 ###### **`customTests`** (Array)
 Have custom Modernizr tests? Add paths to their location here. The object supports all [minimatch](https://github.com/isaacs/minimatch) options.

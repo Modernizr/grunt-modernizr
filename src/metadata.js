@@ -11,7 +11,7 @@ module.exports = function (grunt, ModernizrPath) {
 	var promise = require("promised-io/promise");
 
 	return {
-		init : function (tests) {
+		init : function () {
 			var deferred = new promise.Deferred();
 			var Modernizr = require("Modernizr");
 

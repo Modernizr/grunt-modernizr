@@ -20,8 +20,8 @@ module.exports = function (grunt, ModernizrPath) {
 		writeCodeToFile : function (result, config) {
 			var code = config.uglify ? result.min : result.code;
 
-			grunt.log.ok(("Saved file to " + config.outputFile).grey);
-			return grunt.file.write(config.outputFile, code);
+			grunt.log.ok(("Saved file to " + config.dest).grey);
+			return grunt.file.write(config.dest, code);
 		},
 
 		init : function (tests) {
@@ -29,7 +29,7 @@ module.exports = function (grunt, ModernizrPath) {
 				_interval;
 
 			// Cache config 'cause grunt's weird context is going to overwrite it
-			var config = grunt.config("modernizr");
+			var config = grunt.util._.clone(grunt.config("modernizr"));
 
 			grunt.log.writeln();
 			grunt.log.write("Building Modernizr".bold.white);
@@ -50,9 +50,11 @@ module.exports = function (grunt, ModernizrPath) {
 				grunt.log.ok();
 				clearInterval(_interval);
 
-				// Write code to file
-				this.writeCodeToFile(result, config);
+				// Reset config
+				grunt.config("modernizr", config);
 
+				// Write code to file
+				this.builder.writeCodeToFile(result, config[this.target]);
 				return deferred.resolve();
 			}.bind(this));
 

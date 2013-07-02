@@ -1,5 +1,5 @@
 /* jshint node: true */
-module.exports = function (grunt, done, bust) {
+module.exports = function (grunt, target, done) {
 	"use strict";
 
 	// Dependencies
@@ -13,6 +13,7 @@ module.exports = function (grunt, done, bust) {
 	var ModernizrPath = path.join(__dirname, "..", "node_modules", "Modernizr");
 
 	var Customizr = function () {
+		this.target = target;
 		return this.init();
 	};
 
@@ -20,19 +21,19 @@ module.exports = function (grunt, done, bust) {
 		init : function () {
 
 			// Set default options
-			this.utils.setDefaults();
+			this.utils.setDefaults(this.target);
 
 			// Sequentially return promises
 			promise.seq([
 
 				// Use Modernizr to fetch metadata from each feature detect
-				this.metadata.init.bind(this.metadata),
+				this.metadata.init.bind(this),
 
 				// Look in the current project for references to tests
-				this.crawler.init.bind(this.crawler),
+				this.crawler.init.bind(this),
 
 				// Construct a list with matching positives, tell Modernizr to build a custom suite
-				this.builder.init.bind(this.builder),
+				this.builder.init.bind(this),
 
 				// Send done callback
 				this.finalize.bind(this)

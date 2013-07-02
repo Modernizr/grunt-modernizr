@@ -129,7 +129,7 @@ module.exports = function (grunt, ModernizrPath) {
 		},
 
 		init : function (metadata) {
-			var config = grunt.config("modernizr"),
+			var config = grunt.config("modernizr")[this.target],
 				_private = grunt.option("_modernizr.private");
 
 			var deferred = new promise.Deferred(),
@@ -160,8 +160,8 @@ module.exports = function (grunt, ModernizrPath) {
 				return path.relative(buildPath, fs.realpathSync(test));
 			}));
 
-			if (config.parseFiles !== true) {
-				tests = this.filterTests(tests);
+			if (config.crawl !== true) {
+				tests = this.crawler.filterTests(tests);
 
 				if (!_quiet) {
 					grunt.log.subhead("Skipping file traversal");
@@ -196,7 +196,7 @@ module.exports = function (grunt, ModernizrPath) {
 			}
 
 			// Exclude generated file
-			config.files.push("!" + config.outputFile);
+			config.files.push("!" + config.dest);
 
 			// And exclude all files in this current directory
 			config.files.push("!" + path.join(__dirname.replace(cwd + path.sep, ""), "**", "*"));
@@ -205,12 +205,12 @@ module.exports = function (grunt, ModernizrPath) {
 				filter: "isFile"
 			}, config.files);
 
-			this.readFilesAsync(files, metadata).then(function () {
-				for (var key in this.stringMatches) {
+			this.crawler.readFilesAsync(files, metadata).then(function () {
+				for (var key in this.crawler.stringMatches) {
 					tests.push(key);
 				}
 
-				tests = this.filterTests(tests);
+				tests = this.crawler.filterTests(tests);
 				return deferred.resolve(tests);
 			}.bind(this));
 

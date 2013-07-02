@@ -13,12 +13,11 @@ module.exports = function (grunt) {
 	// ==========================================================================
 
 	grunt.option("_modernizr.defaults", {
-
 		// Path to the build you're using for development.
 		"devFile" : "lib/modernizr-dev.js",
 
 		// Path to save out the built file
-		"outputFile" : "build/modernizr-custom.js",
+		"dest" : "build/modernizr-custom.js",
 
 		// Based on default settings on http://modernizr.com/download/
 		"options" : [
@@ -38,7 +37,7 @@ module.exports = function (grunt) {
 
 		// By default, will crawl your project for references to Modernizr tests
 		// Set to false to disable
-		"parseFiles" : true,
+		"crawl" : true,
 
 		// By default, this task will crawl all *.js, *.css, *.scss files.
 		"files" : [
@@ -55,7 +54,7 @@ module.exports = function (grunt) {
 	// TASKS
 	// ==========================================================================
 
-	grunt.registerTask("modernizr", "Build out a lean, mean Modernizr machine.", function (bust) {
+	grunt.registerMultiTask("modernizr", "Build out a lean, mean Modernizr machine.", function () {
 
 		// Require a config object
 		this.requiresConfig(this.name);
@@ -63,11 +62,14 @@ module.exports = function (grunt) {
 		// Async
 		var done = this.async();
 
+		// The target from our multi-task
+		var target = this.target || null;
+
 		// The magic
 		var Customizr = require("../src");
 
 		// Go!
-		return new Customizr(grunt, done, bust);
+		return new Customizr(grunt, target, done);
 	});
 
 	// ==========================================================================

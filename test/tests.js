@@ -21,7 +21,7 @@ describe("grunt-modernizr", function () {
 			stripColors: true,
 			verbose: true
 		})
-		.expect("Running \"modernizr\" task")
+		.expect("Running \"modernizr:dist\" (modernizr) task")
 		.expect("Looking for Modernizr references")
 
 		.expect(">> " + testsLength + " matches in")
