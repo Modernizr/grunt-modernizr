@@ -39,12 +39,6 @@ Add a `modernizr` config object to your grunt.js file:
 ```javascript
 modernizr: {
 
-	// [REQUIRED] Path to the build you're using for development.
-	"devFile" : "lib/modernizr-dev.js",
-
-	// [REQUIRED] Path to save out the built file.
-	"outputFile" : "build/modernizr-custom.js",
-
 	// Based on default settings on http://modernizr.com/download/
 	"extra" : {
 		"shiv" : true,
@@ -76,9 +70,24 @@ modernizr: {
 	// Set to false to disable.
 	"parseFiles" : true,
 
-	// When parseFiles = true, this task will crawl all *.js, *.css, *.scss files, except files that are in node_modules/.
-	// You can override this by defining a "files" array below.
-	// "files" : [],
+	// When parseFiles = true, this task will crawl all *.js, *.css, *.scss files, except files
+	// that are in node_modules/. You can override this by defining a "files" array below.
+	"files" : {
+
+		// [REQUIRED] Path to the build you're using for development.
+		dev: "!lib/modernizr-dev.js", // development file
+
+		// source files to include/exclude (defaults below)
+		src: [
+			"**/*.{js,css,scss}",
+			"!node_modules/**/*",
+			"!lib/cache/**/*"
+		],
+
+		// [REQUIRED] Path to save out the built file
+		dest: 'build/modernizr-custom.js'
+
+	},
 
 	// When parseFiles = true, matchCommunityTests = true will attempt to
 	// match user-contributed tests.
@@ -91,12 +100,12 @@ modernizr: {
 
 #### Required
 
-###### **`devFile`** (String)
+###### **`files.dev`** (String)
 Path to the local build file you're using for development. This parameter is needed so `grunt-modernizr` can skip your dev file when traversing your project to avoid triggering false positives. If you're using a remote file for development, set this option to `remote`.
 
 #### Optional
 
-###### **`outputFile`** (String)
+###### **`files.dest`** (String)
 Path to save the customized Modernizr build. It defaults to `lib/modernizr-custom.js`.
 
 ###### **`extra`** (Object)
@@ -114,8 +123,8 @@ Define any tests you want to impliticly include. Test names are lowercased, sepa
 ###### **`parseFiles`** (Boolean)
 By default, this task will crawl your project for references to Modernizr tests. Set to false to disable.
 
-###### **`files`** (Array)
-When `parseFiles` = `true`, this task will crawl all `*.js`, `*.css`, `*.scss` files. You can override this by defining a custom `files` array. The object supports all [minimatch](https://github.com/isaacs/minimatch) options.
+###### **`files.src`** (Array)
+When `parseFiles` = `true`, this task will crawl all `*.js`, `*.css`, `*.scss` files. You can override this by defining a custom `files.src` array. The object supports all [minimatch](https://github.com/isaacs/minimatch) options.
 
 ###### **`matchCommunityTests`** (Boolean)
 When `parseFiles` = `true`, setting this boolean to true will attempt to match user-contributed tests. Check out the full set of community tests [here](https://github.com/doctyper/grunt-modernizr/blob/master/lib/customappr.js#L2-111)
