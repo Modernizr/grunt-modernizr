@@ -93,7 +93,11 @@ module.exports = function (grunt, ModernizrPath) {
 
 			if (!_quiet && matchedTests && matchedTests.length) {
 				grunt.log.writeln();
-				grunt.log.ok(matchedTests.length.toString().green + " matches in " + file);
+
+				var testCount = matchedTests.length;
+				var testText = " match" + (testCount > 1 ? "es" : "") + " in ";
+
+				grunt.log.ok(testCount.toString().green + testText + file);
 				grunt.log.ok(matchedTests.sort().join(", ").grey);
 			}
 		},
