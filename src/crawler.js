@@ -99,14 +99,13 @@ module.exports = function (grunt, ModernizrPath) {
 		},
 
 		readFile : function (file, metadata, encoding, deferred) {
-			fs.readFile(file, encoding, function (err, data) {
+			var stream = fs.createReadStream(file);
 
-				if (err) {
-					grunt.fail.warn(err);
-				}
-
+			stream.on("data", function (data) {
 				this.parseData(file, data, metadata);
+			}.bind(this));
 
+			stream.on("end", function () {
 				if ((++this.currentFile) === this.totalFiles) {
 					return deferred.resolve();
 				}
