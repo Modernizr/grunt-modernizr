@@ -43,7 +43,7 @@
   },
   "scripts": {
     "test": "node test/generate-tests.js && node test/runner.js",
-    "postinstall": "cd node_modules/Modernizr && npm install && cd -"
+    "postinstall": "cd node_modules/Modernizr && npm install --production && cd -"
   },
   "keywords": [
     "gruntplugin",
