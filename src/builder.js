@@ -44,7 +44,7 @@ module.exports = function (grunt, ModernizrPath) {
 
 			Modernizr.build({
 				"feature-detects": tests,
-				"options": config.options,
+				"options": config[this.target].options,
 				"verbose": (_verbose || false)
 			}, function (result) {
 				grunt.log.ok();
