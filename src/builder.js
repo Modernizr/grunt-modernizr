@@ -37,14 +37,15 @@ module.exports = function (grunt, ModernizrPath) {
 			if (!_verbose) {
 				_interval = setInterval(function () {
 					grunt.log.write(".".grey);
-				}, 250);
+				}, 100);
 			}
 
 			var Modernizr = require("Modernizr");
 
 			Modernizr.build({
 				"feature-detects": tests,
-				"options": config.options,
+				"options": config[this.target].options,
+				"minify": config[this.target].uglify,
 				"verbose": (_verbose || false)
 			}, function (result) {
 				grunt.log.ok();
