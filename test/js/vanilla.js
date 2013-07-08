@@ -94,6 +94,7 @@ var tests = {
 		"filters": Modernizr.cssfilters,
 		"flexbox": Modernizr.flexbox,
 		"flexboxlegacy": Modernizr.flexboxlegacy,
+		"flexboxtweener": Modernizr.flexboxtweener,
 		"fontface": Modernizr.fontface,
 		"generatedcontent": Modernizr.generatedcontent,
 		"gradients": Modernizr.cssgradients,

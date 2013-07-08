@@ -95,6 +95,7 @@ define(["Modernizr"], function (M) {
 			"filters": M.cssfilters,
 			"flexbox": M.flexbox,
 			"flexboxlegacy": M.flexboxlegacy,
+			"flexboxtweener": M.flexboxtweener,
 			"fontface": M.fontface,
 			"generatedcontent": M.generatedcontent,
 			"gradients": M.cssgradients,
