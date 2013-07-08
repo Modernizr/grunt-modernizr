@@ -14,7 +14,7 @@ module.exports = function (grunt) {
 
 	grunt.option("_modernizr.defaults", {
 		// Path to the build you're using for development.
-		"devFile" : "lib/modernizr-dev.js",
+		"devFile" : false,
 
 		// Path to save out the built file
 		"dest" : "build/modernizr-custom.js",
