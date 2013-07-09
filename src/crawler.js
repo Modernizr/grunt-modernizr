@@ -93,20 +93,23 @@ module.exports = function (grunt, ModernizrPath) {
 
 			if (!_quiet && matchedTests && matchedTests.length) {
 				grunt.log.writeln();
-				grunt.log.ok(matchedTests.length.toString().green + " matches in " + file);
+
+				var testCount = matchedTests.length;
+				var testText = " match" + (testCount > 1 ? "es" : "") + " in ";
+
+				grunt.log.ok(testCount.toString().green + testText + file);
 				grunt.log.ok(matchedTests.sort().join(", ").grey);
 			}
 		},
 
 		readFile : function (file, metadata, encoding, deferred) {
-			fs.readFile(file, encoding, function (err, data) {
+			var stream = fs.createReadStream(file);
 
-				if (err) {
-					grunt.fail.warn(err);
-				}
-
+			stream.on("data", function (data) {
 				this.parseData(file, data, metadata);
+			}.bind(this));
 
+			stream.on("end", function () {
 				if ((++this.currentFile) === this.totalFiles) {
 					return deferred.resolve();
 				}
