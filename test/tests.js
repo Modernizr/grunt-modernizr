@@ -41,10 +41,11 @@ describe("grunt-modernizr", function () {
 
 	describe("build should contain all project test references", function () {
 		var testArray = tests.split(", ");
-		var contents = fs.readFileSync(path.join(cwd, "build", "modernizr-custom.js"), "utf8");
+		var contents;
 
 		testArray.forEach(function (test) {
 			it(test, function (done) {
+				contents = contents || fs.readFileSync(path.join(cwd, "build", "modernizr-custom.js"), "utf8");
 				expect(contents.indexOf(test)).to.not.equal(-1);
 				done();
 			});
