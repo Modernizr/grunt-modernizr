@@ -39,7 +39,7 @@ describe("grunt-modernizr", function () {
 		.run(done);
 	});
 
-	describe("build should contain all project test references", function () {
+	describe("should include all tests", function () {
 		var testArray = tests.split(", ");
 		var contents;
 
