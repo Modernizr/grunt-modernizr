@@ -4,7 +4,7 @@ var fs = require("fs");
 var cwd = process.cwd();
 var path = require("path");
 
-var metadata = require(path.join(cwd, "node_modules", "Modernizr", "lib", "generate-meta"));
+var metadata = require("Modernizr").metadata;
 
 var props = metadata.map(function (data) {
 	return {
