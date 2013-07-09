@@ -22,7 +22,7 @@ module.exports = function (grunt, ModernizrPath) {
 
 				mappings = mappings.map(function (map) {
 					var cleanname = map.name.replace(modRegExp, ""),
-						testpath = map.path.replace(modRegExp, "").replace("feature-detects", "test");
+						testpath = map.amdPath.replace(modRegExp, "").replace("feature-detects", "test");
 
 					return {
 						"path": testpath.replace(".js", ""),
