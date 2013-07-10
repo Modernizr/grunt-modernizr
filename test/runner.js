@@ -11,7 +11,7 @@ mocha.addFile("test/tests.js");
 
 var runner = mocha.run();
 
-// runner.on("fail", function (test, err) {
-	// process.stderr.write("         " + err.toString() + "\n\n");
-	// process.exit(1);
-// });
+runner.on("fail", function (test, err) {
+	process.stderr.write("         " + err.toString() + "\n\n");
+	process.exit(1);
+});
