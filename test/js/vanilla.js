@@ -90,7 +90,7 @@ var tests = {
 		"columns": Modernizr.csscolumns,
 		"cubicbezierrange": Modernizr.cubicbezierrange,
 		"displayrunin": Modernizr["display-runin"],
-		"displaytable": Modernizr["display-table"],
+		"displaytable": Modernizr.displaytable,
 		"filters": Modernizr.cssfilters,
 		"flexbox": Modernizr.flexbox,
 		"flexboxlegacy": Modernizr.flexboxlegacy,

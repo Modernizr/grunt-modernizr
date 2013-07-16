@@ -91,7 +91,7 @@ define(["Modernizr"], function (M) {
 			"columns": M.csscolumns,
 			"cubicbezierrange": M.cubicbezierrange,
 			"displayrunin": M["display-runin"],
-			"displaytable": M["display-table"],
+			"displaytable": M.displaytable,
 			"filters": M.cssfilters,
 			"flexbox": M.flexbox,
 			"flexboxlegacy": M.flexboxlegacy,
