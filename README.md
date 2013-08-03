@@ -69,7 +69,7 @@ modernizr: {
 	// By default, source is uglified before saving
 	"uglify" : true,
 
-	// Define any tests you want to impliticly include.
+	// Define any tests you want to implicitly include.
 	"tests" : [],
 
 	// By default, this task will crawl your project for references to Modernizr tests.
@@ -109,7 +109,7 @@ An object of extensibility options. Check the section on [modernizr.com/download
 By default, the source is uglified before save. Set to false to disable.
 
 ###### **`tests`** (Array)
-Define any tests you want to impliticly include. Test names are lowercased, separated by underscores (if needed). Check out the full set of test options [here](https://github.com/Modernizr/modernizr.com/blob/gh-pages/i/js/modulizr.js#L15-157).
+Define any tests you want to implicitly include. Test names are lowercased, separated by underscores (if needed). Check out the full set of test options [here](https://github.com/Modernizr/modernizr.com/blob/gh-pages/i/js/modulizr.js#L15-157).
 
 ###### **`parseFiles`** (Boolean)
 By default, this task will crawl your project for references to Modernizr tests. Set to false to disable.
