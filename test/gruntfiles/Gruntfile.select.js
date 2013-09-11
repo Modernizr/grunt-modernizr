@@ -5,7 +5,6 @@ module.exports = function (grunt) {
 
 	grunt.loadNpmTasks("grunt-contrib-jshint");
 	grunt.loadNpmTasks("grunt-contrib-watch");
-	grunt.loadNpmTasks("grunt-contrib-clean");
 
 	// Project configuration.
 	grunt.initConfig({
@@ -14,7 +13,6 @@ module.exports = function (grunt) {
 				path.join("test", "**", "*.js")
 			]
 		},
-		clean: ["build"],
 		watch: {
 			files: "<%= jshint.files %>",
 			tasks: "default"
@@ -28,7 +26,16 @@ module.exports = function (grunt) {
 			]
 		},
 		modernizr: {
-			dist: {}
+			dist: {
+        "dest": "build/modernizr-select.js",
+        "tests": [
+          "webintents",
+          "siblinggeneral",
+          "svgclippaths"
+        ],
+        "crawl": false,
+        "uglify": false
+      }
 		}
 	});
 

@@ -61,3 +61,75 @@ describe("grunt-modernizr", function () {
 		});
 	});
 });
+
+describe("custom builds", function () {
+	var Gruntfile = path.join(cwd, "Gruntfile.js");
+
+	var pristine = fs.readFileSync(Gruntfile);
+	var gruntfiles = path.join(cwd, "test", "gruntfiles");
+
+	it("should only build declared tests", function (done) {
+		var override = fs.readFileSync(path.join(gruntfiles, "Gruntfile.select.js"));
+		fs.writeFileSync(Gruntfile, override);
+
+		nexpect.spawn("grunt", ["modernizr"], {
+			stripColors: true,
+			verbose: true
+		})
+		.expect("Running \"modernizr:dist\" (modernizr) task")
+
+		.expect(">> Implicitly including these tests:")
+		.expect(">> siblinggeneral, svgclippaths, webintents")
+
+		.expect("Skipping file traversal")
+
+		.wait("Building Modernizr").wait("OK")
+		.expect("Saved file to build/modernizr-select.js")
+
+		.run(done);
+	});
+
+	describe("should only contain references to bundled tests", function () {
+
+		var testArray = [
+			"webintents",
+			"siblinggeneral",
+			"svgclippaths"
+		];
+
+		var testsLength = testArray.length;
+		var tests = testArray.join(" ");
+
+		var contents;
+
+		testArray.forEach(function (test) {
+			it(test, function (done) {
+				contents = contents || fs.readFileSync(path.join(cwd, "build", "modernizr-select.js"), "utf8");
+				expect(contents.indexOf(test)).to.not.equal(-1);
+				done();
+			});
+		});
+
+		describe("should not contain these references", function (done) {
+			var testArray = [
+				"videoloop",
+				"cssremunit",
+				"customprotocolhandler",
+				"boxshadow",
+				"webgl"
+			];
+
+			testArray.forEach(function (test) {
+				it(test, function (done) {
+					contents = contents || fs.readFileSync(path.join(cwd, "build", "modernizr-select.js"), "utf8");
+					expect(contents.indexOf(test)).to.equal(-1);
+					done();
+				});
+			});
+		});
+	});
+
+	after(function () {
+		fs.writeFileSync(Gruntfile, pristine);
+	});
+});
