@@ -57,7 +57,6 @@ define(["Modernizr"], function (M) {
 			"download": M.adownload
 		},
 		"audio": {
-			"audiodata": M.audiodata,
 			"loop": M.audioloop,
 			"preload": M.audiopreload,
 			"webaudio": M.webaudio
@@ -74,6 +73,7 @@ define(["Modernizr"], function (M) {
 		},
 		"css": {
 			"animations": M.cssanimations,
+			"backgroundcliptext": M.backgroundcliptext,
 			"backgroundposition-shorthand": M.bgpositionshorthand,
 			"backgroundposition-xy": M.bgpositionxy,
 			"backgroundrepeat": [
@@ -92,6 +92,7 @@ define(["Modernizr"], function (M) {
 			"cubicbezierrange": M.cubicbezierrange,
 			"displayrunin": M["display-runin"],
 			"displaytable": M.displaytable,
+			"ellipsis": M.ellipsis,
 			"filters": M.cssfilters,
 			"flexbox": M.flexbox,
 			"flexboxlegacy": M.flexboxlegacy,
@@ -145,6 +146,7 @@ define(["Modernizr"], function (M) {
 				M["createelement-attrs"]
 			],
 			"dataset": M.dataset,
+			"documentfragment": M.documentfragment,
 			"microdata": M.microdata
 		},
 		"elem": {
@@ -210,6 +212,12 @@ define(["Modernizr"], function (M) {
 		"network": {
 			"connection": M.lowbandwidth,
 			"eventsource": M.eventsource,
+			"xhr-responsetype-arraybuffer": M.xhrresponsetypearraybuffer,
+			"xhr-responsetype-blob": M.xhrresponsetypeblob,
+			"xhr-responsetype-document": M.xhrresponsetypedocument,
+			"xhr-responsetype-json": M.xhrresponsetypejson,
+			"xhr-responsetype-text": M.xhrresponsetypetext,
+			"xhr-responsetype": M.xhrresponsetype,
 			"xhr2": M.xhr2
 		},
 		"script": {

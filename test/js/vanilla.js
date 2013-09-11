@@ -56,7 +56,6 @@ var tests = {
 		"download": Modernizr.adownload
 	},
 	"audio": {
-		"audiodata": Modernizr.audiodata,
 		"loop": Modernizr.audioloop,
 		"preload": Modernizr.audiopreload,
 		"webaudio": Modernizr.webaudio
@@ -73,6 +72,7 @@ var tests = {
 	},
 	"css": {
 		"animations": Modernizr.cssanimations,
+		"backgroundcliptext": Modernizr.backgroundcliptext,
 		"backgroundposition-shorthand": Modernizr.bgpositionshorthand,
 		"backgroundposition-xy": Modernizr.bgpositionxy,
 		"backgroundrepeat": [
@@ -91,6 +91,7 @@ var tests = {
 		"cubicbezierrange": Modernizr.cubicbezierrange,
 		"displayrunin": Modernizr["display-runin"],
 		"displaytable": Modernizr.displaytable,
+		"ellipsis": Modernizr.ellipsis,
 		"filters": Modernizr.cssfilters,
 		"flexbox": Modernizr.flexbox,
 		"flexboxlegacy": Modernizr.flexboxlegacy,
@@ -144,6 +145,7 @@ var tests = {
 			Modernizr["createelement-attrs"]
 		],
 		"dataset": Modernizr.dataset,
+		"documentfragment": Modernizr.documentfragment,
 		"microdata": Modernizr.microdata
 	},
 	"elem": {
@@ -209,6 +211,12 @@ var tests = {
 	"network": {
 		"connection": Modernizr.lowbandwidth,
 		"eventsource": Modernizr.eventsource,
+		"xhr-responsetype-arraybuffer": Modernizr.xhrresponsetypearraybuffer,
+		"xhr-responsetype-blob": Modernizr.xhrresponsetypeblob,
+		"xhr-responsetype-document": Modernizr.xhrresponsetypedocument,
+		"xhr-responsetype-json": Modernizr.xhrresponsetypejson,
+		"xhr-responsetype-text": Modernizr.xhrresponsetypetext,
+		"xhr-responsetype": Modernizr.xhrresponsetype,
 		"xhr2": Modernizr.xhr2
 	},
 	"script": {
