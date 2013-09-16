@@ -1,6 +1,6 @@
 # grunt-modernizr
 
-[![Build Status](https://travis-ci.org/doctyper/grunt-modernizr.png?branch=master,develop)](https://travis-ci.org/doctyper/grunt-modernizr)
+[![Build Status](https://travis-ci.org/Modernizr/grunt-modernizr.png?branch=master,develop)](https://travis-ci.org/Modernizr/grunt-modernizr)
 
 ##### *tl;dr:* `grunt-modernizr` sifts through your project files, gathers up your references to Modernizr tests and outputs a lean, mean Modernizr machine.
 
@@ -118,7 +118,7 @@ By default, this task will crawl your project for references to Modernizr tests.
 When `parseFiles` = `true`, this task will crawl all `*.js`, `*.css`, `*.scss` files. You can override this by defining a custom `files` array. The object supports all [minimatch](https://github.com/isaacs/minimatch) options.
 
 ###### **`matchCommunityTests`** (Boolean)
-When `parseFiles` = `true`, setting this boolean to true will attempt to match user-contributed tests. Check out the full set of community tests [here](https://github.com/doctyper/grunt-modernizr/blob/master/lib/customappr.js#L2-111)
+When `parseFiles` = `true`, setting this boolean to true will attempt to match user-contributed tests. Check out the full set of community tests [here](https://github.com/Modernizr/grunt-modernizr/blob/master/lib/customappr.js#L2-111)
 
 ###### **`customTests`** (Array)
 Have custom Modernizr tests? Add paths to their location here. The object supports all [minimatch](https://github.com/isaacs/minimatch) options.
