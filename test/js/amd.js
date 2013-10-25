@@ -1,3 +1,5 @@
+/*global define*/
+
 define(["Modernizr"], function (M) {
 	var tests = {
 		"canvastext" : M.canvastext,
