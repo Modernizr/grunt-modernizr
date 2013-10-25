@@ -26,10 +26,8 @@ module.exports = function(grunt) {
         boss: true,
         eqnull: true,
         node: true,
-        es5: true
+        globals: {}
       },
-      globals: {},
-
       files: [
         'Gruntfile.js',
         'tasks/**/*.js',
