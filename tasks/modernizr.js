@@ -55,7 +55,8 @@ module.exports = function (grunt) {
 		"files" : [
 			"**/*.{js,css,scss}",
 			"!node_modules/**/*",
-			"!lib/cache/**/*"
+			"!lib/cache/**/*",
+			"!lib/gruntifier.js"
 		],
 
 		// Set to true to attempt to match user-contributed tests
