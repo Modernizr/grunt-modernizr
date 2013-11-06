@@ -35,14 +35,26 @@ module.exports = function (grunt, ModernizrPath) {
 		},
 
 		findStringMatches : function (type, file, data, testpath) {
-			var match, regExp,
+			var match, regExp, prefix,
+				config = grunt.task.current.data,
 				basename = path.basename(file);
 
-			if ((/\.js$/).test(basename) && !(/Modernizr/im).test(data)) {
-				return;
+			// JS files
+			if ((/\.js$/).test(basename)) {
+				// Don't bother if we don't find a reference to Modernizr in the file...
+				if (!(/Modernizr/im).test(data)) {
+					return;
+				}
+				// Match usage such as: Modernizr.classname --or-- Modernizr['classname']
+				regExp = new RegExp("(?:\\.|\\[(?:\"|'))(" + type + ")(?![\\w-])(?:(?:\"|')\\])?", "gm");
 			}
-
-			regExp = new RegExp("(?:\\.|\\[(?:\"|'))(?:no-)?(" + type + ")(?:(?:\"|')\\])?", "gm");
+			// If it's not JS, assume it's CSS (or similar, e.g.: LESS, SCSS) files
+			else {
+				prefix = config.cssprefix || '';
+				// When no prefix, match usage such as: .classname --or-- .no-classname
+				// When prefix set, match usage such as: .<prefix>classname --or-- .<prefix>no-classname
+				regExp = new RegExp("(?:\\." + prefix + ")(?:no-)?(" + type + ")(?![\\w-])", "gm");
+			}
 			match = (regExp).exec(data);
 
 			this.matchedTestsInFile[file] = this.matchedTestsInFile[file] || [];
