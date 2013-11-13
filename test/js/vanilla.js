@@ -54,3 +54,9 @@ var tests = {
 	"websqldatabase": Modernizr.websqldatabase,
 	"webworkers": Modernizr.webworkers
 };
+
+var community = {
+	"contextmenu": Modernizr.contextmenu,
+	"emoji": Modernizr["emoji"],
+	"json": Modernizr.json
+};

@@ -55,5 +55,11 @@ define(["Modernizr"], function (M) {
 		"webworkers": M.webworkers
 	};
 
+	var community = {
+		"contextmenu": M.contextmenu,
+		"emoji": M["emoji"],
+		"json": M.json
+	};
+
 	return M;
 });
