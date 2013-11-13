@@ -1,3 +1,5 @@
+/*global define*/
+
 define(["Modernizr"], function (M) {
 	var tests = {
 		"canvastext" : M.canvastext,
@@ -51,6 +53,12 @@ define(["Modernizr"], function (M) {
 		"webgl": M.webgl,
 		"websqldatabase": M.websqldatabase,
 		"webworkers": M.webworkers
+	};
+
+	var community = {
+		"contextmenu": M.contextmenu,
+		"emoji": M["emoji"],
+		"json": M.json
 	};
 
 	return M;

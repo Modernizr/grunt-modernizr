@@ -93,6 +93,7 @@ module.exports = function (grunt) {
 		"url" : {
 			"github" : "https://github.com/doctyper/grunt-modernizr",
 			"domain" : "http://modernizr.com",
+			"raw" : "https://raw.github.com",
 			"modulizr" : "https://github.com/Modernizr/modernizr.com/blob/gh-pages/i/js/modulizr.js#L15-157"
 		},
 
@@ -158,7 +159,7 @@ module.exports = function (grunt) {
 			"modernizr" : "downloads/modernizr-latest.js",
 			"printshiv" : "i/js/html5shiv-printshiv-3.6.js",
 			"load" : "i/js/modernizr.load.1.5.4.js",
-			"community" : "i/js/modernizr-git/feature-detects/%s.js"
+			"community" : "Modernizr/Modernizr/87c723720a48254ae37ffd56829e32a96f5c5496/feature-detects/%s.js"
 		}
 	});
 

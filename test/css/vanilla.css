@@ -53,3 +53,9 @@
 .webworkers {
 	background: red;
 }
+
+.contextmenu,
+.emoji,
+.no-json {
+	background: blue;
+}

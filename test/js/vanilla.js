@@ -1,3 +1,4 @@
+/*jshint browser:true*/
 var Modernizr = window.Modernizr;
 
 var tests = {
@@ -52,4 +53,10 @@ var tests = {
 	"webgl": Modernizr.webgl,
 	"websqldatabase": Modernizr.websqldatabase,
 	"webworkers": Modernizr.webworkers
+};
+
+var community = {
+	"contextmenu": Modernizr.contextmenu,
+	"emoji": Modernizr["emoji"],
+	"json": Modernizr.json
 };
