@@ -43,7 +43,7 @@ module.exports = function (grunt) {
 		"files" : [
 			"**/*.{js,css,scss}",
 			"!node_modules/**/*",
-			"!lib/cache/**/*",
+			"!lib/**/*",
 			"!{Gruntfile,grunt}.js"
 		],
 
