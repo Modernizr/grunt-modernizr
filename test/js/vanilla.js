@@ -48,6 +48,7 @@ var tests = {
 		"userdata": Modernizr.userdata,
 		"vibration": Modernizr.vibrate,
 		"video": Modernizr.video,
+		"vml": Modernizr.vml,
 		"web-intents": Modernizr.webintents,
 		"webgl": Modernizr.webgl,
 		"websockets": Modernizr.websockets
@@ -69,6 +70,9 @@ var tests = {
 			Modernizr["todataurlpng"],
 			Modernizr["todataurlwebp"]
 		]
+	},
+	"crypto": {
+		"getrandomvalues": Modernizr.getrandomvalues
 	},
 	"css": {
 		"animations": Modernizr.cssanimations,
@@ -130,6 +134,7 @@ var tests = {
 		"textshadow": Modernizr.textshadow,
 		"transforms": Modernizr.csstransforms,
 		"transforms3d": Modernizr.csstransforms3d,
+		"transformstylepreserve3d": Modernizr.preserve3d,
 		"transitions": Modernizr.csstransitions,
 		"userselect": Modernizr.userselect,
 		"vhunit": Modernizr.cssvhunit,
@@ -179,7 +184,8 @@ var tests = {
 		"deviceorientation-motion": [
 			Modernizr["devicemotion"],
 			Modernizr["deviceorientation"]
-		]
+		],
+		"oninput": Modernizr.oninput
 	},
 	"file": {
 		"api": Modernizr.filereader,
@@ -188,6 +194,7 @@ var tests = {
 	"forms": {
 		"capture": Modernizr.capture,
 		"fileinput": Modernizr.fileinput,
+		"fileinputdirectory": Modernizr.directory,
 		"formattribute": Modernizr.formattribute,
 		"inputnumber-l10n": Modernizr.localizednumber,
 		"placeholder": Modernizr.placeholder,
@@ -222,6 +229,10 @@ var tests = {
 	"script": {
 		"async": Modernizr.scriptasync,
 		"defer": Modernizr.scriptdefer
+	},
+	"speech": {
+		"speech-recognition": Modernizr.speechrecognition,
+		"speech-synthesis": Modernizr.speechsynthesis
 	},
 	"storage": {
 		"localstorage": Modernizr.localstorage,

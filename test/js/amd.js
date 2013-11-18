@@ -1,3 +1,4 @@
+/* jshint sub: true */
 /* global define */
 
 define(["Modernizr"], function (M) {
@@ -48,6 +49,7 @@ define(["Modernizr"], function (M) {
 			"userdata": M.userdata,
 			"vibration": M.vibrate,
 			"video": M.video,
+			"vml": M.vml,
 			"web-intents": M.webintents,
 			"webgl": M.webgl,
 			"websockets": M.websockets
@@ -69,6 +71,9 @@ define(["Modernizr"], function (M) {
 				M["todataurlpng"],
 				M["todataurlwebp"]
 			]
+		},
+		"crypto": {
+			"getrandomvalues": M.getrandomvalues
 		},
 		"css": {
 			"animations": M.cssanimations,
@@ -130,6 +135,7 @@ define(["Modernizr"], function (M) {
 			"textshadow": M.textshadow,
 			"transforms": M.csstransforms,
 			"transforms3d": M.csstransforms3d,
+			"transformstylepreserve3d": M.preserve3d,
 			"transitions": M.csstransitions,
 			"userselect": M.userselect,
 			"vhunit": M.cssvhunit,
@@ -179,7 +185,8 @@ define(["Modernizr"], function (M) {
 			"deviceorientation-motion": [
 				M["devicemotion"],
 				M["deviceorientation"]
-			]
+			],
+			"oninput": M.oninput
 		},
 		"file": {
 			"api": M.filereader,
@@ -188,6 +195,7 @@ define(["Modernizr"], function (M) {
 		"forms": {
 			"capture": M.capture,
 			"fileinput": M.fileinput,
+			"fileinputdirectory": M.directory,
 			"formattribute": M.formattribute,
 			"inputnumber-l10n": M.localizednumber,
 			"placeholder": M.placeholder,
@@ -222,6 +230,10 @@ define(["Modernizr"], function (M) {
 		"script": {
 			"async": M.scriptasync,
 			"defer": M.scriptdefer
+		},
+		"speech": {
+			"speech-recognition": M.speechrecognition,
+			"speech-synthesis": M.speechsynthesis
 		},
 		"storage": {
 			"localstorage": M.localstorage,
@@ -265,12 +277,6 @@ define(["Modernizr"], function (M) {
 			"sharedworkers": M.sharedworkers,
 			"webworkers": M.webworkers
 		}
-	};
-
-	var community = {
-		"contextmenu": M.contextmenu,
-		"emoji": M["emoji"],
-		"json": M.json
 	};
 
 	return M;
