@@ -41,14 +41,9 @@
 	"nomen": false,
 	"onevar": false,
 	"plusplus": false,
-	"sub": false,
+	"sub": true,
 	"trailing": true,
 	"white": true,
 	"indent": 4,
-	"predef": [
-		"describe",
-		"it",
-		"before",
-		"after"
-	]
+	"globals": {}
 }

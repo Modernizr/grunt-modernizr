@@ -1,4 +1,3 @@
-/* jshint sub: true */
 /* global define */
 
 define(["Modernizr"], function (M) {
@@ -266,6 +265,12 @@ define(["Modernizr"], function (M) {
 			"sharedworkers": M.sharedworkers,
 			"webworkers": M.webworkers
 		}
+	};
+
+	var community = {
+		"contextmenu": M.contextmenu,
+		"emoji": M["emoji"],
+		"json": M.json
 	};
 
 	return M;
