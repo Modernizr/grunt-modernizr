@@ -30,7 +30,6 @@ describe("grunt-modernizr", function () {
 		.expect(">> testallprops")
 		.expect(">> prefixed")
 		.expect(">> mq")
-		.expect(">> smil")
 		.expect(">> testbundle")
 		.expect(">> canvas")
 		.expect(">> webgl")
