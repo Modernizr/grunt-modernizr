@@ -47,12 +47,12 @@ module.exports = function (grunt, ModernizrPath) {
 			}
 
 			grunt.log.writeln();
-			grunt.log.write("Building Modernizr".bold.white);
+			grunt.log.write("Building your customized Modernizr".bold.white);
 
 			if (!_verbose) {
 				_interval = setInterval(function () {
 					grunt.log.write(".".grey);
-				}, 100);
+				}, 200);
 			}
 
 			var Modernizr = require("Modernizr");
