@@ -42,8 +42,10 @@ describe("grunt-modernizr", function () {
 		.expect(">> " + testsLength + " matches in")
 		.expect(">> " + tests)
 
-		.wait("Building Modernizr").wait("OK")
-		.expect("Saved file to build/modernizr-custom.js")
+		.expect(">> Ready to build using these settings:")
+
+		.wait("Building your customized Modernizr").wait("OK")
+		.expect(">> Success! Saved file to build/modernizr-custom.js")
 
 		.run(done);
 	});
@@ -83,8 +85,8 @@ describe("custom builds", function () {
 
 		.expect("Skipping file traversal")
 
-		.wait("Building Modernizr").wait("OK")
-		.expect("Saved file to build/modernizr-select.js")
+		.wait("Building your customized Modernizr").wait("OK")
+		.expect(">> Success! Saved file to build/modernizr-select.js")
 
 		.run(done);
 	});

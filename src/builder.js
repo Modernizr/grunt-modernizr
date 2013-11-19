@@ -20,7 +20,7 @@ module.exports = function (grunt, ModernizrPath) {
 		writeCodeToFile : function (result, config) {
 			var code = config.uglify ? result.min : result.code;
 
-			grunt.log.ok(("Saved file to " + config.dest).grey);
+			grunt.log.ok(("Success! Saved file to " + config.dest).grey);
 			return grunt.file.write(config.dest, code);
 		},
 
@@ -30,6 +30,21 @@ module.exports = function (grunt, ModernizrPath) {
 
 			// Cache config 'cause grunt's weird context is going to overwrite it
 			var config = grunt.util._.clone(grunt.config("modernizr"));
+
+			// Store options
+			var options = config[this.target].options;
+
+			// Echo settings
+			grunt.log.writeln();
+			grunt.log.ok("Ready to build using these settings:");
+			grunt.log.ok(options.join(", ").grey);
+
+			// Check if we are minifying this build
+			var minify = config[this.target].uglify;
+
+			if (minify) {
+				grunt.log.ok("Your file will be minified with UglifyJS".grey);
+			}
 
 			grunt.log.writeln();
 			grunt.log.write("Building Modernizr".bold.white);
@@ -44,8 +59,8 @@ module.exports = function (grunt, ModernizrPath) {
 
 			Modernizr.build({
 				"feature-detects": tests,
-				"options": config[this.target].options,
-				"minify": config[this.target].uglify,
+				"options": options,
+				"minify": minify,
 				"verbose": (_verbose || false)
 			}, function (result) {
 				grunt.log.ok();
