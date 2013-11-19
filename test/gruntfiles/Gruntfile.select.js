@@ -27,15 +27,15 @@ module.exports = function (grunt) {
 		},
 		modernizr: {
 			dist: {
-        "dest": "build/modernizr-select.js",
-        "tests": [
-          "webintents",
-          "siblinggeneral",
-          "svgclippaths"
-        ],
-        "crawl": false,
-        "uglify": false
-      }
+				"dest": "build/modernizr-select.js",
+				"tests": [
+					"webintents",
+					"siblinggeneral",
+					"svgclippaths"
+				],
+				"crawl": false,
+				"uglify": false
+			}
 		}
 	});
 
