@@ -34,7 +34,9 @@ module.exports = function(grunt) {
         'test/**/*.js'
       ]
     },
-    modernizr: {}
+    modernizr: {
+      dist: {}
+    }
   });
 
   // Load local tasks.

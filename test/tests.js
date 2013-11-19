@@ -17,7 +17,7 @@ describe("grunt-modernizr", function () {
 			stripColors: true,
 			verbose: true
 		})
-		.expect('Running "modernizr" task')
+		.expect('Running "modernizr:dist" task')
 
 		.expect("Enabled Extras")
 		.expect(">> shiv")
