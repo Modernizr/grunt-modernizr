@@ -28,14 +28,12 @@ module.exports = function (grunt) {
 		},
 		modernizr: {
 			dist: {
-				"dest": "build/modernizr-select.js",
-				"tests": [
-					"webintents",
-					"siblinggeneral",
-					"svg"
-				],
-				"crawl": false,
-				"uglify": false
+				"cssprefix": "prefixed-",
+				"dest": "build/modernizr-prefixed.js",
+				"uglify": false,
+				"files": [
+					"test/css/*.css"
+				]
 			}
 		}
 	});

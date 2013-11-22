@@ -91,7 +91,20 @@ string = string.replace(/\.((?:[\w]+)?\-(?:[\w]+))/g, "[\"$1\"]");
 	var css = [
 		cssProps.join(",\n") + " {",
 		"\tbackground: red;",
-		"}"
+		"}\n\n"
+	].join("\n");
+
+	// Take a few classes and add a prefix for testing.
+	var prefixed = [
+		".prefixed-cors",
+		".prefixed-input",
+		".prefixed-no-smil"
+	];
+
+	css += [
+		prefixed.join(",\n") + " {",
+		"\tbackground: blue;",
+		"}\n"
 	].join("\n");
 
 	fs.writeFileSync(path.join(cwd, "test", "css", "vanilla.css"), css);

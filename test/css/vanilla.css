@@ -189,3 +189,9 @@
 .webworkers {
 	background: red;
 }
+
+.prefixed-cors,
+.prefixed-input,
+.prefixed-no-smil {
+	background: blue;
+}
