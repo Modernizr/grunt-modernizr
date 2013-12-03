@@ -54,6 +54,12 @@ modernizr: {
 		"cssclasses" : true
 	},
 
+	// Based on non-core detects settings on http://modernizr.com/download/
+	"community" : {
+		"css_vhunit" : true,
+		"contentsecuritypolicy": true
+	},
+
 	// Based on default settings on http://modernizr.com/download/
 	"extensibility" : {
 		"addtest" : false,
@@ -101,6 +107,9 @@ Path to save the customized Modernizr build. It defaults to `lib/modernizr-custo
 
 ###### **`extra`** (Object)
 An object of extra configuration options. Check the extra section on [modernizr.com/download](http://modernizr.com/download/) for complete options. Defaults are as they appear on the official site.
+
+###### **`community`** (Object)
+An object of community addons configuration options. Check the non-core detects section on [modernizr.com/download](http://modernizr.com/download/) for complete options.
 
 ###### **`extensibility`** (Object)
 An object of extensibility options. Check the section on [modernizr.com/download](http://modernizr.com/download/) for complete options. Defaults are as they appear on the official site.
