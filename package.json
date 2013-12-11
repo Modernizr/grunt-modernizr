@@ -31,8 +31,8 @@
   "dependencies": {
     "promised-io": "~0.3.4",
     "colors": "~0.6.0-1",
-    "Modernizr": "https://github.com/Modernizr/Modernizr/tarball/master",
-    "deep-equal": "~0.1.0"
+    "deep-equal": "~0.1.0",
+    "Modernizr": "https://github.com/Modernizr/Modernizr/tarball/master"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
