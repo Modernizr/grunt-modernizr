@@ -41,7 +41,13 @@ module.exports = function (grunt, target, done) {
 			]);
 		},
 
-		finalize : function () {
+		finalize : function (options) {
+			// Store the current options.
+			// If a subsequent build matches the options,
+			// we can assume the cached version will do fine.
+			this.utils.saveOptions(options);
+
+			// All done.
 			return done();
 		}
 	};

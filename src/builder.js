@@ -4,6 +4,7 @@ module.exports = function (grunt, ModernizrPath) {
 
 	// Config object
 	var _quiet = grunt.option("quiet"),
+		_force = grunt.option("force"),
 		_verbose = grunt.option("verbose");
 
 	// Dependencies
@@ -31,16 +32,46 @@ module.exports = function (grunt, ModernizrPath) {
 			// Cache config 'cause grunt's weird context is going to overwrite it
 			var config = grunt.util._.clone(grunt.config("modernizr"));
 
+			// Store the current config
+			var currentConfig = config[this.target];
+
+			// Check if we are minifying this build
+			var minify = currentConfig.uglify;
+
 			// Store options
-			var options = config[this.target].options;
+			var options = currentConfig.options;
+
+			var modernizrOptions = {
+				"feature-detects": tests,
+				"options": options,
+				"minify": minify,
+				"dest": currentConfig.dest
+			};
+
+			// Perform a series of checks to validify cache
+			var useCachedVersion = false;
+
+			if (!_force) {
+				useCachedVersion = this.utils.checkCacheValidity(currentConfig, modernizrOptions);
+			}
+
+			if (useCachedVersion) {
+				grunt.log.writeln();
+
+				grunt.log.writeln("No config or test changes detected".bold.white);
+				grunt.log.ok("grunt-modernizr has bypassed the build step. Run `grunt modernizr --force` to override.".grey);
+				grunt.log.ok(("Your current file can be found in " + currentConfig.dest).grey);
+
+				return deferred.resolve();
+			}
+
+			// Set verbosity
+			modernizrOptions.verbose = (_verbose || false);
 
 			// Echo settings
 			grunt.log.writeln();
 			grunt.log.ok("Ready to build using these settings:");
 			grunt.log.ok(options.join(", ").grey);
-
-			// Check if we are minifying this build
-			var minify = config[this.target].uglify;
 
 			if (minify) {
 				grunt.log.ok("Your file will be minified with UglifyJS".grey);
@@ -57,12 +88,7 @@ module.exports = function (grunt, ModernizrPath) {
 
 			var Modernizr = require("Modernizr");
 
-			Modernizr.build({
-				"feature-detects": tests,
-				"options": options,
-				"minify": minify,
-				"verbose": (_verbose || false)
-			}, function (result) {
+			Modernizr.build(modernizrOptions, function (result) {
 				grunt.log.ok();
 				clearInterval(_interval);
 
@@ -70,8 +96,8 @@ module.exports = function (grunt, ModernizrPath) {
 				grunt.config("modernizr", config);
 
 				// Write code to file
-				this.builder.writeCodeToFile(result, config[this.target]);
-				return deferred.resolve();
+				this.builder.writeCodeToFile(result, currentConfig);
+				return deferred.resolve(modernizrOptions);
 			}.bind(this));
 
 			return deferred.promise;
