@@ -22,6 +22,7 @@ define(["Modernizr"], function (M) {
 			"draganddrop": M.draganddrop,
 			"emoji": M.emoji,
 			"exif-orientation": M.exiforientation,
+			"flash": M.flash,
 			"fullscreen-api": M.fullscreen,
 			"gamepad": M.gamepads,
 			"geolocation": M.geolocation,
@@ -30,7 +31,9 @@ define(["Modernizr"], function (M) {
 			"ie8compat": M.ie8compat,
 			"indexedDB": M.indexeddb,
 			"input": M.input,
+			"inputsearchevent": M.search,
 			"inputtypes": M.inputtypes,
+			"intl": M.Intl,
 			"json": M.json,
 			"lists-reversed": M.olreversed,
 			"mathml": M.mathml,
@@ -42,6 +45,7 @@ define(["Modernizr"], function (M) {
 			"postmessage": M.postmessage,
 			"quota-management-api": M.quotamanagement,
 			"requestanimationframe": M.requestanimationframe,
+			"serviceworker": M.serviceworker,
 			"svg": M.svg,
 			"touchevents": M.touchevents,
 			"typed-arrays": M.typedarrays,
@@ -51,6 +55,7 @@ define(["Modernizr"], function (M) {
 			"video": M.video,
 			"vml": M.vml,
 			"web-intents": M.webintents,
+			"webanimations": M.animation,
 			"webgl": M.webgl,
 			"websockets": M.websockets
 		},
@@ -101,6 +106,7 @@ define(["Modernizr"], function (M) {
 			"flexbox": M.flexbox,
 			"flexboxlegacy": M.flexboxlegacy,
 			"flexboxtweener": M.flexboxtweener,
+			"flexwrap": M.flexwrap,
 			"fontface": M.fontface,
 			"generatedcontent": M.generatedcontent,
 			"gradients": M.cssgradients,
@@ -132,6 +138,7 @@ define(["Modernizr"], function (M) {
 			"siblinggeneral": M.siblinggeneral,
 			"subpixelfont": M.subpixelfont,
 			"supports": M.supports,
+			"target": M.target,
 			"textshadow": M.textshadow,
 			"transforms": M.csstransforms,
 			"transforms3d": M.csstransforms3d,
@@ -210,11 +217,18 @@ define(["Modernizr"], function (M) {
 		},
 		"img": {
 			"apng": M.apng,
+			"jpegxr": M.jpegxr,
+			"srcset": M.srcset,
+			"webp-alpha": M.webpalpha,
+			"webp-animation": M.webpanimation,
 			"webp-lossless": [
 				M["webplossless"],
 				M["webp-lossless"]
 			],
 			"webp": M.webp
+		},
+		"input": {
+			"formaction": M.inputformaction
 		},
 		"network": {
 			"connection": M.lowbandwidth,
@@ -249,6 +263,9 @@ define(["Modernizr"], function (M) {
 			"filters": M.svgfilters,
 			"inline": M.inlinesvg,
 			"smil": M.smil
+		},
+		"textarea": {
+			"maxlength": M.textareamaxlength
 		},
 		"url": {
 			"data-uri": M.datauri

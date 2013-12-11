@@ -21,6 +21,7 @@ var tests = {
 		"draganddrop": Modernizr.draganddrop,
 		"emoji": Modernizr.emoji,
 		"exif-orientation": Modernizr.exiforientation,
+		"flash": Modernizr.flash,
 		"fullscreen-api": Modernizr.fullscreen,
 		"gamepad": Modernizr.gamepads,
 		"geolocation": Modernizr.geolocation,
@@ -29,7 +30,9 @@ var tests = {
 		"ie8compat": Modernizr.ie8compat,
 		"indexedDB": Modernizr.indexeddb,
 		"input": Modernizr.input,
+		"inputsearchevent": Modernizr.search,
 		"inputtypes": Modernizr.inputtypes,
+		"intl": Modernizr.Intl,
 		"json": Modernizr.json,
 		"lists-reversed": Modernizr.olreversed,
 		"mathml": Modernizr.mathml,
@@ -41,6 +44,7 @@ var tests = {
 		"postmessage": Modernizr.postmessage,
 		"quota-management-api": Modernizr.quotamanagement,
 		"requestanimationframe": Modernizr.requestanimationframe,
+		"serviceworker": Modernizr.serviceworker,
 		"svg": Modernizr.svg,
 		"touchevents": Modernizr.touchevents,
 		"typed-arrays": Modernizr.typedarrays,
@@ -50,6 +54,7 @@ var tests = {
 		"video": Modernizr.video,
 		"vml": Modernizr.vml,
 		"web-intents": Modernizr.webintents,
+		"webanimations": Modernizr.animation,
 		"webgl": Modernizr.webgl,
 		"websockets": Modernizr.websockets
 	},
@@ -100,6 +105,7 @@ var tests = {
 		"flexbox": Modernizr.flexbox,
 		"flexboxlegacy": Modernizr.flexboxlegacy,
 		"flexboxtweener": Modernizr.flexboxtweener,
+		"flexwrap": Modernizr.flexwrap,
 		"fontface": Modernizr.fontface,
 		"generatedcontent": Modernizr.generatedcontent,
 		"gradients": Modernizr.cssgradients,
@@ -131,6 +137,7 @@ var tests = {
 		"siblinggeneral": Modernizr.siblinggeneral,
 		"subpixelfont": Modernizr.subpixelfont,
 		"supports": Modernizr.supports,
+		"target": Modernizr.target,
 		"textshadow": Modernizr.textshadow,
 		"transforms": Modernizr.csstransforms,
 		"transforms3d": Modernizr.csstransforms3d,
@@ -209,11 +216,18 @@ var tests = {
 	},
 	"img": {
 		"apng": Modernizr.apng,
+		"jpegxr": Modernizr.jpegxr,
+		"srcset": Modernizr.srcset,
+		"webp-alpha": Modernizr.webpalpha,
+		"webp-animation": Modernizr.webpanimation,
 		"webp-lossless": [
 			Modernizr["webplossless"],
 			Modernizr["webp-lossless"]
 		],
 		"webp": Modernizr.webp
+	},
+	"input": {
+		"formaction": Modernizr.inputformaction
 	},
 	"network": {
 		"connection": Modernizr.lowbandwidth,
@@ -248,6 +262,9 @@ var tests = {
 		"filters": Modernizr.svgfilters,
 		"inline": Modernizr.inlinesvg,
 		"smil": Modernizr.smil
+	},
+	"textarea": {
+		"maxlength": Modernizr.textareamaxlength
 	},
 	"url": {
 		"data-uri": Modernizr.datauri
