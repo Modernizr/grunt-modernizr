@@ -28,6 +28,8 @@ describe("grunt-modernizr", function () {
 	});
 
 	it("should find all available tests in project", function (done) {
+		process.stdout.write("\n\n");
+
 		nexpect.spawn("grunt", ["modernizr"], {
 			stripColors: true,
 			verbose: true
@@ -35,7 +37,60 @@ describe("grunt-modernizr", function () {
 		.expect("Running \"modernizr:dist\" (modernizr) task")
 		.expect("Looking for Modernizr references")
 
+		.wait(">> " + testsLength + " matches in")
+		.expect(">> " + tests)
+
 		.expect(">> " + testsLength + " matches in")
+		.expect(">> " + tests)
+
+		.expect(">> " + testsLength + " matches in")
+		.expect(">> " + tests)
+
+		.expect(">> Ready to build using these settings:")
+
+		.wait("Building your customized Modernizr").wait("OK")
+		.expect(">> Success! Saved file to build/modernizr-custom.js")
+
+		.run(done);
+	});
+
+	it("should avoid re-building a cached Modernizr build", function (done) {
+		process.stdout.write("\n\n");
+
+		nexpect.spawn("grunt", ["modernizr"], {
+			stripColors: true,
+			verbose: true
+		})
+		.expect("Running \"modernizr:dist\" (modernizr) task")
+		.expect("Looking for Modernizr references")
+
+		.wait(">> " + testsLength + " matches in")
+		.expect(">> " + tests)
+
+		.expect(">> " + testsLength + " matches in")
+		.expect(">> " + tests)
+
+		.expect(">> " + testsLength + " matches in")
+		.expect(">> " + tests)
+
+		.expect("No config or test changes detected")
+		.expect(">> grunt-modernizr has bypassed the build step. Run `grunt modernizr --force` to override.")
+		.expect(">> Your current file can be found in build/modernizr-custom.js")
+
+		.run(done);
+	});
+
+	it("should force re-building a cached Modernizr build", function (done) {
+		process.stdout.write("\n\n");
+
+		nexpect.spawn("grunt", ["modernizr", "--force"], {
+			stripColors: true,
+			verbose: true
+		})
+		.expect("Running \"modernizr:dist\" (modernizr) task")
+		.expect("Looking for Modernizr references")
+
+		.wait(">> " + testsLength + " matches in")
 		.expect(">> " + tests)
 
 		.expect(">> " + testsLength + " matches in")
@@ -84,6 +139,7 @@ describe("custom builds", function () {
 		});
 
 		it("should only build declared tests", function (done) {
+			process.stdout.write("\n\n");
 
 			nexpect.spawn("grunt", ["modernizr"], {
 				stripColors: true,
@@ -160,6 +216,7 @@ describe("custom builds", function () {
 		});
 
 		it("should honor the specified prefix", function (done) {
+			process.stdout.write("\n\n");
 
 			nexpect.spawn("grunt", ["modernizr"], {
 				stripColors: true,
