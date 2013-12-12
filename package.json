@@ -47,7 +47,7 @@
   },
   "scripts": {
     "test": "grunt clean; node test/generate-tests.js; node test/runner.js",
-    "postinstall": "ls ./node_modules; cd ./node_modules/Modernizr; npm install --production; cd -"
+    "postinstall": "cd node_modules/modernizr; npm install --production; cd -"
   },
   "keywords": [
     "gruntplugin",
