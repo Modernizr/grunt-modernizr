@@ -35,6 +35,11 @@ module.exports = function (grunt) {
 		// Define any tests you want to impliticly include
 		"tests" : [],
 
+		// Useful for excluding any tests that grunt-modernizr will match
+		// e.g. you use .notification class for notification elements,
+		// but don’t want the test for Notification API
+		"excludeTests": [],
+
 		// By default, will crawl your project for references to Modernizr tests
 		// Set to false to disable
 		"crawl" : true,

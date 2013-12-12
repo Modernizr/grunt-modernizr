@@ -55,8 +55,13 @@ modernizr: {
 		// By default, source is uglified before saving
 		"uglify" : true,
 
-		// Define any tests you want to impliticly include
+		// Define any tests you want to explicitly include
 		"tests" : [],
+
+		// Useful for excluding any tests that grunt-modernizr will match
+		// e.g. you use .notification class for notification elements,
+		// but don’t want the test for Notification API
+		"excludeTests": [],
 
 		// By default, will crawl your project for references to Modernizr tests
 		// Set to false to disable
@@ -93,7 +98,10 @@ An object of extra configuration options. Check the extra section on [modernizr.
 By default, the source is uglified before save. Set to false to disable.
 
 ###### **`tests`** (Array)
-Define any tests you want to impliticly include. Check out the full set of test options [here](#ADD_LINK_LATER).
+Define any tests you want to explicitly include. Check out the full set of test options [here](#ADD_LINK_LATER).
+
+##### **`excludeTests`**
+Useful for excluding any tests that `grunt-modernizr` will match. (e.g. you use .notification class for notification elements, but don’t want the test for Notification API).
 
 ###### **`crawl`** (Boolean)
 By default, this task will crawl your project for references to Modernizr tests. Set to false to disable.

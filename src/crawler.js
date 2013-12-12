@@ -163,17 +163,45 @@ module.exports = function (grunt, modernizrPath) {
 
 			if (!_quiet && tests && tests.length) {
 				grunt.log.writeln();
-				grunt.log.ok("Implicitly including these tests:");
+				grunt.log.ok("Explicitly including these tests:");
 				grunt.log.ok(tests.map(function (test) {
+					return test.property;
+				}).sort().join(", ").grey);
+			}
+
+			var excludedTests = config.excludeTests.map(function (test) {
+				var data = metadata.filter(function (data) {
+					return data.property === test;
+				});
+
+				return data[0] || {};
+			}).filter(function (test) {
+				return test.path;
+			});
+
+			if (!_quiet && excludedTests && excludedTests.length) {
+				grunt.log.writeln();
+				grunt.log.ok("Explicitly excluding these tests:");
+				grunt.log.ok(excludedTests.map(function (test) {
 					return test.property;
 				}).sort().join(", ").grey);
 			}
 
 			tests = tests.map(function (test) {
 				return test.path;
+			}).filter(function (test) {
+				return excludedTests.map(function (test) {
+					return test.path;
+				}).indexOf(test) === -1;
 			}).concat(config.customTests.map(function (test) {
 				return path.relative(buildPath, fs.realpathSync(test));
 			}));
+
+			metadata = metadata.filter(function (data) {
+				return excludedTests.map(function (test) {
+					return test.path;
+				}).indexOf(data.path) === -1;
+			});
 
 			if (config.crawl !== true) {
 				tests = this.crawler.filterTests(tests);

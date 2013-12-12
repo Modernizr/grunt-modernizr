@@ -147,7 +147,7 @@ describe("custom builds", function () {
 			})
 			.expect("Running \"modernizr:dist\" (modernizr) task")
 
-			.expect(">> Implicitly including these tests:")
+			.expect(">> Explicitly including these tests:")
 			.expect(">> siblinggeneral, svg, webintents")
 
 			.expect("Skipping file traversal")
@@ -188,7 +188,7 @@ describe("custom builds", function () {
 					it(test, function (done) {
 						contents = contents || fs.readFileSync(path.join(cwd, "build", "modernizr-select.js"), "utf8");
 
-						var testPattern = "Modernizr.addTest('" + test;
+						var testPattern = "addTest('" + test.toLowerCase();
 						expect(contents.indexOf(testPattern)).to.equal(-1);
 						done();
 					});
@@ -202,6 +202,63 @@ describe("custom builds", function () {
 
 	});
 
+	describe("excluded tests", function () {
+
+		before(function (done) {
+			nexpect.spawn("grunt", ["clean"])
+			.run(function () {
+				var override = fs.readFileSync(path.join(gruntfiles, "Gruntfile.exclude.js"));
+				fs.writeFileSync(Gruntfile, override);
+
+				done();
+			});
+		});
+
+		it("should build without excluded tests", function (done) {
+			process.stdout.write("\n\n");
+
+			nexpect.spawn("grunt", ["modernizr"], {
+				stripColors: true,
+				verbose: true
+			})
+			.expect("Running \"modernizr:dist\" (modernizr) task")
+
+			.expect(">> Explicitly excluding these tests:")
+			.expect(">> applicationcache, emoji, notification")
+
+			.wait("Building your customized Modernizr").wait("OK")
+			.expect(">> Success! Saved file to build/modernizr-exclude.js")
+
+			.run(done);
+		});
+
+		describe("should not contain references to excluded tests", function () {
+
+			var excludedTestArray = [
+				"applicationcache",
+				"emoji",
+				"notification"
+			];
+
+			var testsLength = excludedTestArray.length;
+			var excludedTests = excludedTestArray.join(" ");
+
+			var contents;
+
+			excludedTestArray.forEach(function (test) {
+				it(test, function (done) {
+					contents = contents || fs.readFileSync(path.join(cwd, "build", "modernizr-exclude.js"), "utf8");
+					expect(contents.indexOf(test)).to.equal(-1);
+					done();
+				});
+			});
+		});
+
+		after(function () {
+			fs.writeFileSync(Gruntfile, pristine);
+		});
+
+	});
 
 	describe("prefix test", function () {
 
@@ -265,7 +322,7 @@ describe("custom builds", function () {
 					it(test, function (done) {
 						contents = contents || fs.readFileSync(path.join(cwd, "build", "modernizr-prefixed.js"), "utf8");
 
-						var testPattern = "Modernizr.addTest('" + test;
+						var testPattern = "addTest('" + test.toLowerCase();
 						expect(contents.indexOf(testPattern)).to.equal(-1);
 						done();
 					});
