@@ -10,7 +10,7 @@ module.exports = function (grunt, target, done) {
 	var promise = require("promised-io/promise");
 
 	// Modernizr
-	var ModernizrPath = path.join(__dirname, "..", "node_modules", "Modernizr");
+	var modernizrPath = path.join(__dirname, "..", "node_modules", "modernizr");
 
 	var Customizr = function () {
 		this.target = target;
@@ -57,7 +57,7 @@ module.exports = function (grunt, target, done) {
 		return file !== path.basename(__filename);
 	}).forEach(function (file) {
 		var _import = path.basename(file, ".js");
-		Customizr.prototype[_import] = require(path.join(__dirname, _import))(grunt, ModernizrPath);
+		Customizr.prototype[_import] = require(path.join(__dirname, _import))(grunt, modernizrPath);
 	});
 
 	return new Customizr();

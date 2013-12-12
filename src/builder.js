@@ -1,5 +1,5 @@
 /* jshint node: true */
-module.exports = function (grunt, ModernizrPath) {
+module.exports = function (grunt, modernizrPath) {
 	"use strict";
 
 	// Config object
@@ -86,9 +86,9 @@ module.exports = function (grunt, ModernizrPath) {
 				}, 200);
 			}
 
-			var Modernizr = require("Modernizr");
+			var modernizr = require("modernizr");
 
-			Modernizr.build(modernizrOptions, function (result) {
+			modernizr.build(modernizrOptions, function (result) {
 				grunt.log.ok();
 				clearInterval(_interval);
 

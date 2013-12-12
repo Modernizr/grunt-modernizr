@@ -1,5 +1,5 @@
 /* jshint node: true */
-module.exports = function (grunt, ModernizrPath) {
+module.exports = function (grunt, modernizrPath) {
 	"use strict";
 
 	// Dependencies
@@ -20,7 +20,7 @@ module.exports = function (grunt, ModernizrPath) {
 				pkg &&
 				previous &&
 				previous.version === pkg.version &&
-				previous.modernizr === pkg.dependencies.Modernizr &&
+				previous.modernizr === pkg.dependencies.modernizr &&
 				equal(previous.options, modernizrOptions)
 			) {
 				return true;
@@ -78,7 +78,7 @@ module.exports = function (grunt, ModernizrPath) {
 			// Stash options along with metadata
 			var metadata = {
 				version: pkg.version,
-				modernizr: (pkg.dependencies || {}).Modernizr,
+				modernizr: (pkg.dependencies || {}).modernizr,
 				options: options
 			};
 

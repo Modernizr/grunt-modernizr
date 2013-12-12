@@ -1,5 +1,5 @@
 /* jshint node: true */
-module.exports = function (grunt, ModernizrPath) {
+module.exports = function (grunt, modernizrPath) {
 	"use strict";
 
 	// Config object
@@ -148,7 +148,7 @@ module.exports = function (grunt, ModernizrPath) {
 				_private = grunt.option("_modernizr.private");
 
 			var deferred = new promise.Deferred(),
-				buildPath = path.join(ModernizrPath, "build"),
+				buildPath = path.join(modernizrPath, "build"),
 				files;
 
 			var tests = config.tests.map(function (test) {

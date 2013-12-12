@@ -1,5 +1,5 @@
 /* jshint node: true */
-module.exports = function (grunt, ModernizrPath) {
+module.exports = function (grunt, modernizrPath) {
 	"use strict";
 
 	// Dependencies
@@ -13,12 +13,12 @@ module.exports = function (grunt, ModernizrPath) {
 	return {
 		init : function () {
 			var deferred = new promise.Deferred();
-			var Modernizr = require("Modernizr");
+			var modernizr = require("modernizr");
 
 			// module.exports ftw?
 			(function () {
-				var mappings = Modernizr.metadata;
-				var modRegExp = new RegExp(ModernizrPath + "/?");
+				var mappings = modernizr.metadata;
+				var modRegExp = new RegExp(modernizrPath + "/?");
 
 				mappings = mappings.map(function (map) {
 					var cleanname = map.name.replace(modRegExp, ""),
