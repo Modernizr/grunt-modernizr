@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/Modernizr/grunt-modernizr.png?branch=master,develop)](https://travis-ci.org/Modernizr/grunt-modernizr)
 
-##### *tl;dr:* `grunt-modernizr` sifts through your project files, gathers up your references to Modernizr tests and outputs a lean, mean Modernizr machine.
+##### *tl;dr:* `grunt-modernizr` crawls through your project files, gathers up your references to Modernizr tests and outputs a lean, mean Modernizr machine.
 
 `grunt-modernizr` is a Modernizr builder for your project. It is based on the Modernizr team's [Modulizr](https://github.com/Modernizr/modernizr.com/blob/gh-pages/i/js/modulizr.js) tool.
 
@@ -100,7 +100,7 @@ By default, the source is uglified before save. Set to false to disable.
 ###### **`tests`** (Array)
 Define any tests you want to explicitly include. Check out the full set of test options [here](#ADD_LINK_LATER).
 
-##### **`excludeTests`**
+###### **`excludeTests`**
 Useful for excluding any tests that `grunt-modernizr` will match. (e.g. you use .notification class for notification elements, but don’t want the test for Notification API).
 
 ###### **`crawl`** (Boolean)
