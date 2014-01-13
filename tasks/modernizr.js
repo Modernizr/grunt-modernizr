@@ -28,7 +28,7 @@ module.exports = function (grunt) {
 		var done = this.async();
 
 		// The magic
-		var Customizr = require(path.join(__dirname, "..", "src"));
+		var Customizr = require("customizr");
 
 		// Go!
 		return new Customizr(this.data, done);

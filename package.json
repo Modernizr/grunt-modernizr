@@ -29,14 +29,7 @@
     "node": "*"
   },
   "dependencies": {
-    "promised-io": "~0.3.4",
-    "colors": "~0.6.0-1",
-    "deep-equal": "~0.1.0",
-    "optimist": "~0.6.0",
-    "underscore": "~1.5.2",
-    "mkdirp": "~0.3.5",
-    "glob": "~3.2.8",
-    "modernizr": "https://github.com/Modernizr/Modernizr/tarball/master"
+    "customizr": "https://github.com/doctyper/Customizr/tarball/develop"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
