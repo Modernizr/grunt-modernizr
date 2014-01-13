@@ -1,10 +1,12 @@
 /* jshint node: true */
-module.exports = function (grunt, modernizrPath) {
+module.exports = function (modernizrPath) {
 	"use strict";
 
+	var argv = require("optimist").argv;
+
 	// Config object
-	var _quiet = grunt.option("quiet"),
-		_verbose = grunt.option("verbose");
+	var _quiet = argv.quiet,
+		_verbose = argv.verbose;
 
 	// Dependencies
 	var cp = require("child_process"),
@@ -14,6 +16,9 @@ module.exports = function (grunt, modernizrPath) {
 
 	// Deferreds
 	var promise = require("promised-io/promise");
+
+	// Cache utils
+	var utils, settings;
 
 	return {
 		matchedTestsInFile : {},
@@ -36,7 +41,6 @@ module.exports = function (grunt, modernizrPath) {
 
 		findStringMatches : function (type, file, data, testpath) {
 			var match, regExp, prefix,
-				config = grunt.task.current.data,
 				basename = path.basename(file);
 
 			// JS files
@@ -50,7 +54,7 @@ module.exports = function (grunt, modernizrPath) {
 			}
 			// If it's not JS, assume it's CSS (or similar, e.g.: LESS, SCSS) files
 			else {
-				prefix = config.cssprefix || '';
+				prefix = settings.cssprefix || '';
 				// When no prefix, match usage such as: .classname --or-- .no-classname
 				// When prefix set, match usage such as: .<prefix>classname --or-- .<prefix>no-classname
 				regExp = new RegExp("(?:\\." + prefix + ")(?:no-)?(" + type + ")(?![\\w-])", "gm");
@@ -104,13 +108,13 @@ module.exports = function (grunt, modernizrPath) {
 			var matchedTests = this.matchedTestsInFile[file];
 
 			if (!_quiet && matchedTests && matchedTests.length) {
-				grunt.log.writeln();
+				utils.log.writeln();
 
 				var testCount = matchedTests.length;
 				var testText = " match" + (testCount > 1 ? "es" : "") + " in ";
 
-				grunt.log.ok(testCount.toString().green + testText + file);
-				grunt.log.ok(matchedTests.sort().join(", ").grey);
+				utils.log.ok(testCount.toString().green + testText + file);
+				utils.log.ok(matchedTests.sort().join(", ").grey);
 			}
 		},
 
@@ -144,14 +148,17 @@ module.exports = function (grunt, modernizrPath) {
 		},
 
 		init : function (metadata) {
-			var config = grunt.config("modernizr")[this.target],
-				_private = grunt.option("_modernizr.private");
+			// Cache utils
+			utils = this.utils;
+			settings = utils.getSettings();
+
+			var _private = utils.getDefaults().private;
 
 			var deferred = new promise.Deferred(),
 				buildPath = path.join(modernizrPath, "build"),
 				files;
 
-			var tests = config.tests.map(function (test) {
+			var tests = settings.tests.map(function (test) {
 				var data = metadata.filter(function (data) {
 					return data.property === test;
 				});
@@ -162,14 +169,14 @@ module.exports = function (grunt, modernizrPath) {
 			});
 
 			if (!_quiet && tests && tests.length) {
-				grunt.log.writeln();
-				grunt.log.ok("Explicitly including these tests:");
-				grunt.log.ok(tests.map(function (test) {
+				utils.log.writeln();
+				utils.log.ok("Explicitly including these tests:");
+				utils.log.ok(tests.map(function (test) {
 					return test.property;
 				}).sort().join(", ").grey);
 			}
 
-			var excludedTests = config.excludeTests.map(function (test) {
+			var excludedTests = settings.excludeTests.map(function (test) {
 				var data = metadata.filter(function (data) {
 					return data.property === test;
 				});
@@ -180,9 +187,9 @@ module.exports = function (grunt, modernizrPath) {
 			});
 
 			if (!_quiet && excludedTests && excludedTests.length) {
-				grunt.log.writeln();
-				grunt.log.ok("Explicitly excluding these tests:");
-				grunt.log.ok(excludedTests.map(function (test) {
+				utils.log.writeln();
+				utils.log.ok("Explicitly excluding these tests:");
+				utils.log.ok(excludedTests.map(function (test) {
 					return test.property;
 				}).sort().join(", ").grey);
 			}
@@ -193,7 +200,7 @@ module.exports = function (grunt, modernizrPath) {
 				return excludedTests.map(function (test) {
 					return test.path;
 				}).indexOf(test) === -1;
-			}).concat(config.customTests.map(function (test) {
+			}).concat(settings.customTests.map(function (test) {
 				return path.relative(buildPath, fs.realpathSync(test));
 			}));
 
@@ -203,11 +210,11 @@ module.exports = function (grunt, modernizrPath) {
 				}).indexOf(data.path) === -1;
 			});
 
-			if (config.crawl !== true) {
+			if (settings.crawl !== true) {
 				tests = this.crawler.filterTests(tests);
 
 				if (!_quiet) {
-					grunt.log.subhead("Skipping file traversal");
+					utils.log.subhead("Skipping file traversal");
 				}
 
 				setTimeout(function () {
@@ -218,14 +225,14 @@ module.exports = function (grunt, modernizrPath) {
 			}
 
 			if (!_quiet) {
-				grunt.log.subhead("Looking for Modernizr references");
+				utils.log.subhead("Looking for Modernizr references");
 			}
 
 			// Exclude developer build
-			if (config.devFile !== "remote" && config.devFile !== false) {
-				if (!fs.existsSync(config.devFile)) {
-					grunt.fail.warn([
-						"Can't find your Modernizr development build at " + config.devFile,
+			if (settings.devFile !== "remote" && settings.devFile !== false) {
+				if (!fs.existsSync(settings.devFile)) {
+					utils.log.warn([
+						"Can't find your Modernizr development build at " + settings.devFile,
 						"grunt-modernizr needs this path to avoid false positives",
 						"",
 						"Update your gruntfile via the modernizr.devFile config option",
@@ -234,19 +241,19 @@ module.exports = function (grunt, modernizrPath) {
 						""
 					].join("\n       ").replace(/\s$/, ""));
 				} else {
-					config.files.push("!" + config.devFile);
+					settings.files.push("!" + settings.devFile);
 				}
 			}
 
 			// Exclude generated file
-			config.files.push("!" + config.dest);
+			settings.files.push("!" + settings.dest);
 
 			// And exclude all files in this current directory
-			config.files.push("!" + path.join(__dirname.replace(cwd + path.sep, ""), "**", "*"));
+			settings.files.push("!" + path.join(__dirname.replace(cwd + path.sep, ""), "**", "*"));
 
-			files = grunt.file.expand({
+			files = utils.file.expand({
 				filter: "isFile"
-			}, config.files);
+			}, settings.files);
 
 			this.crawler.readFilesAsync(files, metadata).then(function () {
 				for (var key in this.crawler.stringMatches) {

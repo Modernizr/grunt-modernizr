@@ -1,5 +1,5 @@
 /* jshint node: true */
-module.exports = function (grunt, modernizrPath) {
+module.exports = function (modernizrPath) {
 	"use strict";
 
 	// Dependencies

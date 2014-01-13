@@ -1,5 +1,5 @@
 /* jshint node: true */
-module.exports = function (grunt, target, done) {
+module.exports = function (settings, callback) {
 	"use strict";
 
 	// Dependencies
@@ -13,15 +13,14 @@ module.exports = function (grunt, target, done) {
 	var modernizrPath = path.join(__dirname, "..", "node_modules", "modernizr");
 
 	var Customizr = function () {
-		this.target = target;
 		return this.init();
 	};
 
 	Customizr.prototype = {
 		init : function () {
 
-			// Set default options
-			this.utils.setDefaults(this.target);
+			// Store settings
+			this.utils.storeSettings(settings);
 
 			// Sequentially return promises
 			promise.seq([
@@ -48,16 +47,18 @@ module.exports = function (grunt, target, done) {
 			this.utils.saveOptions(options);
 
 			// All done.
-			return done();
+			return callback();
 		}
 	};
 
 	// Import modules
 	fs.readdirSync(__dirname).filter(function (file) {
+		return path.extname(file) === ".js";
+	}).filter(function (file) {
 		return file !== path.basename(__filename);
 	}).forEach(function (file) {
 		var _import = path.basename(file, ".js");
-		Customizr.prototype[_import] = require(path.join(__dirname, _import))(grunt, modernizrPath);
+		Customizr.prototype[_import] = require(path.join(__dirname, _import))(modernizrPath);
 	});
 
 	return new Customizr();
