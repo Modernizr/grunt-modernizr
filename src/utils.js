@@ -111,8 +111,11 @@ module.exports = function (modernizrPath) {
 
 		log : {
 			ok : function (string) {
-				string = string || "";
-				return process.stdout.write(">> ".green + string + "\n");
+				if (string) {
+					return process.stdout.write(">> ".green + string + "\n");
+				}
+
+				return process.stdout.write("OK".green + "\n");
 			},
 
 			subhead : function (string) {
