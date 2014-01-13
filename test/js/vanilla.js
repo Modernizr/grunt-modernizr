@@ -48,6 +48,7 @@ var tests = {
 		"svg": Modernizr.svg,
 		"touchevents": Modernizr.touchevents,
 		"typed-arrays": Modernizr.typedarrays,
+		"unicode-range": Modernizr.unicoderange,
 		"unicode": Modernizr.unicode,
 		"userdata": Modernizr.userdata,
 		"vibration": Modernizr.vibrate,
@@ -101,6 +102,7 @@ var tests = {
 		"displayrunin": Modernizr["display-runin"],
 		"displaytable": Modernizr.displaytable,
 		"ellipsis": Modernizr.ellipsis,
+		"escape": Modernizr.cssescape,
 		"filters": Modernizr.cssfilters,
 		"flexbox": Modernizr.flexbox,
 		"flexboxlegacy": Modernizr.flexboxlegacy,
@@ -185,7 +187,8 @@ var tests = {
 		"string": Modernizr.es5string
 	},
 	"es6": {
-		"contains": Modernizr.contains
+		"contains": Modernizr.contains,
+		"promises": Modernizr.promises
 	},
 	"event": {
 		"deviceorientation-motion": [
@@ -227,7 +230,8 @@ var tests = {
 		"webp": Modernizr.webp
 	},
 	"input": {
-		"formaction": Modernizr.inputformaction
+		"formaction": Modernizr.inputformaction,
+		"formenctype": Modernizr.inputformenctype
 	},
 	"network": {
 		"connection": Modernizr.lowbandwidth,

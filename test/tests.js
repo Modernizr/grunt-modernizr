@@ -51,7 +51,9 @@ describe("grunt-modernizr", function () {
 		.wait("Building your customized Modernizr").wait("OK")
 		.expect(">> Success! Saved file to build/modernizr-custom.js")
 
-		.run(done);
+		.run(function () {
+			done();
+		});
 	});
 
 	it("should avoid re-building a cached Modernizr build", function (done) {
@@ -77,7 +79,9 @@ describe("grunt-modernizr", function () {
 		.expect(">> grunt-modernizr has bypassed the build step. Run `grunt modernizr --force` to override.")
 		.expect(">> Your current file can be found in build/modernizr-custom.js")
 
-		.run(done);
+		.run(function () {
+			done();
+		});
 	});
 
 	it("should force re-building a cached Modernizr build", function (done) {
@@ -104,7 +108,9 @@ describe("grunt-modernizr", function () {
 		.wait("Building your customized Modernizr").wait("OK")
 		.expect(">> Success! Saved file to build/modernizr-custom.js")
 
-		.run(done);
+		.run(function () {
+			done();
+		});
 	});
 
 	describe("should include all tests", function () {
@@ -155,7 +161,9 @@ describe("custom builds", function () {
 			.wait("Building your customized Modernizr").wait("OK")
 			.expect(">> Success! Saved file to build/modernizr-select.js")
 
-			.run(done);
+			.run(function () {
+				done();
+			});
 		});
 
 		describe("should only contain references to bundled tests", function () {
@@ -229,7 +237,9 @@ describe("custom builds", function () {
 			.wait("Building your customized Modernizr").wait("OK")
 			.expect(">> Success! Saved file to build/modernizr-exclude.js")
 
-			.run(done);
+			.run(function () {
+				done();
+			});
 		});
 
 		describe("should not contain references to excluded tests", function () {
@@ -289,7 +299,9 @@ describe("custom builds", function () {
 			.wait("Building your customized Modernizr").wait("OK")
 			.expect(">> Success! Saved file to build/modernizr-prefixed.js")
 
-			.run(done);
+			.run(function () {
+				done();
+			});
 		});
 
 		describe("should only contain references to bundled tests", function () {

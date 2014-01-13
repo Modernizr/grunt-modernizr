@@ -49,6 +49,7 @@ define(["Modernizr"], function (M) {
 			"svg": M.svg,
 			"touchevents": M.touchevents,
 			"typed-arrays": M.typedarrays,
+			"unicode-range": M.unicoderange,
 			"unicode": M.unicode,
 			"userdata": M.userdata,
 			"vibration": M.vibrate,
@@ -102,6 +103,7 @@ define(["Modernizr"], function (M) {
 			"displayrunin": M["display-runin"],
 			"displaytable": M.displaytable,
 			"ellipsis": M.ellipsis,
+			"escape": M.cssescape,
 			"filters": M.cssfilters,
 			"flexbox": M.flexbox,
 			"flexboxlegacy": M.flexboxlegacy,
@@ -186,7 +188,8 @@ define(["Modernizr"], function (M) {
 			"string": M.es5string
 		},
 		"es6": {
-			"contains": M.contains
+			"contains": M.contains,
+			"promises": M.promises
 		},
 		"event": {
 			"deviceorientation-motion": [
@@ -228,7 +231,8 @@ define(["Modernizr"], function (M) {
 			"webp": M.webp
 		},
 		"input": {
-			"formaction": M.inputformaction
+			"formaction": M.inputformaction,
+			"formenctype": M.inputformenctype
 		},
 		"network": {
 			"connection": M.lowbandwidth,
