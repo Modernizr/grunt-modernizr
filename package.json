@@ -43,8 +43,7 @@
     "request": "~2.27.0"
   },
   "scripts": {
-    "test": "grunt clean; node test/generate-tests.js; node test/runner.js",
-    "postinstall": "cd node_modules/modernizr; npm install --production; cd -"
+    "test": "grunt clean; node test/generate-tests.js; node test/runner.js"
   },
   "keywords": [
     "gruntplugin",
