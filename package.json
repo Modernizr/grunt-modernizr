@@ -32,6 +32,7 @@
     "customizr": "https://github.com/doctyper/Customizr/tarball/develop"
   },
   "devDependencies": {
+    "modernizr": "https://github.com/Modernizr/Modernizr/tarball/master",
     "grunt": "~0.4.1",
     "grunt-contrib-jshint": "~0.7.2",
     "grunt-contrib-watch": "~0.5.3",
@@ -43,7 +44,8 @@
     "request": "~2.27.0"
   },
   "scripts": {
-    "test": "grunt clean; node test/generate-tests.js; node test/runner.js"
+    "test": "grunt clean; node test/generate-tests.js; grunt modernizr",
+    "postinstall": "if [[ -d node_modules/modernizr ]]; then ( cd node_modules/modernizr; npm install --production; cd -; ); fi"
   },
   "keywords": [
     "gruntplugin",
