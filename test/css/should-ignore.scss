@@ -1,9 +1,0 @@
-svg:not(:root) {
-  overflow: hidden;
-}
-
-#foo {
-	&:before {
-		content: icon(audio);
-	}
-}
