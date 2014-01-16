@@ -29,7 +29,7 @@
     "node": "*"
   },
   "dependencies": {
-    "customizr": "https://github.com/doctyper/Customizr/tarball/develop"
+    "customizr": "https://github.com/doctyper/customizr/tarball/develop"
   },
   "devDependencies": {
     "modernizr": "https://github.com/Modernizr/Modernizr/tarball/master",
