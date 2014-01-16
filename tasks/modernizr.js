@@ -21,10 +21,10 @@ module.exports = function (grunt) {
 		var done = this.async();
 
 		// The magic
-		var Customizr = require("customizr");
+		var customizr = require("customizr");
 
 		// Go!
-		return new Customizr(this.data, done);
+		return customizr(this.data, done);
 	});
 
 };
