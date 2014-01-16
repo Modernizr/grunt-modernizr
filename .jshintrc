@@ -45,5 +45,8 @@
 	"trailing": true,
 	"white": true,
 	"indent": 4,
-	"globals": {}
+	"globals": {
+		"describe": true,
+		"it": true
+	}
 }

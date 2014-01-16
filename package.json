@@ -34,17 +34,13 @@
   "devDependencies": {
     "modernizr": "https://github.com/Modernizr/Modernizr/tarball/master",
     "grunt": "~0.4.1",
-    "grunt-contrib-jshint": "~0.7.2",
-    "grunt-contrib-watch": "~0.5.3",
     "grunt-contrib-clean": "~0.5.0",
-    "mocha": "~1.14.0",
-    "nexpect": "~0.2.4",
-    "expect.js": "~0.2.0",
-    "uglify-js": "~2.4.3",
-    "request": "~2.27.0"
+    "mocha": "~1.17.0",
+    "nexpect": "~0.3.0",
+    "assert": "~1.1.0"
   },
   "scripts": {
-    "test": "grunt clean; node test/generate-tests.js; grunt modernizr",
+    "test": "grunt clean; node test/runner.js",
     "postinstall": "if [[ -d node_modules/modernizr ]]; then ( cd node_modules/modernizr; npm install --production; cd -; ); fi"
   },
   "keywords": [
