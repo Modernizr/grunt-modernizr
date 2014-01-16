@@ -45,6 +45,7 @@
   },
   "keywords": [
     "gruntplugin",
-    "modernizr"
+    "modernizr",
+    "customizr"
   ]
 }
