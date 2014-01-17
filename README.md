@@ -1,6 +1,6 @@
 # grunt-modernizr
 
-[![Build Status](https://secure.travis-ci.org/doctyper/grunt-modernizr.png?branch=master,develop)](https://travis-ci.org/doctyper/grunt-modernizr)
+[![Build Status](https://secure.travis-ci.org/Modernizr/grunt-modernizr.png?branch=master,develop)](https://travis-ci.org/Modernizr/grunt-modernizr)
 
 [![NPM](https://nodei.co/npm/grunt-modernizr.png?compact=true)](https://nodei.co/npm/grunt-modernizr/)
 
