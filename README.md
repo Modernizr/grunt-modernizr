@@ -1,6 +1,9 @@
-[![Build Status](https://travis-ci.org/doctyper/gulp-modernizr.png?branch=master,develop)](https://travis-ci.org/doctyper/gulp-modernizr)
-
 # grunt-modernizr
+
+[![Build Status](https://secure.travis-ci.org/doctyper/grunt-modernizr.png?branch=master,develop)](https://travis-ci.org/doctyper/grunt-modernizr)
+
+[![NPM](https://nodei.co/npm/grunt-modernizr.png?compact=true)](https://nodei.co/npm/grunt-modernizr/)
+
 A [Grunt](http://gruntjs.com/) wrapper for [Modernizr](https://github.com/doctyper/customizr).
 
 ## Usage
