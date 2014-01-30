@@ -17,7 +17,7 @@ describe("grunt-modernizr", function () {
 			stripColors: true,
 			verbose: true
 		})
-		.expect('Running "modernizr" task')
+		.expect('Running "modernizr:dist" (modernizr) task')
 
 		.expect("Enabled Extras")
 		.expect(">> shiv")
@@ -30,7 +30,6 @@ describe("grunt-modernizr", function () {
 		.expect(">> testallprops")
 		.expect(">> prefixed")
 		.expect(">> mq")
-		.expect(">> smil")
 		.expect(">> testbundle")
 		.expect(">> canvas")
 		.expect(">> webgl")

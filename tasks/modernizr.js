@@ -53,8 +53,8 @@ module.exports = function (grunt) {
 
 		// By default, this task will crawl all *.js, *.css files.
 		"files" : [
-			"**/*.{js,css,scss}",
-			"!node_modules/**/*",
+			"*[^(g|G)runt(file)?].{js,css,scss}",
+			"**[^node_modules]/**/*.{js,css,scss}",
 			"!lib/cache/**/*",
 			"!lib/gruntifier.js"
 		],
@@ -70,7 +70,7 @@ module.exports = function (grunt) {
 	// TASKS
 	// ==========================================================================
 
-	grunt.registerTask("modernizr", "Build out a lean, mean Modernizr machine.", function (bust) {
+	grunt.registerMultiTask("modernizr", "Build out a lean, mean Modernizr machine.", function (bust) {
 
 		// Require a config object
 		this.requiresConfig(this.name);
@@ -78,11 +78,14 @@ module.exports = function (grunt) {
 		// Async
 		var done = this.async();
 
+		// The target from our multi-task
+		var target = this.target || null;
+
 		// The magic
 		var Gruntifier = require("../lib/gruntifier");
 
 		// Go!
-		return new Gruntifier(grunt, done, bust);
+		return new Gruntifier(grunt, target, done, bust);
 	});
 
 	// ==========================================================================
