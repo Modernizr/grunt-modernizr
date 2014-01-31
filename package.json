@@ -1,7 +1,7 @@
 {
   "name": "grunt-modernizr",
   "description": "Build out a lean, mean Modernizr machine.",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "homepage": "https://github.com/doctyper/grunt-modernizr",
   "author": {
     "name": "Richard Herrera",
@@ -35,7 +35,7 @@
     "request": "~2.27.0"
   },
   "devDependencies": {
-    "grunt": "~0.4.1",
+    "grunt": "~0.4.2",
     "grunt-contrib-jshint": "~0.7.0",
     "grunt-contrib-nodeunit": "0.1.2",
     "grunt-contrib-watch": "~0.3.1",

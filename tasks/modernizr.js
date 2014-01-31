@@ -52,12 +52,14 @@ module.exports = function (grunt) {
 		"parseFiles" : true,
 
 		// By default, this task will crawl all *.js, *.css files.
-		"files" : [
-			"*[^(g|G)runt(file)?].{js,css,scss}",
-			"**[^node_modules]/**/*.{js,css,scss}",
-			"!lib/cache/**/*",
-			"!lib/gruntifier.js"
-		],
+		"files" : {
+			"src": [
+				"*[^(g|G)runt(file)?].{js,css,scss}",
+				"**[^node_modules]/**/*.{js,css,scss}",
+				"!lib/cache/**/*",
+				"!lib/gruntifier.js"
+			]
+		},
 
 		// Set to true to attempt to match user-contributed tests
 		"matchCommunityTests" : false,
