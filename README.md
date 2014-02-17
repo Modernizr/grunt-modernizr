@@ -11,7 +11,11 @@ This highly configurable task allows you to configure and export a custom Modern
 When you're ready to build, `grunt-modernizr` will crawl your project for Modernizr test references and save out a minified, uglified, customized version using only the tests you've used in your JavaScript or (S)CSS.
 
 ## Getting Started
-Install this grunt plugin next to your project's [grunt.js gruntfile][getting_started] with: `npm install grunt-modernizr --save-dev`
+Install this grunt plugin next to your project's [grunt.js gruntfile][getting_started] with:
+
+```bash
+npm install grunt-modernizr --save-dev
+```
 
 Then add this line to your project's `grunt.js` gruntfile:
 
