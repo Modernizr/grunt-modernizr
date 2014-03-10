@@ -17,7 +17,7 @@ define(["Modernizr"], function (M) {
 		"cssreflections": M.cssreflections,
 		"csstransitions": M.csstransitions,
 		"testallprops": M.testallprops,
-		"flexbox-legacy": M["flexbox-legacy"],
+		"flexboxlegacy": M["flexboxlegacy"],
 		"prefixed": M.prefixed,
 		"csstransforms": M.csstransforms,
 		"mq": M.mq,
