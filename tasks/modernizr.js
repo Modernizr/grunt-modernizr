@@ -118,7 +118,7 @@ module.exports = function (grunt) {
 			"cssreflections",
 			"csstransitions",
 			"testallprops",
-			"flexbox-legacy",
+			"flexboxlegacy",
 			"prefixed",
 			"csstransforms",
 			"mq",
