@@ -164,7 +164,7 @@ module.exports = function (grunt) {
 			"modernizr" : "downloads/modernizr-latest.js",
 			"printshiv" : "i/js/html5shiv-printshiv-3.6.js",
 			"load" : "i/js/modernizr.load.1.5.4.js",
-			"community" : "Modernizr/Modernizr/87c723720a48254ae37ffd56829e32a96f5c5496/feature-detects/%s.js"
+			"community" : "Modernizr/Modernizr/3e2b1ea42f62a58c5262a3e39d3d844c92d64510/feature-detects/%s.js"
 		}
 	});
 
