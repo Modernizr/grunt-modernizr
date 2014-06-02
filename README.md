@@ -87,6 +87,9 @@ modernizr: {
 			// "src": []
 		// },
 
+		// This handler will be passed an array of all the test names passed to the Modernizr API, and will run after the API call has returned
+		// "handler": function (tests) {},
+
 		// When parseFiles = true, matchCommunityTests = true will attempt to
 		// match user-contributed tests.
 		"matchCommunityTests" : false,
@@ -125,6 +128,20 @@ By default, this task will crawl your project for references to Modernizr tests.
 
 ###### **`files.src`** (Array)
 When `parseFiles` = `true`, this task will crawl all `*.js`, `*.css`, `*.scss` files. You can override this by defining a custom `files.src` array. The object supports all [minimatch](https://github.com/isaacs/minimatch) options.
+
+###### **`handler`** (Function)
+This handler will be passed an array of all the test names passed to the Modernizr API, and will run after the API call has returned. Optionally, if the function is asynchronous then grunt's asynchronous `done` callback will be passed into this handler as the second parameter and must be called manually in order to complete the grunt-modernizr task
+
+    // synchronous use - grunt-modernizr will exit anyway
+	handler: function (tests) {
+		// synchronous code
+	}
+
+	// asynchronous use - grunt-modernizr will not exit until done() is called
+	handler: function (tests, done) {
+		// asynchronous code
+		done();
+	}
 
 ###### **`matchCommunityTests`** (Boolean)
 When `parseFiles` = `true`, setting this boolean to true will attempt to match user-contributed tests. Check out the full set of community tests [here](https://github.com/Modernizr/grunt-modernizr/blob/master/lib/customappr.js#L2-111)
