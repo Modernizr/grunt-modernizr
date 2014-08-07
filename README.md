@@ -30,11 +30,11 @@ grunt.loadNpmTasks("grunt-modernizr");
 
 ### Command Line
 
-Run the task with `grunt modernizr`.
+Run the task with `grunt modernizr:dist`.
 
 #### Cache Busting
 
-Bust the cache of locally downloaded files by running `grunt modernizr:bust`
+Bust the cache of locally downloaded files by running `grunt modernizr:dist:bust`
 
 ### Config Options
 
