@@ -47,7 +47,7 @@ modernizr: {
 		// [REQUIRED] Path to the build you're using for development.
 		"devFile" : "lib/modernizr-dev.js",
 
-		// [REQUIRED] Path to save out the built file.
+		// Path to save out the built file.
 		"outputFile" : "build/modernizr-custom.js",
 
 		// Based on default settings on http://modernizr.com/download/
