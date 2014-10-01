@@ -16,6 +16,7 @@ var tests = {
 	"csscolumns": Modernizr.csscolumns,
 	"cssreflections": Modernizr.cssreflections,
 	"csstransitions": Modernizr.csstransitions,
+	"csspositionsticky": Modernizr.csspositionsticky,
 	"testallprops": Modernizr.testallprops,
 	"flexboxlegacy": Modernizr["flexboxlegacy"],
 	"prefixed": Modernizr.prefixed,
