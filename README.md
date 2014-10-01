@@ -30,11 +30,11 @@ grunt.loadNpmTasks("grunt-modernizr");
 
 ### Command Line
 
-Run the task with `grunt modernizr`.
+Run the task with `grunt modernizr:dist`.
 
 #### Cache Busting
 
-Bust the cache of locally downloaded files by running `grunt modernizr:bust`
+Bust the cache of locally downloaded files by running `grunt modernizr:dist:bust`
 
 ### Config Options
 
@@ -47,7 +47,7 @@ modernizr: {
 		// [REQUIRED] Path to the build you're using for development.
 		"devFile" : "lib/modernizr-dev.js",
 
-		// [REQUIRED] Path to save out the built file.
+		// Path to save out the built file.
 		"outputFile" : "build/modernizr-custom.js",
 
 		// Based on default settings on http://modernizr.com/download/
@@ -68,7 +68,8 @@ modernizr: {
 			"testallprops" : false,
 			"hasevents" : false,
 			"prefixes" : false,
-			"domprefixes" : false
+			"domprefixes" : false,
+			"cssclassprefix": ""
 		},
 
 		// By default, source is uglified before saving
@@ -81,11 +82,15 @@ modernizr: {
 		// Set to false to disable.
 		"parseFiles" : true,
 
-		// When parseFiles = true, this task will crawl all *.js, *.css, *.scss files, except files that are in node_modules/.
+		// When parseFiles = true, this task will crawl all *.js, *.css, *.scss and *.sass files,
+		// except files that are in node_modules/.
 		// You can override this by defining a "files" array below.
 		// "files" : {
 			// "src": []
 		// },
+
+		// This handler will be passed an array of all the test names passed to the Modernizr API, and will run after the API call has returned
+		// "handler": function (tests) {},
 
 		// When parseFiles = true, matchCommunityTests = true will attempt to
 		// match user-contributed tests.
@@ -124,7 +129,21 @@ Define any tests you want to implicitly include. Test names are lowercased, sepa
 By default, this task will crawl your project for references to Modernizr tests. Set to false to disable.
 
 ###### **`files.src`** (Array)
-When `parseFiles` = `true`, this task will crawl all `*.js`, `*.css`, `*.scss` files. You can override this by defining a custom `files.src` array. The object supports all [minimatch](https://github.com/isaacs/minimatch) options.
+When `parseFiles` = `true`, this task will crawl all `*.js`, `*.css`, `*.scss` and `*.sass` files. You can override this by defining a custom `files.src` array. The object supports all [minimatch](https://github.com/isaacs/minimatch) options.
+
+###### **`handler`** (Function)
+This handler will be passed an array of all the test names passed to the Modernizr API, and will run after the API call has returned. Optionally, if the function is asynchronous then grunt's asynchronous `done` callback will be passed into this handler as the second parameter and must be called manually in order to complete the grunt-modernizr task
+
+    // synchronous use - grunt-modernizr will exit anyway
+	handler: function (tests) {
+		// synchronous code
+	}
+
+	// asynchronous use - grunt-modernizr will not exit until done() is called
+	handler: function (tests, done) {
+		// asynchronous code
+		done();
+	}
 
 ###### **`matchCommunityTests`** (Boolean)
 When `parseFiles` = `true`, setting this boolean to true will attempt to match user-contributed tests. Check out the full set of community tests [here](https://github.com/Modernizr/grunt-modernizr/blob/master/lib/customappr.js#L2-111)

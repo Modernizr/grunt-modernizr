@@ -58,7 +58,12 @@ define(["Modernizr"], function (M) {
 	var community = {
 		"contextmenu": M.contextmenu,
 		"emoji": M["emoji"],
-		"json": M.json
+		"json": M.json,
+		"battery": M.battery,
+		"csspositionsticky": M.csspositionsticky,
+		"bgrepeatround": M.bgrepeatround,
+		"bgsizecover": M.bgsizecover,
+		"placeholder": M["placeholder"]
 	};
 
 	return M;
