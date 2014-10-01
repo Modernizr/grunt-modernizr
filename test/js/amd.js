@@ -16,6 +16,7 @@ define(["Modernizr"], function (M) {
 		"csscolumns": M.csscolumns,
 		"cssreflections": M.cssreflections,
 		"csstransitions": M.csstransitions,
+		"csspositionsticky": M.csspositionsticky,
 		"testallprops": M.testallprops,
 		"flexboxlegacy": M["flexboxlegacy"],
 		"prefixed": M.prefixed,
