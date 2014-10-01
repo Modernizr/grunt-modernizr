@@ -69,3 +69,10 @@
 .placeholder {
 	background: yellow;
 }
+
+.prefixed-cors,
+.prefixed-input,
+.prefixed-no-smil
+.prefixed-filereader {
+	background: blue;
+}

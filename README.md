@@ -68,7 +68,8 @@ modernizr: {
 			"testallprops" : false,
 			"hasevents" : false,
 			"prefixes" : false,
-			"domprefixes" : false
+			"domprefixes" : false,
+			"cssclassprefix": ""
 		},
 
 		// By default, source is uglified before saving
