@@ -81,7 +81,8 @@ modernizr: {
 		// Set to false to disable.
 		"parseFiles" : true,
 
-		// When parseFiles = true, this task will crawl all *.js, *.css, *.scss files, except files that are in node_modules/.
+		// When parseFiles = true, this task will crawl all *.js, *.css, *.scss and *.sass files,
+		// except files that are in node_modules/.
 		// You can override this by defining a "files" array below.
 		// "files" : {
 			// "src": []
@@ -124,7 +125,7 @@ Define any tests you want to implicitly include. Test names are lowercased, sepa
 By default, this task will crawl your project for references to Modernizr tests. Set to false to disable.
 
 ###### **`files.src`** (Array)
-When `parseFiles` = `true`, this task will crawl all `*.js`, `*.css`, `*.scss` files. You can override this by defining a custom `files.src` array. The object supports all [minimatch](https://github.com/isaacs/minimatch) options.
+When `parseFiles` = `true`, this task will crawl all `*.js`, `*.css`, `*.scss` and `*.sass` files. You can override this by defining a custom `files.src` array. The object supports all [minimatch](https://github.com/isaacs/minimatch) options.
 
 ###### **`matchCommunityTests`** (Boolean)
 When `parseFiles` = `true`, setting this boolean to true will attempt to match user-contributed tests. Check out the full set of community tests [here](https://github.com/Modernizr/grunt-modernizr/blob/master/lib/customappr.js#L2-111)

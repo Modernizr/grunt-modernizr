@@ -54,8 +54,8 @@ module.exports = function (grunt) {
 		// By default, this task will crawl all *.js, *.css files.
 		"files" : {
 			"src": [
-				"*[^(g|G)runt(file)?].{js,css,scss}",
-				"**[^node_modules]/**/*.{js,css,scss}",
+				"*[^(g|G)runt(file)?].{js,css,scss,sass}",
+				"**[^node_modules]/**/*.{js,css,scss,sass}",
 				"!lib/cache/**/*",
 				"!lib/gruntifier.js"
 			]
