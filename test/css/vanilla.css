@@ -1,3 +1,4 @@
+.battery,
 .canvastext,
 .csstransforms3d,
 .flexbox,
@@ -56,10 +57,15 @@
 
 .contextmenu,
 .emoji,
-.no-json {
+.no-json,
+.filereader {
 	background: blue;
 }
 
 .notification-bar {
 	background: green;
+}
+
+.placeholder {
+	background: yellow;
 }

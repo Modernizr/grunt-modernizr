@@ -16,7 +16,6 @@ var tests = {
 	"csscolumns": Modernizr.csscolumns,
 	"cssreflections": Modernizr.cssreflections,
 	"csstransitions": Modernizr.csstransitions,
-	"csspositionsticky": Modernizr.csspositionsticky,
 	"testallprops": Modernizr.testallprops,
 	"flexboxlegacy": Modernizr["flexboxlegacy"],
 	"prefixed": Modernizr.prefixed,
@@ -59,5 +58,10 @@ var tests = {
 var community = {
 	"contextmenu": Modernizr.contextmenu,
 	"emoji": Modernizr["emoji"],
-	"json": Modernizr.json
+	"json": Modernizr.json,
+	"battery": Modernizr.battery,
+	"csspositionsticky": Modernizr.csspositionsticky,
+	"bgrepeatround": Modernizr.bgrepeatround,
+	"bgsizecover": Modernizr.bgsizecover,
+	"placeholder": Modernizr["placeholder"]
 };
