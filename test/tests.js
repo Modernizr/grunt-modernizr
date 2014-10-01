@@ -562,4 +562,58 @@ describe("custom builds", function () {
 		});
 
 	});
+
+	describe("prefix test", function () {
+
+		before(function (done) {
+			nexpect.spawn("grunt", ["clean"])
+			.run(function () {
+				var override = fs.readFileSync(path.join(gruntfiles, "Gruntfile.cssclassprefix.js"));
+				fs.writeFileSync(Gruntfile, override);
+
+				done();
+			});
+		});
+
+		it("should honor the specified prefix", function (done) {
+			process.stdout.write("\n\n");
+
+			nexpect.spawn("grunt", ["modernizr"], {
+				stripColors: true,
+				verbose: true
+			})
+			.expect("Running \"modernizr:dist\" (modernizr) task")
+
+			.expect("Enabled Extras")
+			.expect(">> shiv")
+			.expect(">> load")
+			.expect(">> cssclasses")
+
+			.expect("Enabled Extensibility Options")
+			.expect(">> cssclassprefix")
+
+			.expect("Looking for Modernizr references")
+
+			.expect("in test/css/vanilla.css")
+			.expect(">> smil")
+			.expect(">> input")
+			.expect(">> cors")
+			.expect(">> filereader")
+
+			.expect("Downloading source files")
+
+			.wait(">> Generating a custom Modernizr build")
+			.expect(">> Skipping uglify")
+
+			.expect(">> Wrote file to build/modernizr-custom.js")
+
+			.run(done);
+		});
+
+		after(function () {
+			fs.writeFileSync(Gruntfile, pristine);
+		});
+
+	});
+
 });
