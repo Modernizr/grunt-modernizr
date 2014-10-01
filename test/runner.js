@@ -6,20 +6,16 @@ var checkForDevFile = function (callback) {
 	var testFile = path.join(cwd, "lib", "modernizr-dev.js");
 	var remoteTestFile = "http://modernizr.com/downloads/modernizr-latest.js";
 
-	if (fs.existsSync(testFile)) {
-		return callback();
-	} else {
-		var http = require("http");
+	var http = require("http");
 
-		var file = fs.createWriteStream(testFile);
-		var request = http.get(remoteTestFile, function (response) {
-			response.pipe(file);
+	var file = fs.createWriteStream(testFile);
+	var request = http.get(remoteTestFile, function (response) {
+		response.pipe(file);
 
-			response.on("end", function () {
-				callback();
-			});
+		response.on("end", function () {
+			callback();
 		});
-	}
+	});
 };
 
 checkForDevFile(function () {
