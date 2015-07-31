@@ -1,6 +1,6 @@
 /*
  * grunt-modernizr
- * https://github.com/doctyper/grunt-modernizr
+ * https://github.com/Modernizr/grunt-modernizr
  *
  * Copyright (c) 2012 Richard Herrera
  * Licensed under the MIT license.
