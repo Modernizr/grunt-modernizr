@@ -1,7 +1,7 @@
 {
   "name": "grunt-modernizr",
   "description": "Build out a lean, mean Modernizr machine.",
-  "version": "0.6.0",
+  "version": "0.6.1-pre",
   "homepage": "https://github.com/doctyper/grunt-modernizr",
   "author": {
     "name": "Richard Herrera",
