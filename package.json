@@ -2,25 +2,16 @@
   "name": "grunt-modernizr",
   "description": "Build out a lean, mean Modernizr machine.",
   "version": "0.6.0",
-  "homepage": "https://github.com/doctyper/grunt-modernizr",
-  "author": {
-    "name": "Richard Herrera",
-    "email": "rich@doctyper.com",
-    "url": "http://doctyper.com"
-  },
+  "homepage": "https://github.com/Modernizr/grunt-modernizr",
+  "author": "Richard Herrera <rich@doctyper.com> (http://doctyper.com)",
   "repository": {
     "type": "git",
-    "url": "git://github.com/doctyper/grunt-modernizr.git"
+    "url": "git://github.com/Modernizr/grunt-modernizr.git"
   },
   "bugs": {
-    "url": "https://github.com/doctyper/grunt-modernizr/issues"
+    "url": "https://github.com/Modernizr/grunt-modernizr/issues"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/doctyper/grunt-modernizr/blob/master/LICENSE-MIT"
-    }
-  ],
+  "license": "MIT",
   "main": "grunt.js",
   "bin": {
     "grunt-modernizr": "bin/grunt-modernizr"
@@ -48,5 +39,8 @@
   "keywords": [
     "gruntplugin",
     "modernizr"
-  ]
+  ],
+  "directories": {
+    "test": "test"
+  }
 }
