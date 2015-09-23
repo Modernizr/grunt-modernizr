@@ -12,7 +12,7 @@ module.exports = function (grunt) {
 	// TASKS
 	// ==========================================================================
 
-	grunt.registerMultiTask("modernizr", "Build out a lean, mean Modernizr machine.", function (bust) {
+	grunt.registerMultiTask("modernizr", "Build out a lean, mean Modernizr machine.", function () {
 
 		// Require a config object
 		this.requiresConfig(this.name);
@@ -24,10 +24,10 @@ module.exports = function (grunt) {
 		var target = this.target || null;
 
 		// The magic
-		var Gruntifier = require("../lib/gruntifier");
+		var customizr = require("customizr");
 
 		// Go!
-		return new Gruntifier(grunt, target, done, bust);
+		return customizr(this.data, done);
 	});
 
 };

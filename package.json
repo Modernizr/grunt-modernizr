@@ -1,7 +1,7 @@
 {
   "name": "grunt-modernizr",
   "description": "Build out a lean, mean Modernizr machine.",
-  "version": "0.6.1",
+  "version": "1.0.0",
   "homepage": "https://github.com/Modernizr/grunt-modernizr",
   "author": "Richard Herrera <rich@doctyper.com> (http://doctyper.com)",
   "repository": {
@@ -11,8 +11,13 @@
   "bugs": {
     "url": "https://github.com/Modernizr/grunt-modernizr/issues"
   },
-  "license": "MIT",
-  "main": "grunt.js",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/doctyper/grunt-modernizr/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "Gruntfile.js",
   "bin": {
     "grunt-modernizr": "bin/grunt-modernizr"
   },
@@ -20,25 +25,27 @@
     "node": "*"
   },
   "dependencies": {
-    "uglify-js": "1.3.3",
-    "promised-io": "0.3.x",
-    "colors": "0.6.x",
-    "request": "~2.27.0"
+    "customizr": "https://github.com/doctyper/customizr/tarball/develop"
   },
   "devDependencies": {
+    "assert": "~1.1.0",
     "grunt": "~0.4.2",
+    "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-jshint": "~0.7.0",
     "grunt-contrib-nodeunit": "0.4.1",
     "grunt-contrib-watch": "~0.3.1",
-    "mocha": ">=1.6.0",
-    "nexpect": ">=0.2.4"
+    "mocha": "~1.17.0",
+    "modernizr": "https://github.com/Modernizr/Modernizr/tarball/master",
+    "nexpect": "~0.3.0"
   },
   "scripts": {
-    "test": "node test/runner.js"
+    "test": "grunt clean; node test/runner.js",
+    "postinstall": "if [[ -d node_modules/modernizr ]]; then ( cd node_modules/modernizr; npm install --production; cd -; ); fi"
   },
   "keywords": [
     "gruntplugin",
-    "modernizr"
+    "modernizr",
+    "customizr"
   ],
   "directories": {
     "test": "test"
