@@ -1,11 +1,13 @@
 module.exports = function(grunt) {
 
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Project configuration.
   grunt.initConfig({
+    clean: ["build"],
     nodeunit: {
       files: ['test/**/*.js']
     },
@@ -35,7 +37,9 @@ module.exports = function(grunt) {
       ]
     },
     modernizr: {
-      dist: {}
+      dist: {
+        dest: "build/modernizr-custom.js"
+      }
     }
   });
 

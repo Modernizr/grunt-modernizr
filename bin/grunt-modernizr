@@ -1,2 +1,2 @@
 #!/usr/bin/env node
-require('grunt').npmTasks('grunt-modernizr').cli();
+require("grunt").npmTasks("grunt-modernizr").cli();
