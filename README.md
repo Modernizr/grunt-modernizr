@@ -29,33 +29,55 @@ grunt.loadNpmTasks("grunt-modernizr");
 
 ## Documentation
 
+### Features & configuration? → [customizr repository](https://github.com/doctyper/customizr#config-file)
+
 ### Command Line
 
 Run the task with `grunt modernizr:dist`.
 
-### Config Options
-
-Add a `modernizr` config object to your Gruntfile.js file. The task supports multiple targets:
+### Basic example - Crawl project
+Crawls your project for modernizr tests and adds the ones found to your custom build.
 
 ```javascript
 modernizr: {
-
-	dist: {
-
-		// Path to save out the built file
-		"dest" : "build/modernizr-custom.js",
-		// More settings go here
+	{
+    // Path to save out the built file
+    "dest" : "build/modernizr-custom.js",
 	}
-	}
+}
+```
 
+### Basic example - Custom tests
+Adds css classes on the body element for specified tests.
+
+```javascript
+modernizr: {
+	{
+    // Path to save out the built file
+    "dest" : "build/modernizr-custom.js",
+
+    // Based on default settings on http://modernizr.com/download/
+    "options" : [
+        "setClasses"
+    ],
+
+    // Define any tests you want to explicitly include
+    "tests" : [
+		'touchevents',
+		'css/flexbox',
+        'css/flexboxlegacy',
+		'forms/placeholder'
+	],
+
+    // By default, will crawl your project for references to Modernizr tests
+    // Set to false to disable
+    "crawl" : false,
+	}
 }
 ```
 
 You can also generate the configuration file online via the [modernizr build tool](https://modernizr.com/download).
 Just configure your build, click the Build button, and download/copy the Grunt Config.
-
-#### Available Settings
-##### See the [customizr repository](https://github.com/doctyper/customizr#config-file) for valid settings.
 
 ## License
 Copyright (c) 2015 Richard Herrera
