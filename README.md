@@ -29,14 +29,14 @@ grunt.loadNpmTasks("grunt-modernizr");
 
 ## Documentation
 
-### Features & configuration? → [customizr repository](https://github.com/doctyper/customizr#config-file)
+### For Full Features & Configuration? → [See Customizr](https://github.com/doctyper/customizr#config-file)
 
-### Command Line
+### From the Command Line
 
 Run the task with `grunt modernizr:dist`.
 
-### Basic example - Crawl project
-Crawls your project for modernizr tests and adds the ones found to your custom build.
+### Basic Grunt Config Example - Crawl Project (Default)
+Crawls your project for modernizr tests and adds the ones found to your custom build. Add this to your Gruntfile.js file:
 
 ```javascript
 modernizr: {
@@ -47,8 +47,8 @@ modernizr: {
 }
 ```
 
-### Basic example - Custom tests
-Adds css classes on the body element for specified tests.
+### Basic Grunt Config Example - Custom Tests
+Adds css classes on the body element for specified tests. Add this to your Gruntfile.js file:
 
 ```javascript
 modernizr: {
@@ -75,7 +75,7 @@ modernizr: {
 	}
 }
 ```
-
+### Automatically Generate Grunt Configuration
 You can also generate the configuration file online via the [modernizr build tool](https://modernizr.com/download).
 Just configure your build, click the Build button, and download/copy the Grunt Config.
 
