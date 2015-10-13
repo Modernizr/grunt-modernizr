@@ -1,7 +1,7 @@
 {
   "name": "grunt-modernizr",
   "description": "Build out a lean, mean Modernizr machine.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/Modernizr/grunt-modernizr",
   "author": "Richard Herrera <rich@doctyper.com> (http://doctyper.com)",
   "repository": {
@@ -40,7 +40,7 @@
   },
   "scripts": {
     "test": "grunt clean; node test/runner.js",
-    "postinstall": "if [[ -d node_modules/modernizr ]]; then ( cd node_modules/modernizr; npm install --production; cd -; ); fi"
+    "postinstall": "node lib/helpers/postinstall.js"
   },
   "keywords": [
     "gruntplugin",
