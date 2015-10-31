@@ -13,11 +13,12 @@ var on_module_stat = function (error, stat) {
 
 var on_install = function (error, stdout, stderr) {
     if (error !== null) {
-        console.log('Error executing grunt-modernizr postinstall' + error);
-        console.log(stderr);
+        console.error('Error executing grunt-modernizr postinstall: ' + error);
+        console.error(stderr);
+        return;
     }
 
-    console.log('grunt-modernizr postinstall sucess');
+    console.log('grunt-modernizr postinstall success');
 };
 
 fs.stat('node_modules/modernizr', on_module_stat);
