@@ -1,5 +1,15 @@
 # Changelog
 
+### 1.0.1
+
+- Update postinstall script from bash to node, for better cross platform support
+
+### 1.0.0
+
+- Warning: Configuration not compatible with [grunt-modernizr 0.6.0]
+- Changed configuration to match customizr customizr repository
+- Updated dependencies
+
 ## 0.6.0
 
 ### Deprecated features

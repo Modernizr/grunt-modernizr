@@ -29,7 +29,7 @@ grunt.loadNpmTasks("grunt-modernizr");
 
 ## Documentation
 
-### Command Line
+### For Full Features & Configuration? → [See Customizr(https://github.com/modernizr/customizr#config-file
 
 Run the task with `grunt modernizr:dist`.
 
@@ -48,7 +48,7 @@ modernizr: {
     "tests": [
       // Tests
     ],
-    "extensibility": [
+    "options": [
       "setClasses"
     ],
     "uglify": true
