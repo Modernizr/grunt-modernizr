@@ -1,5 +1,9 @@
 # Changelog
 
+### 1.0.2
+
+- Add support to the standard Grunt `options` section, for shared config settings
+
 ### 1.0.1
 
 - Update postinstall script from bash to node, for better cross platform support
