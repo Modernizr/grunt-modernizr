@@ -25,9 +25,11 @@ module.exports = function (grunt) {
 
 		// The magic
 		var customizr = require("customizr");
+		var _merge = require("lodash.merge");
+		var settings = _merge(this.options(), this.data);
 
 		// Go!
-		return customizr(this.data, done);
+		return customizr(settings, done);
 	});
 
 };

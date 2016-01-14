@@ -25,7 +25,8 @@
     "node": "*"
   },
   "dependencies": {
-    "customizr": "https://github.com/doctyper/customizr/tarball/develop"
+    "customizr": "https://github.com/doctyper/customizr/tarball/develop",
+    "lodash.merge": "^4.0.1"
   },
   "devDependencies": {
     "assert": "~1.1.0",
