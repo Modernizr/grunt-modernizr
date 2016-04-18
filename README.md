@@ -29,7 +29,7 @@ grunt.loadNpmTasks("grunt-modernizr");
 
 ## Documentation
 
-### For Full Features & Configuration? → [See Customizr(https://github.com/modernizr/customizr#config-file
+### For Full Features & Configuration? → [See Customizr](https://github.com/modernizr/customizr#config-file)
 
 Run the task with `grunt modernizr:dist`.
 
