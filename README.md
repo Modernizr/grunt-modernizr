@@ -40,7 +40,6 @@ Add a `modernizr` config object to your Gruntfile.js file. The task supports mul
 ```javascript
 modernizr: {
   dist: {
-    "dest" : "build/modernizr-custom.js",
     "parseFiles": true,
     "customTests": [],
     "devFile": "/PATH/TO/modernizr-dev.js",
