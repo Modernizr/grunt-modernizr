@@ -44,7 +44,7 @@ modernizr: {
     "parseFiles": true,
     "customTests": [],
     "devFile": "/PATH/TO/modernizr-dev.js",
-    "outputFile": "/PATH/TO/modernizr-output.js",
+    "dest": "/PATH/TO/modernizr-output.js",
     "tests": [
       // Tests
     ],
