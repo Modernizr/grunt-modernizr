@@ -4,7 +4,7 @@
 
 [![NPM](https://nodei.co/npm/grunt-modernizr.png?compact=true)](https://nodei.co/npm/grunt-modernizr/)
 
-A [Grunt](http://gruntjs.com/) wrapper for [Modernizr](https://github.com/doctyper/customizr).
+A [Grunt](http://gruntjs.com/) wrapper for [Modernizr](https://github.com/Modernizr/Modernizr).
 
 ## Usage
 Install this grunt plugin next to your project's [Gruntfile.js][getting_started]:
