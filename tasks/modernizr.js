@@ -27,6 +27,11 @@ module.exports = function (grunt) {
 		var customizr = require("customizr");
 		var _merge = require("lodash.merge");
 		var settings = _merge(this.options(), this.data);
+		
+		var noColors = grunt.option('no-color') === true;
+		if (noColors) {
+			settings.noColors = true;
+		}
 
 		// Go!
 		return customizr(settings, done);
