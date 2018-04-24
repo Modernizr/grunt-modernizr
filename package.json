@@ -14,7 +14,7 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/doctyper/grunt-modernizr/blob/master/LICENSE-MIT"
+      "url": "https://github.com/Modernizr/grunt-modernizr/blob/master/LICENSE-MIT"
     }
   ],
   "main": "Gruntfile.js",
@@ -25,7 +25,7 @@
     "node": "*"
   },
   "dependencies": {
-    "customizr": "https://github.com/doctyper/customizr/tarball/develop",
+    "customizr": "https://github.com/Modernizr/customizr/tarball/develop",
     "lodash.merge": "^4.0.1"
   },
   "devDependencies": {
