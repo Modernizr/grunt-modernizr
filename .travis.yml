@@ -1,7 +1,7 @@
 before_install:
   # Node
   - npm install grunt-cli -g
-  - npm cache verify -g
+  - npm cache verify
 language: node_js
 node_js:
   - "lts/*"
