@@ -29,15 +29,15 @@
     "lodash.merge": "^4.0.1"
   },
   "devDependencies": {
-    "assert": "~1.1.0",
-    "grunt": "~0.4.2",
-    "grunt-contrib-clean": "~0.5.0",
-    "grunt-contrib-jshint": "~0.7.0",
-    "grunt-contrib-nodeunit": "0.4.1",
-    "grunt-contrib-watch": "~0.3.1",
-    "mocha": "~1.17.0",
+    "assert": "~1.4.1",
+    "grunt": "~1.0.3",
+    "grunt-contrib-clean": "~2.0.0",
+    "grunt-contrib-jshint": "~2.0.0",
+    "grunt-contrib-nodeunit": "2.0.0",
+    "grunt-contrib-watch": "~1.1.0",
+    "mocha": "~5.2.0",
     "modernizr": "https://github.com/Modernizr/Modernizr/tarball/master",
-    "nexpect": "~0.3.0"
+    "nexpect": "~0.5.0"
   },
   "scripts": {
     "test": "grunt clean; node test/runner.js",
