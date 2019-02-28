@@ -25,19 +25,19 @@
     "node": "*"
   },
   "dependencies": {
-    "customizr": "~1.0.0",
-    "lodash.merge": "^4.0.1"
+    "customizr": "^1.1.0",
+    "lodash.merge": "^4.6.1"
   },
   "devDependencies": {
-    "assert": "~1.4.1",
-    "grunt": "~1.0.3",
-    "grunt-contrib-clean": "~2.0.0",
-    "grunt-contrib-jshint": "~2.0.0",
-    "grunt-contrib-nodeunit": "2.0.0",
-    "grunt-contrib-watch": "~1.1.0",
-    "mocha": "~5.2.0",
-    "modernizr": "~3.7.0",
-    "nexpect": "~0.5.0"
+    "assert": "^1.4.1",
+    "grunt": "^1.0.3",
+    "grunt-contrib-clean": "^2.0.0",
+    "grunt-contrib-jshint": "^2.0.0",
+    "grunt-contrib-nodeunit": "^2.0.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "mocha": "^6.0.2",
+    "modernizr": "^3.7.0",
+    "nexpect": "^0.5.0"
   },
   "scripts": {
     "test": "grunt clean; node test/runner.js",
