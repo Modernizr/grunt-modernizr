@@ -25,7 +25,7 @@
     "node": "*"
   },
   "dependencies": {
-    "customizr": "https://github.com/Modernizr/customizr/tarball/develop",
+    "customizr": "~1.0.0",
     "lodash.merge": "^4.0.1"
   },
   "devDependencies": {
@@ -36,7 +36,7 @@
     "grunt-contrib-nodeunit": "2.0.0",
     "grunt-contrib-watch": "~1.1.0",
     "mocha": "~5.2.0",
-    "modernizr": "https://github.com/Modernizr/Modernizr/tarball/master",
+    "modernizr": "~3.7.0",
     "nexpect": "~0.5.0"
   },
   "scripts": {
