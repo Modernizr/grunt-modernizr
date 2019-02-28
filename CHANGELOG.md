@@ -1,5 +1,14 @@
 # Changelog
 
+### 2.0.0
+
+- Use published versions of modernizr and customizr
+- Remove postinstall script
+- Require Node 6
+- Respect --no-color flag (#150)
+- Updated dependencies
+- Updated documentation
+
 ### 1.0.2
 
 - Add support to the standard Grunt `options` section, for shared config settings
