@@ -24,9 +24,6 @@ Then add this line to your project's `Gruntfile.js`:
 grunt.loadNpmTasks("grunt-modernizr");
 ```
 
-[grunt]: https://github.com/cowboy/grunt
-[getting_started]: https://github.com/cowboy/grunt/blob/master/docs/getting_started.md
-
 ## Documentation
 
 ### For Full Features & Configuration? → [See Customizr](https://github.com/modernizr/customizr#config-file)
@@ -59,7 +56,7 @@ You can also generate the configuration file online via the [modernizr build too
 Just configure your build, click the Build button, and download/copy the Grunt Config.
 
 #### Available Settings
-##### See the [customizr repository](https://github.com/doctyper/customizr#config-file) for valid settings.
+##### See the [customizr repository](https://github.com/Modernizr/customizr#config-file) for valid settings.
 
 ## License
 Copyright (c) 2016 Richard Herrera
