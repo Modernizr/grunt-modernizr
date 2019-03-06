@@ -5,8 +5,12 @@
 - Use published versions of modernizr and customizr
 - Remove postinstall script
 - Require Node 6
-- Respect --no-color flag (#150)
 - Updated dependencies
+
+### 1.0.3
+
+- Fixed customizr url
+- Respect --no-color flag (#150)
 - Updated documentation
 
 ### 1.0.2
