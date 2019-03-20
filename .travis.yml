@@ -1,7 +1,7 @@
-before_install:
-  # Node
-  - npm install grunt-cli -g
-  - npm cache clean -g
 language: node_js
 node_js:
   - "6"
+before_install:
+  - npm install grunt-cli -g
+script:
+  - npm test

@@ -2,8 +2,7 @@
 
 var fs = require("fs"),
 	assert = require("assert"),
-	nexpect = require("nexpect"),
-	modernizr = require("../");
+	nexpect = require("nexpect");
 
 describe("grunt-modernizr", function () {
 	it("should generate a custom Modernizr file", function (done) {
@@ -25,7 +24,5 @@ describe("grunt-modernizr", function () {
 
 			done();
 		});
-
-
 	});
 });
