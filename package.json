@@ -1,7 +1,7 @@
 {
   "name": "grunt-modernizr",
   "description": "Build out a lean, mean Modernizr machine.",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "homepage": "https://github.com/Modernizr/grunt-modernizr",
   "author": "Richard Herrera <rich@doctyper.com> (http://doctyper.com)",
   "repository": {
@@ -25,13 +25,13 @@
   },
   "devDependencies": {
     "assert": "^1.4.1",
-    "grunt": "^1.0.3",
+    "grunt": "^1.0.4",
     "grunt-contrib-clean": "^2.0.0",
     "grunt-contrib-jshint": "^2.1.0",
     "grunt-contrib-nodeunit": "^2.0.0",
     "grunt-contrib-watch": "^1.1.0",
-    "mocha": "^6.0.2",
-    "nexpect": "^0.5.0"
+    "mocha": "^6.1.4",
+    "nexpect": "^0.6.0"
   },
   "scripts": {
     "test": "grunt clean && mocha test/runner.js"

@@ -1,5 +1,9 @@
 # Changelog
 
+### 2.0.1
+
+- Updated dependencies
+
 ### 2.0.0
 
 - Use published versions of modernizr and customizr
