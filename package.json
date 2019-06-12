@@ -20,11 +20,11 @@
     "node": ">=6"
   },
   "dependencies": {
-    "customizr": "^1.2.1",
+    "customizr": "^1.3.0",
     "lodash.merge": "^4.6.1"
   },
   "devDependencies": {
-    "assert": "^1.4.1",
+    "assert": "^2.0.0",
     "grunt": "^1.0.4",
     "grunt-contrib-clean": "^2.0.0",
     "grunt-contrib-jshint": "^2.1.0",
