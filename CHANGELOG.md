@@ -1,5 +1,9 @@
 # Changelog
 
+### 2.1.0
+
+- Updated dependencies
+
 ### 2.0.1
 
 - Updated dependencies
