@@ -2,20 +2,24 @@
   "name": "grunt-modernizr",
   "description": "Build out a lean, mean Modernizr machine.",
   "version": "2.1.0",
-  "homepage": "https://github.com/Modernizr/grunt-modernizr",
-  "author": "Richard Herrera <rich@doctyper.com> (http://doctyper.com)",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/Modernizr/grunt-modernizr.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Modernizr/grunt-modernizr/issues"
-  },
-  "license": "MIT",
   "main": "Gruntfile.js",
   "bin": {
     "grunt-modernizr": "bin/grunt-modernizr"
   },
+  "bugs": "https://github.com/Modernizr/grunt-modernizr/issues",
+  "homepage": "https://github.com/Modernizr/grunt-modernizr",
+  "repository": "https://github.com/Modernizr/grunt-modernizr.git",
+  "license": "MIT",
+  "author": {
+    "name": "Modernizr",
+    "url": "https://modernizr.com/"
+  },
+  "contributors": [
+    {
+      "name": "Richard Herrera",
+      "url": "https://twitter.com/doctyper"
+    }
+  ],
   "engines": {
     "node": ">=6"
   },
