@@ -1,5 +1,9 @@
 # Changelog
 
+### 3.0.1
+
+- Updated dependencies
+
 ### 3.0.0
 
 - Drop node <= 8 support
