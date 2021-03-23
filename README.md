@@ -59,5 +59,5 @@ Just configure your build, click the Build button, and download/copy the Grunt C
 ##### See the [customizr repository](https://github.com/Modernizr/customizr#config-file) for valid settings.
 
 ## License
-Copyright (c) 2020 The Modernizr team
+Copyright (c) 2021 The Modernizr team
 Licensed under the MIT license.
