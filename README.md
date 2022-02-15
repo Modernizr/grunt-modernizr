@@ -1,8 +1,7 @@
 # grunt-modernizr
 
-[![Build Status](https://secure.travis-ci.org/Modernizr/grunt-modernizr.png?branch=master,develop)](https://travis-ci.org/Modernizr/grunt-modernizr)
-
-[![NPM](https://nodei.co/npm/grunt-modernizr.png?compact=true)](https://nodei.co/npm/grunt-modernizr/)
+[![Build Status](https://github.com/Modernizr/grunt-modernizr/actions/workflows/testing.yml/badge.svg)](https://github.com/Modernizr/grunt-modernizr/actions/workflows/testing.yml)
+[![npm version](https://badge.fury.io/js/grunt-modernizr.svg)](https://badge.fury.io/js/grunt-modernizr)
 
 A [Grunt](http://gruntjs.com/) wrapper for [Modernizr](https://github.com/Modernizr/Modernizr).
 
@@ -59,5 +58,5 @@ Just configure your build, click the Build button, and download/copy the Grunt C
 ##### See the [customizr repository](https://github.com/Modernizr/customizr#config-file) for valid settings.
 
 ## License
-Copyright (c) 2021 The Modernizr team
+Copyright (c) 2022 The Modernizr team
 Licensed under the MIT license.
