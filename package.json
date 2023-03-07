@@ -29,12 +29,12 @@
   },
   "devDependencies": {
     "assert": "^2.0.0",
-    "grunt": "^1.4.1",
-    "grunt-contrib-clean": "^2.0.0",
-    "grunt-contrib-jshint": "^3.1.1",
+    "grunt": "^1.6.1",
+    "grunt-contrib-clean": "^2.0.1",
+    "grunt-contrib-jshint": "^3.2.0",
     "grunt-contrib-nodeunit": "^4.0.0",
     "grunt-contrib-watch": "^1.1.0",
-    "mocha": "^9.2.0",
+    "mocha": "^10.2.0",
     "nexpect": "^0.6.0"
   },
   "scripts": {
