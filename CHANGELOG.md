@@ -1,9 +1,14 @@
 # Changelog
 
+### 4.0.0
+
+- Drop node <= 14 support
+- Updated dependencies
+
 ### 3.0.4
 
 - Updated dependencies
-- 
+
 ### 3.0.3
 
 - Updated dependencies

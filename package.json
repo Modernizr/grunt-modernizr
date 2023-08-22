@@ -21,10 +21,10 @@
     }
   ],
   "engines": {
-    "node": ">=10"
+    "node": ">=16"
   },
   "dependencies": {
-    "customizr": "^2.0.4",
+    "customizr": "^3.0.1",
     "lodash.merge": "^4.6.2"
   },
   "devDependencies": {
@@ -32,7 +32,7 @@
     "grunt": "^1.6.1",
     "grunt-contrib-clean": "^2.0.1",
     "grunt-contrib-jshint": "^3.2.0",
-    "grunt-contrib-nodeunit": "^4.0.0",
+    "grunt-contrib-nodeunit": "^5.0.0",
     "grunt-contrib-watch": "^1.1.0",
     "mocha": "^10.2.0",
     "nexpect": "^0.6.0"
