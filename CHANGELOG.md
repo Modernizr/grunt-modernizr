@@ -1,5 +1,10 @@
 # Changelog
 
+### 5.0.0
+
+- Drop node <= 16 support
+- Updated dependencies
+
 ### 4.0.0
 
 - Drop node <= 14 support
