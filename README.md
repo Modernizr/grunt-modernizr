@@ -6,12 +6,12 @@
 A [Grunt](http://gruntjs.com/) wrapper for [Modernizr](https://github.com/Modernizr/Modernizr).
 
 ## Usage
-Install this grunt plugin next to your project's [Gruntfile.js][getting_started]:
+Install this grunt plugin next to your project's `Gruntfile.js`:
 
 When you're ready to build, `grunt-modernizr` will crawl your project for Modernizr test references and save out a minified, uglified, customized version using only the tests you've used in your JavaScript or (S)CSS.
 
 ## Getting Started
-Install this grunt plugin next to your project's [grunt.js gruntfile][getting_started] with:
+Install this grunt plugin next to your project's `Gruntfile.js` with:
 
 ```bash
 npm install grunt-modernizr --save-dev
