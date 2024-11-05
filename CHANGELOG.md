@@ -1,5 +1,9 @@
 # Changelog
 
+### 5.0.1
+
+- Updated dependencies
+
 ### 5.0.0
 
 - Drop node <= 16 support
