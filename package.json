@@ -34,7 +34,7 @@
     "grunt-contrib-jshint": "^3.2.0",
     "grunt-contrib-nodeunit": "^5.0.0",
     "grunt-contrib-watch": "^1.1.0",
-    "mocha": "^10.2.0",
+    "mocha": "^10.8.2",
     "nexpect": "^0.6.0"
   },
   "scripts": {
