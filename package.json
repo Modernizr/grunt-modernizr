@@ -24,7 +24,7 @@
     "node": ">=18"
   },
   "dependencies": {
-    "customizr": "^3.0.1",
+    "customizr": "^3.0.4",
     "lodash.merge": "^4.6.2"
   },
   "devDependencies": {
@@ -34,7 +34,7 @@
     "grunt-contrib-jshint": "^3.2.0",
     "grunt-contrib-nodeunit": "^5.0.0",
     "grunt-contrib-watch": "^1.1.0",
-    "mocha": "^10.8.2",
+    "mocha": "^11.7.2",
     "nexpect": "^0.6.0"
   },
   "scripts": {
