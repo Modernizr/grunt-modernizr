@@ -1,7 +1,7 @@
 {
   "name": "grunt-modernizr",
   "description": "Build out a lean, mean Modernizr machine.",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "main": "Gruntfile.js",
   "bin": {
     "grunt-modernizr": "bin/grunt-modernizr"
